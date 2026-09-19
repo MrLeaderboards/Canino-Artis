@@ -126,7 +126,6 @@
     font-family:'Nunito',sans-serif;font-weight:400;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  body.is-loading{overflow:hidden;}
   h1,h2,h3{font-family:'Nunito',sans-serif;font-weight:600;letter-spacing:-.01em;}
   .eyebrow{
     font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.22em;
@@ -134,68 +133,6 @@
   }
   a{color:inherit;}
   img{display:block;max-width:100%;}
-
-  /* ---------- loader — ring fits logo exactly ---------- */
-  .loader{
-    position:fixed;inset:0;z-index:9999;background:var(--black);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    transition:opacity 1.1s var(--ease), visibility 1.1s, transform 1.1s var(--ease);
-  }
-  .loader.is-done{
-    opacity:0;visibility:hidden;pointer-events:none;
-    transform:scale(1.04);
-  }
-  /* smooth handoff: landing content fades in as loader fades out */
-  body.is-loading .hero,
-  body.is-loading .chapter,
-  body.is-loading .about-page,
-  body.is-loading .gallery-section,
-  body.is-loading .transform-section,
-  body.is-loading .services,
-  body.is-loading .reviews-section,
-  body.is-loading footer{
-    opacity:0;
-  }
-  body:not(.is-loading) .hero,
-  body:not(.is-loading) .chapter,
-  body:not(.is-loading) .about-page,
-  body:not(.is-loading) .gallery-section,
-  body:not(.is-loading) .transform-section,
-  body:not(.is-loading) .services,
-  body:not(.is-loading) .reviews-section,
-  body:not(.is-loading) footer{
-    opacity:1;
-    transition:opacity 1.2s var(--ease) .18s;
-  }
-  .loader-mark{
-    position:relative;
-    width:min(42vw,180px);
-    height:min(42vw,180px);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .loader-logo{
-    width:100%;height:100%;object-fit:cover;border-radius:50%;
-    opacity:0;transform:scale(.88);
-    animation:loaderLogoIn 1.1s var(--ease) .15s forwards;
-    position:relative;z-index:1;
-  }
-  .loader-ring{
-    position:absolute;inset:-10px;
-    border-radius:50%;
-    border:2px solid transparent;
-    border-top-color:var(--gold);
-    border-right-color:rgba(227,192,127,.35);
-    animation:loaderSpin 1.4s linear infinite, loaderFadeIn .6s ease .3s forwards;
-    opacity:0;
-  }
-  .loader-word{
-    margin-top:1.75rem;font-family:'Nunito',sans-serif;font-size:.68rem;
-    letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
-    opacity:0;animation:loaderFadeIn .8s ease .7s forwards;
-  }
-  @keyframes loaderLogoIn{to{opacity:1;transform:scale(1);}}
-  @keyframes loaderSpin{to{transform:rotate(360deg);}}
-  @keyframes loaderFadeIn{to{opacity:1;}}
 
   /* ---------- nav ---------- */
   .nav{
@@ -426,6 +363,7 @@
     width:100%;height:100%;object-fit:cover;border-radius:50%;
   }
 
+  .book-btn[disabled]{opacity:.55;cursor:wait;pointer-events:none;}
   .book-btn{
     position:fixed;z-index:60;right:max(5vw,env(safe-area-inset-right));
     bottom:max(calc(2.2rem + 5px), calc(env(safe-area-inset-bottom) + 5px));
@@ -691,6 +629,27 @@
   .service-note{
     font-size:.95rem;color:var(--cream-dim);line-height:1.6;font-weight:400;
     padding:0 0 1.4rem;max-width:42ch;
+  }
+
+  .pricing-section{padding-top:14vh;padding-bottom:14vh;}
+  .pricing-head{max-width:820px;margin-left:auto;margin-right:auto;}
+  .pricing-title{font-size:clamp(1.9rem,4vw,3rem);margin-top:.8rem;}
+  .pricing-grid{width:min(980px,100%);margin:5vh auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);}
+  .pricing-card{background:var(--umber);padding:clamp(1.5rem,3vw,2.5rem);min-width:0;}
+  .pricing-card-individual{grid-column:1 / -1;}
+  .pricing-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;}
+  .pricing-card h3{margin:0;font-size:clamp(1.25rem,2.5vw,1.7rem);line-height:1.15;font-weight:600;}
+  .pricing-description{margin:0 0 1.35rem;color:var(--cream-dim);font-size:.92rem;line-height:1.65;max-width:60ch;}
+  .pricing-rows{border-top:1px solid var(--line);}
+  .pricing-row{display:flex;align-items:baseline;justify-content:space-between;gap:1.25rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.9rem;line-height:1.4;}
+  .pricing-row span{color:var(--cream-dim);}
+  .pricing-row strong{color:var(--gold);font-weight:600;white-space:nowrap;text-align:right;}
+  @media(max-width:700px){
+    .pricing-section{padding-top:11vh;padding-bottom:11vh;}
+    .pricing-grid{grid-template-columns:1fr;margin-top:4vh;}
+    .pricing-card-individual{grid-column:auto;}
+    .pricing-card{padding:1.35rem 1.15rem;}
+    .pricing-row{gap:.9rem;font-size:.86rem;}
   }
 
   /* ---------- opening hours + location ---------- */
@@ -1006,7 +965,7 @@
   }
   @media(max-width:560px){
     .donation-fab-wrap{width:56px;height:56px;left:calc(max(1.25rem, env(safe-area-inset-left)) + 67px);bottom:max(calc(2.2rem), calc(env(safe-area-inset-bottom)));}
-    .donation-bubble{left:calc(50% + 8px);transform:translateX(-50%) translateY(4px);}
+    .donation-bubble{left:calc(50% + 9px);transform:translateX(-50%) translateY(4px);}
   }
   @media (prefers-reduced-motion:reduce){
     .donation-fab,.donation-fab::after,.donation-bubble{animation:none;}
@@ -1087,7 +1046,6 @@
 
   @media (prefers-reduced-motion: reduce){
     .hero-logo,.hero-logo-wrap,.scroll-cue,.scroll-cue .line,
-    .loader-logo,.loader-ring,.loader-word{animation:none;opacity:1;transform:none;}
     .stage-photo{transform:none !important;}
     .stage-veil{opacity:.4 !important;}
     .stage-copy [data-kicker],.stage-copy [data-title],.stage-copy [data-line]{opacity:1 !important;transform:none !important;filter:none !important;}
@@ -2274,7 +2232,7 @@
   }
 </style>
 </head>
-<body class="is-loading">
+<body>
 <div aria-label="Page sections" class="page-tracker" id="pageTracker">
 <button aria-label="Home" class="page-dot" data-track="top" type="button"></button>
 <button aria-label="About Me" class="page-dot" data-track="about-me" type="button"></button>
@@ -2283,13 +2241,7 @@
 <button aria-label="Hours & Location" class="page-dot" data-track="visit" type="button"></button>
 <button aria-label="Reviews" class="page-dot" data-track="reviews" type="button"></button>
 </div>
-<div aria-hidden="false" class="loader" id="loader">
-<div class="loader-mark">
-<div aria-hidden="true" class="loader-ring"></div>
-<img alt="Canino Artis" class="loader-logo" height="180" src="logo2.jpeg" width="180"/>
-</div>
-<div class="loader-word">Canino Artis</div>
-</div>
+
 <nav class="nav" id="mainNav">
 <div class="nav-left">
 <img alt="" class="nav-logo" height="34" src="logo2.jpeg" width="34"/>
@@ -2426,94 +2378,47 @@
 <button aria-label="Next comparison" class="ba-compare-arrow" id="baNext" type="button">›</button>
 </div>
 </section>
-<section class="services" id="services">
-<div class="services-head">
+<section class="services pricing-section" id="services">
+<div class="services-head pricing-head">
 <div class="eyebrow" data-i18n="navServices">Servicii</div>
-<h2 class="chapter-title" data-i18n="servicesTitle" style="font-size:clamp(1.7rem,4vw,2.6rem);margin-top:.8rem;">Ce facem aici</h2>
+<h2 class="chapter-title pricing-title" data-i18n="pricingTitle">Servicii și prețuri Canino Artis</h2>
 </div>
-<div class="services-columns">
-<div class="services-column">
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc1Name">Talie mică (1–10 kg)</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc1Price">de la 110 lei</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc1Note">Include baie, uscare, tuns, igienizare, tăierea unghiilor și curățarea urechilor.</p></div></div>
+<div class="pricing-grid">
+<article class="pricing-card">
+<div class="pricing-card-head">
+<h3 data-i18n="pricingFullTitle">Grooming complet</h3>
 </div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc2Name">Talie medie (10–25 kg)</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc2Price">de la 180 lei</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc2Note">Include baie, uscare, tuns, igienizare, tăierea unghiilor și curățarea urechilor.</p></div></div>
+<p class="pricing-description" data-i18n="pricingFullNote">Include baie, uscare, tuns, igienizare, tăierea unghiilor și curățarea urechilor.</p>
+<div class="pricing-rows">
+<div class="pricing-row"><span data-i18n="pricingSmall">Talie mică (1–10 kg)</span><strong data-i18n="pricingFullSmall">de la 130 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingMedium">Talie medie (10–25 kg)</span><strong data-i18n="pricingFullMedium">de la 180 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingLarge">Talie mare (25–45 kg)</span><strong data-i18n="pricingFullLarge">de la 250 lei</strong></div>
 </div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc3Name">Talie mare (25–45 kg)</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc3Price">de la 250 lei</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc3Note">Include baie, uscare, tuns, igienizare, tăierea unghiilor și curățarea urechilor.</p></div></div>
+</article>
+
+<article class="pricing-card">
+<div class="pricing-card-head">
+<h3 data-i18n="pricingTouchTitle">Retuș între ședințele de grooming</h3>
 </div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc4Name">Consultație la Domiciliu</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc4Price">de la 120 €</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc4Note">Pentru câinii care chiar nu pot veni la noi. Deplasare în oraș; distanțe mai lungi la cerere.</p></div></div>
+<p class="pricing-description" data-i18n="pricingTouchNote">Include baie, uscare și aranjarea feței, lăbuțelor și a zonei igienice.</p>
+<div class="pricing-rows">
+<div class="pricing-row"><span data-i18n="pricingSmall">Talie mică (1–10 kg)</span><strong data-i18n="pricingTouchSmall">de la 110 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingMedium">Talie medie (10–25 kg)</span><strong data-i18n="pricingTouchMedium">de la 130 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingLarge">Talie mare (25–45 kg)</span><strong data-i18n="pricingTouchLarge">de la 150 lei</strong></div>
 </div>
+</article>
+
+<article class="pricing-card pricing-card-individual">
+<div class="pricing-card-head">
+<h3 data-i18n="pricingIndividualTitle">Servicii individuale</h3>
 </div>
-<div class="services-column">
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc5Name">Grooming pentru Seniori</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc5Price">La cerere</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc5Note">Sesiuni adaptate câinilor seniori, cu mai mult timp, pauze și un ritm mai blând.</p></div></div>
+<div class="pricing-rows">
+<div class="pricing-row"><span data-i18n="pricingBath">Baie și uscare</span><strong data-i18n="pricingBathPrice">de la 60 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingNails">Tăierea unghiilor</span><strong data-i18n="pricingNailsPrice">30 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingEars">Curățarea urechilor</span><strong data-i18n="pricingEarsPrice">20 lei</strong></div>
+<div class="pricing-row"><span data-i18n="pricingMatted">Blană împâslită</span><strong data-i18n="pricingMattedPrice">de la 50 lei</strong></div>
 </div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc6Name">Grooming pentru Câini Anxioși</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc6Price">La cerere</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc6Note">Pentru câini anxioși sau reactivi — lucru lent, pauze și ajustarea procedurii în funcție de limitele lor.</p></div></div>
-</div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc7Name">Recuperare Blană</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc7Price">La cerere</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc7Note">Pentru blănuri care au nevoie de mai mult timp și muncă pentru a fi îngrijite și recuperate cu grijă.</p></div></div>
-</div>
-<div class="service-item">
-<button aria-expanded="false" class="service-trigger" type="button">
-<span class="service-name" data-i18n="svc8Name">Îngrijire Igienică</span>
-<span style="display:flex;align-items:center;gap:1rem;">
-<span class="service-price" data-i18n="svc8Price">La cerere</span>
-<svg aria-hidden="true" class="service-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
-</span>
-</button>
-<div class="service-panel"><div class="service-panel-inner"><p class="service-note" data-i18n="svc8Note">Îngrijire atentă pentru zonele care cer atenție între ședințele complete.</p></div></div>
+</article>
 </div>
 </section>
 </div>
@@ -2662,6 +2567,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 <form id="bookForm">
 <label class="sr-only" data-i18n="yourName" for="guest">Numele tău</label>
 <input autocomplete="name" class="field" data-i18n-placeholder="phName" id="guest" name="guest" placeholder="Numele tău" required=""/>
+<label class="sr-only" data-i18n="emailLabel" for="email">Adresa de email</label>
+<input autocomplete="email" class="field" data-i18n-placeholder="phEmail" id="email" name="email" placeholder="Adresa de email" required="" type="email"/>
 <label class="sr-only" data-i18n="dogName" for="dog">Numele câinelui</label>
 <input class="field" data-i18n-placeholder="phDog" id="dog" name="dog" placeholder="Numele câinelui" required=""/>
 <label class="sr-only" data-i18n="navServices" for="service">Serviciu</label>
@@ -2702,12 +2609,21 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 </form>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var coarse = window.matchMedia('(pointer: coarse)').matches;
+
+  /* ---------- EmailJS ---------- */
+  var EMAILJS_PUBLIC_KEY = 'lo6t5O7GTNxTHgV95';
+  var EMAILJS_SERVICE_ID = 'service_0603xih';
+  var EMAILJS_TEMPLATE_ID = 'template_lkadfu4';
+  if(window.emailjs){
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
 
   /* ---------- i18n ---------- */
   var lang = 'ro';
@@ -2766,6 +2682,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       svc6Name:'Grooming pentru Câini Anxioși', svc6Price:'La cerere', svc6Note:'Pentru câini anxioși sau reactivi — lucru lent, pauze și ajustarea procedurii în funcție de limitele lor.',
       svc7Name:'Recuperare Blană', svc7Price:'La cerere', svc7Note:'Pentru blănuri care au nevoie de mai mult timp și muncă pentru a fi îngrijite și recuperate cu grijă.',
       svc8Name:'Îngrijire Igienică', svc8Price:'La cerere', svc8Note:'Îngrijire atentă pentru zonele care cer atenție între ședințele complete.',
+      pricingTitle:'Servicii și prețuri Canino Artis', pricingFullTitle:'Grooming complet', pricingFullNote:'Include baie, uscare, tuns, igienizare, tăierea unghiilor și curățarea urechilor.',
+      pricingTouchTitle:'Retuș între ședințele de grooming', pricingTouchNote:'Include baie, uscare și aranjarea feței, lăbuțelor și a zonei igienice.',
+      pricingIndividualTitle:'Servicii individuale', pricingSmall:'Talie mică (1–10 kg)', pricingMedium:'Talie medie (10–25 kg)', pricingLarge:'Talie mare (25–45 kg)',
+      pricingFullSmall:'de la 130 lei', pricingFullMedium:'de la 180 lei', pricingFullLarge:'de la 250 lei', pricingTouchSmall:'de la 110 lei', pricingTouchMedium:'de la 130 lei', pricingTouchLarge:'de la 150 lei',
+      pricingBath:'Baie și uscare', pricingBathPrice:'de la 60 lei', pricingNails:'Tăierea unghiilor', pricingNailsPrice:'30 lei', pricingEars:'Curățarea urechilor', pricingEarsPrice:'20 lei', pricingMatted:'Blană împâslită', pricingMattedPrice:'de la 50 lei',
       donate:'Donează', googleReviews:'Recenzii Google', reviewUs:'Lasă-ne o recenzie', reviewsTitle:'Ce spun clienții',
       rev1:'„Rudi panica la uscător. Aici i-au dat timp până a adormit sub el. Genul ăsta de răbdare e rar.”',
       rev1Meta:'Google · acum 2 săptămâni',
@@ -2788,10 +2709,9 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       hoursEyebrow:'Program',hoursTitle:'Când ne găsești',monFri:'Luni – Vineri',monFriTime:'09:00 – 18:00',sat:'Sâmbătă',satTime:'10:00 – 16:00',sun:'Duminică',sunTime:'Închis',hoursNote:'Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.',mapTitle:'Canino Artis',mapNote:'Localizare și indicații pe Google Maps',byAppt:'Doar cu programare', studio:'Studio în curte',
       atelier:'Atelierul', bookTitle:'Programează o ședință',
       bookDesc:'Un câine pe rând. Spune-ne cine vine și vom găsi o oră liniștită.',
-      phName:'Numele tău', phDog:'Numele câinelui', phNote:'Orice ar trebui să știm',
+      phName:'Numele tău', emailLabel:'Adresa de email', phEmail:'Adresa de email', phDog:'Numele câinelui', phNote:'Orice ar trebui să știm',
       dogSize:'Mărimea câinelui', dogSizeSmall:'Mic', dogSizeMedium:'Mediu', dogSizeLarge:'Mare', breedType:'Tipul rasei', phBreedType:'Tipul rasei / mix', furType:'Tipul blănii', furTypeThick:'Deasă', furTypeSoft:'Moale', furTypeCurly:'Creț', furTypeNormal:'Normală',
-      requestHour:'Cere ora',
-      bookSentTitle:'Te avem.', bookSentDesc:'Un mesaj va veni în maxim o zi. Până atunci, păstrează ora liberă.',
+      requestHour:'Cere ora', sendingBooking:'Se trimite…', sendingBookingDesc:'Trimitem cererea ta de programare.', bookSentTitle:'Te avem.', bookSentDesc:'Cererea ta a fost trimisă. Vom reveni în curând.', bookErrorDesc:'Cererea nu a putut fi trimisă. Verifică datele și încearcă din nou.',
       waOnline:'De obicei răspunde rapid',
       waBubble:'Bună! Scrie-ne pe WhatsApp pentru o programare sau o întrebare despre câinele tău.',
       waStart:'Începe conversația',
@@ -2857,6 +2777,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       svc6Name:'Grooming for Anxious Dogs', svc6Price:'On request', svc6Note:'For anxious or reactive dogs — slow work, breaks, and adjustments based on their limits.',
       svc7Name:'Coat Recovery', svc7Price:'On request', svc7Note:'For coats that need extra time and work to be carefully brought back into condition.',
       svc8Name:'Hygiene Care', svc8Price:'On request', svc8Note:'Careful grooming for the areas that need attention between full sittings.',
+      pricingTitle:'Canino Artis Services & Prices', pricingFullTitle:'Complete grooming', pricingFullNote:'Includes bath, drying, haircut, hygiene care, nail trimming and ear cleaning.',
+      pricingTouchTitle:'Touch-up between grooming sessions', pricingTouchNote:'Includes bath, drying, and tidying of the face, paws and hygiene area.',
+      pricingIndividualTitle:'Individual services', pricingSmall:'Small size (1–10 kg)', pricingMedium:'Medium size (10–25 kg)', pricingLarge:'Large size (25–45 kg)',
+      pricingFullSmall:'from 130 lei', pricingFullMedium:'from 180 lei', pricingFullLarge:'from 250 lei', pricingTouchSmall:'from 110 lei', pricingTouchMedium:'from 130 lei', pricingTouchLarge:'from 150 lei',
+      pricingBath:'Bath and drying', pricingBathPrice:'from 60 lei', pricingNails:'Nail trimming', pricingNailsPrice:'30 lei', pricingEars:'Ear cleaning', pricingEarsPrice:'20 lei', pricingMatted:'Matted coat', pricingMattedPrice:'from 50 lei',
       donate:'Donate', googleReviews:'Google Reviews', reviewUs:'Review us', reviewsTitle:'What clients say',
       rev1:'“Rudi used to panic at the dryer. Here they gave him time until he fell asleep under it. That kind of patience is rare.”',
       rev1Meta:'Google · 2 weeks ago',
@@ -2879,10 +2804,9 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       hoursEyebrow:'Hours',hoursTitle:'When to find us',monFri:'Monday – Friday',monFriTime:'09:00 – 18:00',sat:'Saturday',satTime:'10:00 – 16:00',sun:'Sunday',sunTime:'Closed',hoursNote:'Sessions are by appointment only. For dogs who need more time, we reserve longer, quieter appointments.',mapTitle:'Canino Artis',mapNote:'Location and directions on Google Maps',byAppt:'By appointment only', studio:'Courtyard studio',
       atelier:'The atelier', bookTitle:'Book a sitting',
       bookDesc:'One dog at a time. Tell us who is coming, and we will find a quiet hour.',
-      phName:'Your name', phDog:"Your dog's name", phNote:'Anything we should know',
+      phName:'Your name', emailLabel:'Email address', phEmail:'Email address', phDog:"Your dog's name", phNote:'Anything we should know',
       dogSize:'Size of the dog', dogSizeSmall:'Small', dogSizeMedium:'Medium', dogSizeLarge:'Large', breedType:'Breed type', phBreedType:'Breed type / mix', furType:'Fur type', furTypeThick:'Thick', furTypeSoft:'Soft', furTypeCurly:'Curly', furTypeNormal:'Normal',
-      requestHour:'Request the hour',
-      bookSentTitle:'We have you.', bookSentDesc:'A note will come back within a day. Until then, keep the hour empty.',
+      requestHour:'Request the hour', sendingBooking:'Sending…', sendingBookingDesc:'We are sending your booking request.', bookSentTitle:'We have you.', bookSentDesc:'Your booking request has been sent. We’ll get back to you soon.', bookErrorDesc:'The request could not be sent. Please check your details and try again.',
       waOnline:'Usually replies quickly',
       waBubble:'Hi! Message us on WhatsApp for a booking or a question about your dog.',
       waStart:'Start chat',
@@ -2940,12 +2864,16 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       svc6Name:'Szorongó kutyák kozmetikája', svc6Price:'Érdeklődésre', svc6Note:'Szorongó vagy reaktív kutyáknak — lassú munka, szünetek és az ő határaikhoz igazított eljárás.',
       svc7Name:'Szőrzet-helyreállítás', svc7Price:'Érdeklődésre', svc7Note:'Azoknak a szőrzeteknek, amelyeknek több időre és munkára van szükségük a gondos helyreállításhoz.',
       svc8Name:'Higiéniai ápolás', svc8Price:'Érdeklődésre', svc8Note:'Figyelmes ápolás azokon a területeken, amelyek a teljes kozmetikák között is törődést igényelnek.',
+      pricingTitle:'Canino Artis szolgáltatások és árak', pricingFullTitle:'Teljes kozmetika', pricingFullNote:'Fürdetést, szárítást, nyírást, higiéniai ápolást, körömvágást és fültisztítást tartalmaz.',
+      pricingTouchTitle:'Frissítés a kozmetikák között', pricingTouchNote:'Fürdetést, szárítást, valamint az arc, a mancsok és a higiéniai terület igazítását tartalmazza.',
+      pricingIndividualTitle:'Egyedi szolgáltatások', pricingSmall:'Kistestű (1–10 kg)', pricingMedium:'Közepes (10–25 kg)', pricingLarge:'Nagytestű (25–45 kg)',
+      pricingFullSmall:'130 lejtől', pricingFullMedium:'180 lejtől', pricingFullLarge:'250 lejtől', pricingTouchSmall:'110 lejtől', pricingTouchMedium:'130 lejtől', pricingTouchLarge:'150 lejtől',
+      pricingBath:'Fürdetés és szárítás', pricingBathPrice:'60 lejtől', pricingNails:'Körömvágás', pricingNailsPrice:'30 lej', pricingEars:'Fültisztítás', pricingEarsPrice:'20 lej', pricingMatted:'Filcesedett szőr', pricingMattedPrice:'50 lejtől',
       donate:'Adományozz', googleReviews:'Google-vélemények', reviewUs:'Írj véleményt', reviewsTitle:'Mit mondanak a vendégeink',
       hoursEyebrow:'Nyitvatartás', hoursTitle:'Mikor találsz minket', monFri:'Hétfő – Péntek', monFriTime:'09:00 – 18:00', sat:'Szombat', satTime:'10:00 – 16:00', sun:'Vasárnap', sunTime:'Zárva',
       hoursNote:'A kezelések kizárólag időpont alapján történnek. Azoknak a kutyáknak, akiknek több időre van szükségük, hosszabb, nyugodtabb időpontot biztosítunk.', mapTitle:'Canino Artis', mapNote:'Helyszín és útvonal a Google Térképen', byAppt:'Csak időpontfoglalással', studio:'Udvari stúdió',
       atelier:'A műhely', bookTitle:'Időpontfoglalás', bookDesc:'Egyszerre egy kutya. Írd meg, ki érkezik, és keresünk egy nyugodt időpontot.',
-      yourName:'Neved', phName:'Neved', dogName:'A kutya neve', phDog:'A kutya neve', dogSize:'A kutya mérete', dogSizeSmall:'Kicsi', dogSizeMedium:'Közepes', dogSizeLarge:'Nagy', breedType:'Fajta típusa', phBreedType:'Fajta / keverék', furType:'Szőrtípus', furTypeThick:'Vastag', furTypeSoft:'Puha', furTypeCurly:'Göndör', furTypeNormal:'Normál', prefDay:'Preferált nap', note:'Megjegyzés', phNote:'Bármi, amit tudnunk kell', requestHour:'Időpont kérése',
-      bookSentTitle:'Megkaptuk.', bookSentDesc:'Egy napon belül visszajelzünk. Addig tartsd szabadon az időpontot.',
+      yourName:'Neved', emailLabel:'E-mail cím', phEmail:'E-mail cím', phName:'Neved', dogName:'A kutya neve', phDog:'A kutya neve', dogSize:'A kutya mérete', dogSizeSmall:'Kicsi', dogSizeMedium:'Közepes', dogSizeLarge:'Nagy', breedType:'Fajta típusa', phBreedType:'Fajta / keverék', furType:'Szőrtípus', furTypeThick:'Vastag', furTypeSoft:'Puha', furTypeCurly:'Göndör', furTypeNormal:'Normál', prefDay:'Preferált nap', note:'Megjegyzés', phNote:'Bármi, amit tudnunk kell', requestHour:'Időpont kérése', sendingBooking:'Küldés…', sendingBookingDesc:'Elküldjük a foglalási kérelmedet.', bookSentTitle:'Megkaptuk.', bookSentDesc:'A foglalási kérelmed elküldtük. Hamarosan jelentkezünk.', bookErrorDesc:'A kérelmet nem sikerült elküldeni. Ellenőrizd az adatokat, majd próbáld újra.',
       waOnline:'Általában gyorsan válaszol', waBubble:'Szia! Írj nekünk WhatsAppon időpontért vagy a kutyáddal kapcsolatos kérdéssel.', waStart:'Beszélgetés indítása', waMsg:'Szeretnék időpontot kérni a Canino Artishoz.',
       stories:{
         rudi:{name:'Rudi', line:'Ő tanított meg minket a türelemre.', text:'Rudi egy újfundlandi, aki úgy érkezik, mint az időjárás — nagy, sötét, ráérős. Az első alkalmakon szinte csak hagytuk, hogy belakja a teret. Ma az alkalom éppúgy társaság, mint szőrápolás. Kilencven perc. Legtöbbje csendben.'},
@@ -3100,24 +3028,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   document.getElementById('langBtn').addEventListener('click', cycleLang);
   document.getElementById('langBtnMobile').addEventListener('click', cycleLang);
 
-  /* ---------- loader ---------- */
-  var loader = document.getElementById('loader');
-  function finishLoad(){
-    loader.classList.add('is-done');
-    document.body.classList.remove('is-loading');
-    loader.setAttribute('aria-hidden','true');
-    window.__caninoLoaderFinished = true;
-    try{ window.dispatchEvent(new Event('canino:loaderfinished')); }catch(e){}
-    if(typeof window.__caninoStartMusicAfterLoader === 'function'){
-      window.__caninoStartMusicAfterLoader();
-    }
-  }
-  if(reduced) finishLoad();
-  else {
-    window.addEventListener('load', function(){ setTimeout(finishLoad, 2400); });
-    setTimeout(finishLoad, 4200);
-  }
-
   var nav = document.getElementById('mainNav');
   function updateNav(){
     if(window.scrollY > window.innerHeight * 0.55) nav.classList.add('visible');
@@ -3247,6 +3157,12 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     toggle.hidden = false;
     bookForm.style.display = '';
     var d = dict[lang];
+    var submitBtn = bookForm.querySelector('button[type="submit"]');
+    if(submitBtn){
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+      submitBtn.textContent = d.requestHour;
+    }
     document.getElementById('bookTitle').textContent = d.bookTitle;
     document.getElementById('bookDesc').textContent = d.bookDesc;
   }
@@ -3257,23 +3173,51 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   bookOverlay.addEventListener('click', function(e){ if(e.target === bookOverlay) closeBook(); });
   bookForm.addEventListener('submit', function(e){
     e.preventDefault();
+    if(!window.emailjs){
+      var d0 = dict[lang];
+      document.getElementById('bookDesc').textContent = d0.bookErrorDesc;
+      return;
+    }
+
     var data = Object.fromEntries(new FormData(bookForm).entries());
     try{
       var prev = JSON.parse(localStorage.getItem('canino-bookings') || '[]');
       prev.push(Object.assign({}, data, {at: new Date().toISOString()}));
       localStorage.setItem('canino-bookings', JSON.stringify(prev));
     }catch(err){}
-    bookForm.style.display = 'none';
+
+    var submitBtn = bookForm.querySelector('button[type="submit"]');
     var d = dict[lang];
-    document.getElementById('bookTitle').textContent = d.bookSentTitle;
-    document.getElementById('bookDesc').textContent = d.bookSentDesc;
+    if(submitBtn){
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy','true');
+      submitBtn.textContent = d.sendingBooking;
+    }
+    document.getElementById('bookDesc').textContent = d.sendingBookingDesc;
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, bookForm)
+      .then(function(){
+        bookForm.style.display = 'none';
+        document.getElementById('bookTitle').textContent = d.bookSentTitle;
+        document.getElementById('bookDesc').textContent = d.bookSentDesc;
+      })
+      .catch(function(error){
+        console.error('EmailJS booking send failed:', error);
+        if(submitBtn){
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = d.requestHour;
+        }
+        document.getElementById('bookDesc').textContent = d.bookErrorDesc;
+      });
   });
 
 
   var baPairs = [
     {before:'dog1.jpeg', after:'dog2.jpeg'},
     {before:'dog3.jpeg', after:'dog4.jpeg'},
-    {before:'dog5.jpeg', after:'dog6.jpeg'}
+    {before:'dog5.jpeg', after:'dog6.jpeg'},
+    {before:'dog7.jpeg', after:'dog8.jpeg'}
   ];
   var baPairIndex = 0;
   function setBAPair(index){
@@ -3362,7 +3306,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 
   /* ---------- WhatsApp widget ---------- */
   // Replace with your real number in international format, no + or spaces (e.g. 40722123456)
-  var WA_NUMBER = '40700000000';
+  var WA_NUMBER = '40755429037';
   var waFab = document.getElementById('waFab');
   var waToggle = document.getElementById('waToggle');
   var waStart = document.getElementById('waStart');
@@ -3437,6 +3381,9 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   if(reduced || typeof gsap === 'undefined') return;
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({nullTargetWarn:false, force3D:true});
+  if(coarse && typeof ScrollTrigger.config === 'function'){
+    ScrollTrigger.config({ignoreMobileResize:true, limitCallbacks:true});
+  }
 
   /* Desktop keeps the existing hero scroll animation. On touch devices, the hero
      scroll scrub is disabled so the initial landing animation does not keep doing
@@ -3557,12 +3504,12 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
         el.appendChild(frag);
 
         var sentences=el.querySelectorAll('.about-sentence');
-        gsap.set(sentences,{backgroundSize:'0% 100%',opacity:.15,filter:'blur(7px)'});
+        gsap.set(sentences,{backgroundSize:'0% 100%',opacity:.15,filter:coarse ? 'none' : 'blur(7px)'});
         var tl=gsap.timeline({
           paused:true,
           defaults:{ease:'power2.out'}
         });
-        tl.to(sentences,{backgroundSize:'100% 100%',opacity:1,filter:'blur(0px)',duration:1.05,stagger:.58});
+        tl.to(sentences,{backgroundSize:'100% 100%',opacity:1,filter:coarse ? 'none' : 'blur(0px)',duration:coarse ? .68 : 1.05,stagger:coarse ? .28 : .58});
         aboutSentenceTimelines.push(tl);
 
         if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -3612,11 +3559,19 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     else img.addEventListener('load', done, {once:true});
   });
   var refreshTimer = 0;
-  window.addEventListener('resize', function(){
-    if(typeof ScrollTrigger === 'undefined') return;
-    clearTimeout(refreshTimer);
-    refreshTimer = setTimeout(function(){ ScrollTrigger.refresh(); }, 180);
-  }, {passive:true});
+  if(!coarse){
+    window.addEventListener('resize', function(){
+      if(typeof ScrollTrigger === 'undefined') return;
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(function(){ ScrollTrigger.refresh(); }, 180);
+    }, {passive:true});
+  }else{
+    window.addEventListener('orientationchange', function(){
+      if(typeof ScrollTrigger === 'undefined') return;
+      clearTimeout(refreshTimer);
+      refreshTimer = setTimeout(function(){ ScrollTrigger.refresh(); }, 300);
+    }, {passive:true});
+  }
 })();
 
 </script>
@@ -3750,6 +3705,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   if(!toggle||!bar||!audio||!play||!volume||!progress||!current||!duration) return;
 
   audio.volume=parseFloat(volume.value)||0.55;
+  audio.preload='auto';
+  audio.load();
   audio.autoplay=true;
   audio.loop=true;
   audio.muted=false;
@@ -3795,7 +3752,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     });
   }
 
-  function startMusicAfterLoader(){
+  function startMusicImmediately(){
     if(userDisabledMusic || !audio.paused) return;
     audio.autoplay=true;
     audio.loop=true;
@@ -3906,21 +3863,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 
   sync();
 
-  /* Start immediately when the landing page is revealed. If the browser blocks
+  /* Start immediately after the page script initializes. If the browser blocks
      audible autoplay, the first real user gesture (including scrolling) is used
      once as a fallback. After the visitor pauses/mutes the music, that fallback
      is permanently disarmed until they explicitly press Play again. */
-  window.__caninoStartMusicAfterLoader=startMusicAfterLoader;
-  window.addEventListener('canino:loaderfinished', function(){
-    startMusicAfterLoader();
-  }, {once:true});
-  if(window.__caninoLoaderFinished){
-    startMusicAfterLoader();
-  }
-  // If the loader has already completed when this player initializes, start now.
-  if(window.__caninoLoaderFinished){
-    startMusicAfterLoader();
-  }
+  startMusicImmediately();
 
 })();
 </script>
@@ -4076,5 +4023,87 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     -webkit-backdrop-filter:none;
     backdrop-filter:none;
   }
+}
+</style>
+
+<style id="mobile-device-optimization-v2">
+/* Mobile-only stability/performance pass. Desktop styles and motion are unchanged. */
+@media (pointer: coarse) and (max-width: 820px){
+  /* Prevent expensive live blur layers on touch GPUs while keeping the same surfaces. */
+  .page-dial,
+  .dog-meta,
+  .rudi-gallery-open,
+  .rudi-gallery-count,
+  .map-caption,
+  .music-toggle,
+  .music-bar,
+  .wa-panel,
+  .social-menu,
+  .book-overlay,
+  .book-inner,
+  .about-photo-caption,
+  .review-card{
+    -webkit-backdrop-filter:none !important;
+    backdrop-filter:none !important;
+  }
+
+  /* Keep touch scrolling on the compositor and avoid permanent GPU layers. */
+  .stage-photo,
+  .eli-copy,
+  .eli-photo,
+  .rudi-gallery-slide img,
+  .reviews-track,
+  .about-sentence{
+    will-change:auto !important;
+  }
+
+  .pricing-grid,
+  .pricing-card,
+  .pricing-rows,
+  .services-columns{
+    min-width:0;
+    max-width:100%;
+  }
+
+  .pricing-card h3,
+  .pricing-description,
+  .pricing-row,
+  .pricing-row span{
+    min-width:0;
+    max-width:100%;
+  }
+
+  .pricing-card h3,
+  .pricing-row span{
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .pricing-row{
+    align-items:flex-start;
+  }
+
+  .pricing-row span{
+    flex:1 1 auto;
+  }
+
+  .pricing-row strong{
+    flex:0 0 auto;
+  }
+
+  .services,
+  .pricing-section,
+  .visit-section,
+  .reviews-section,
+  #about-me,
+  #transform,
+  footer{
+    overflow-x:clip;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 380px){
+  .pricing-card{padding-left:1rem !important;padding-right:1rem !important;}
+  .pricing-row{grid-template-columns:minmax(0,1fr) auto;column-gap:.7rem;}
 }
 </style>
