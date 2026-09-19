@@ -3122,7 +3122,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     if(window.scrollY > window.innerHeight * 0.55) nav.classList.add('visible');
     else nav.classList.remove('visible');
   }
-  window.addEventListener('scroll', updateNav, {passive:true});
   window.addEventListener('mousemove', function(e){
     if(e.clientY < window.innerHeight * 0.14) nav.classList.add('visible');
     else if(window.scrollY <= window.innerHeight * 0.55) nav.classList.remove('visible');
@@ -3165,7 +3164,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
     });
   }
-  window.addEventListener('scroll', updateActiveNav, {passive:true});
 
   function goToPage(index){
     var safe = (index + sections.length) % sections.length;
@@ -3206,7 +3204,20 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     });
   });
 
-  window.addEventListener('scroll', updatePageTracker, {passive:true});
+  var scrollUiQueued = false;
+  function scheduleScrollUI(){
+    if(scrollUiQueued) return;
+    scrollUiQueued = true;
+    requestAnimationFrame(function(){
+      scrollUiQueued = false;
+      updateNav();
+      updateActiveNav();
+      updatePageTracker();
+    });
+  }
+  window.addEventListener('scroll', scheduleScrollUI, {passive:true});
+  updateNav();
+  updateActiveNav();
   updatePageTracker();
 
   var toggle = document.getElementById('menuToggle');
@@ -3455,7 +3466,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
         trigger: trackEl,
         start:'top top',
         end:'bottom bottom',
-        scrub: opts.philosophy ? 1.8 : 1.4,
+        scrub: coarse ? (opts.philosophy ? 0.65 : 0.5) : (opts.philosophy ? 1.8 : 1.4),
         invalidateOnRefresh:true
       }
     });
@@ -3580,7 +3591,12 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     if(img.complete) done();
     else img.addEventListener('load', done, {once:true});
   });
-  window.addEventListener('resize', function(){ if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); });
+  var refreshTimer = 0;
+  window.addEventListener('resize', function(){
+    if(typeof ScrollTrigger === 'undefined') return;
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(function(){ ScrollTrigger.refresh(); }, 180);
+  }, {passive:true});
 })();
 
 </script>
@@ -3999,4 +4015,46 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 /* Final alignment: raise the second and third principle markers by 6px. */
 .about-working-copy p:nth-child(3)::before,
 .about-working-copy p:nth-child(4)::before{transform:translateY(-4px) !important;}
+</style>
+
+<style id="mobile-scroll-performance">
+/* Mobile scroll-performance tuning: preserves the existing visual design and animations
+   while reducing expensive paint/compositing work on touch devices. */
+@media (pointer: coarse) and (max-width: 820px){
+  html,body{
+    overscroll-behavior-x:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .stage,
+  .gallery-pause-stage,
+  .rudi-gallery-slides,
+  .eli-photo,
+  .eli-copy,
+  .reviews-viewport{
+    contain:paint;
+  }
+  .stage-photo,
+  .stage-video,
+  .rudi-gallery-slide img,
+  .reviews-track{
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+  .stage-video{
+    will-change:auto;
+  }
+  .rudi-gallery-slide img{
+    will-change:auto;
+  }
+  /* Keep the premium glass look, but avoid live backdrop blur on smaller GPUs. */
+  .dog-meta,
+  .rudi-gallery-open,
+  .rudi-gallery-count,
+  .map-caption,
+  .music-toggle,
+  .music-bar{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
 </style>
