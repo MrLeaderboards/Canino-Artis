@@ -3438,11 +3438,16 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({nullTargetWarn:false, force3D:true});
 
-  gsap.timeline({
-    scrollTrigger:{trigger:'#top', start:'top top', end:'bottom top', scrub:0.7}
-  })
-  .to('#heroMark', {opacity:0, y:-36, ease:'none'}, 0)
-  .to('#heroCue', {opacity:0, ease:'none'}, 0);
+  /* Desktop keeps the existing hero scroll animation. On touch devices, the hero
+     scroll scrub is disabled so the initial landing animation does not keep doing
+     work while the user scrolls back and forth. */
+  if(!coarse){
+    gsap.timeline({
+      scrollTrigger:{trigger:'#top', start:'top top', end:'bottom top', scrub:0.7}
+    })
+    .to('#heroMark', {opacity:0, y:-36, ease:'none'}, 0)
+    .to('#heroCue', {opacity:0, ease:'none'}, 0);
+  }
 
   function setupChapter(name, opts){
     opts = opts || {};
@@ -3465,9 +3470,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     var tl = gsap.timeline({
       scrollTrigger:{
         trigger: trackEl,
-        start:'top top',
-        end:'bottom bottom',
-        scrub: coarse ? (opts.philosophy ? 0.65 : 0.5) : (opts.philosophy ? 1.8 : 1.4),
+        start: coarse ? 'top 78%' : 'top top',
+        end: coarse ? 'bottom 22%' : 'bottom bottom',
+        scrub: coarse ? false : (opts.philosophy ? 1.8 : 1.4),
+        once: coarse,
+        toggleActions: coarse ? 'play none none none' : undefined,
         invalidateOnRefresh:true
       }
     });
@@ -3512,7 +3519,14 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     var aboutBlocks=aboutPage.querySelectorAll('.about-opening-copy, .about-opening-photo, .about-copy, .about-story-copy, .about-photo, .about-working-copy');
     gsap.set(aboutBlocks,{opacity:0,y:24});
     aboutBlocks.forEach(function(el){
-      gsap.to(el,{opacity:1,y:0,duration:1,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 84%',toggleActions:'play none none reverse',onEnter:function(){el.classList.add('is-visible');},onLeaveBack:function(){el.classList.remove('is-visible');}}});
+      gsap.to(el,{opacity:1,y:0,duration:1,ease:'power2.out',scrollTrigger:{
+        trigger:el,
+        start:'top 84%',
+        toggleActions: coarse ? 'play none none none' : 'play none none reverse',
+        once: coarse,
+        onEnter:function(){el.classList.add('is-visible');},
+        onLeaveBack:function(){if(!coarse) el.classList.remove('is-visible');}
+      }});
     });
 
     /* Sentence-by-sentence reveal only inside About Me.
@@ -3569,7 +3583,12 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   gsap.utils.toArray('.services-head, .transform-section .eyebrow, .transform-section .chapter-title, .transform-section .chapter-line, .reviews-head').forEach(function(el){
     gsap.from(el, {
       opacity:0, y:24, duration:1.0, ease:'power2.out',
-      scrollTrigger:{trigger:el, start:'top 88%', toggleActions:'play none none reverse'}
+      scrollTrigger:{
+        trigger:el,
+        start:'top 88%',
+        toggleActions: coarse ? 'play none none none' : 'play none none reverse',
+        once: coarse
+      }
     });
   });
 
