@@ -3105,6 +3105,9 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     loader.classList.add('is-done');
     document.body.classList.remove('is-loading');
     loader.setAttribute('aria-hidden','true');
+    if(typeof window.__caninoStartMusicAfterLoader === 'function'){
+      window.__caninoStartMusicAfterLoader();
+    }
   }
   if(reduced) finishLoad();
   else {
@@ -3707,27 +3710,19 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   var current=document.getElementById('musicCurrent');
   var duration=document.getElementById('musicDuration');
   if(!toggle||!bar||!audio||!play||!volume||!progress||!current||!duration) return;
+
   audio.volume=parseFloat(volume.value)||0.55;
   audio.autoplay=true;
+  audio.loop=true;
   audio.muted=false;
   bar.setAttribute('hidden','');
   toggle.setAttribute('aria-expanded','false');
-  var autoplayStarted=false;
+
   var userDisabledMusic=false;
-  var initialScrollActivator=true;
-  var scrollEventsBound=false;
-  function removeInitialScrollActivator(){
-    if(!scrollEventsBound) return;
-    window.removeEventListener('wheel',startFromScrollGesture,{capture:true});
-    window.removeEventListener('touchstart',startFromScrollGesture,{capture:true});
-    window.removeEventListener('touchmove',startFromScrollGesture,{capture:true});
-    window.removeEventListener('scroll',startFromScrollGesture,{capture:true});
-    scrollEventsBound=false;
-    initialScrollActivator=false;
-  }
-  function startMusic(fromUserGesture){
-    if(userDisabledMusic) return;
-    if(autoplayStarted && !audio.paused) return;
+  var autoplayStarted=false;
+
+  function startMusicAfterLoader(){
+    if(userDisabledMusic || !audio.paused) return;
     audio.autoplay=true;
     audio.loop=true;
     audio.muted=false;
@@ -3736,14 +3731,20 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     if(promise && typeof promise.then==='function'){
       promise.then(function(){
         autoplayStarted=true;
-        removeInitialScrollActivator();
         sync();
       }).catch(function(){
         autoplayStarted=false;
+        sync();
       });
     }
   }
-  function formatTime(seconds){if(!isFinite(seconds)||seconds<0)return '0:00';var m=Math.floor(seconds/60),s=Math.floor(seconds%60);return m+':'+String(s).padStart(2,'0');}
+
+  function formatTime(seconds){
+    if(!isFinite(seconds)||seconds<0)return '0:00';
+    var m=Math.floor(seconds/60),s=Math.floor(seconds%60);
+    return m+':'+String(s).padStart(2,'0');
+  }
+
   function sync(){
     play.textContent=audio.paused?'▶':'❚❚';
     play.setAttribute('aria-label',audio.paused?'Play music':'Pause music');
@@ -3753,7 +3754,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       var pct=(audio.currentTime/audio.duration)*100;
       progress.value=pct;
       duration.textContent=formatTime(audio.duration);
-      /* Keep the note's movement slow and gently track the real song position. */
       toggle.style.setProperty('--music-progress', pct.toFixed(2)+'%');
     }else{
       progress.value=0;
@@ -3761,8 +3761,9 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       toggle.style.setProperty('--music-progress','0%');
     }
   }
+
   toggle.addEventListener('click',function(){
-    var open = bar.hasAttribute('hidden');
+    var open=bar.hasAttribute('hidden');
     if(open){
       bar.removeAttribute('hidden');
       toggle.setAttribute('aria-expanded','true');
@@ -3772,7 +3773,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       toggle.setAttribute('aria-expanded','false');
     }
   });
-  /* Close the expanded player when the user clicks/taps anywhere outside it. */
+
   document.addEventListener('click',function(e){
     if(bar.hasAttribute('hidden')) return;
     if(!e.target.closest || !e.target.closest('#musicWidget')){
@@ -3780,64 +3781,51 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       toggle.setAttribute('aria-expanded','false');
     }
   });
+
   play.addEventListener('click',function(){
     if(audio.paused){
       userDisabledMusic=false;
       audio.muted=false;
-      audio.play().then(function(){removeInitialScrollActivator();sync();}).catch(sync);
+      audio.play().then(function(){autoplayStarted=true;sync();}).catch(sync);
     }else{
       audio.pause();
       userDisabledMusic=true;
-      removeInitialScrollActivator();
       sync();
     }
   });
-  progress.addEventListener('input',function(){if(isFinite(audio.duration)&&audio.duration>0){audio.currentTime=(parseFloat(this.value)/100)*audio.duration;sync();}});
+
+  progress.addEventListener('input',function(){
+    if(isFinite(audio.duration)&&audio.duration>0){
+      audio.currentTime=(parseFloat(this.value)/100)*audio.duration;
+      sync();
+    }
+  });
+
   volume.addEventListener('input',function(){
     audio.volume=parseFloat(this.value)||0;
     if(audio.volume<=0){
-      userDisabledMusic=true;
       audio.pause();
-      removeInitialScrollActivator();
+      audio.muted=true;
+      userDisabledMusic=true;
       sync();
-    }else if(userDisabledMusic && !audio.paused){
-      userDisabledMusic=false;
+    }else{
+      audio.muted=false;
     }
   });
+
   audio.addEventListener('loadedmetadata',sync);
   audio.addEventListener('timeupdate',sync);
   audio.addEventListener('play',sync);
   audio.addEventListener('pause',sync);
   audio.addEventListener('ended',sync);
+
   sync();
-  /* Start immediately; if the browser blocks audible autoplay, allow only the
-     user's first scroll on this page to activate music. After that, scrolling
-     must never restart music the user intentionally stopped or muted. */
-  audio.autoplay=true;
-  audio.loop=true;
-  audio.muted=false;
-  /* Browser policy may still block audible autoplay. We attempt playback at
-     every earliest lifecycle point; no click on the player is required by the code. */
-  function startFromScrollGesture(){
-    if(!initialScrollActivator || userDisabledMusic || !audio.paused) return;
-    startMusic(true);
-  }
-  function bindInitialScrollActivator(){
-    if(scrollEventsBound || userDisabledMusic || !initialScrollActivator) return;
-    scrollEventsBound=true;
-    /* Start on the user's actual scrolling gesture. Wheel/touchstart are used
-       because some browsers do not grant autoplay permission from a later
-       synthetic scroll event. It remains one-time only. */
-    window.addEventListener('wheel',startFromScrollGesture,{passive:true,capture:true});
-    window.addEventListener('touchstart',startFromScrollGesture,{passive:true,capture:true});
-    window.addEventListener('touchmove',startFromScrollGesture,{passive:true,capture:true});
-    window.addEventListener('scroll',startFromScrollGesture,{passive:true,capture:true});
-  }
-  bindInitialScrollActivator();
-  startMusic(false);
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',function(){startMusic(false);},{ once: true });
-  window.addEventListener('pageshow',function(){startMusic(false);});
-  window.addEventListener('load',function(){startMusic(false);},{ once: true });
+
+  /* The loader calls this immediately after its landing animation finishes.
+     The site requests audible autoplay at that exact point. Modern browsers
+     may still block audible autoplay until a user gesture; that is enforced by
+     the browser, not by this site. */
+  window.__caninoStartMusicAfterLoader=startMusicAfterLoader;
 })();
 </script>
 
