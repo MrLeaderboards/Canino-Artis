@@ -3105,6 +3105,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     loader.classList.add('is-done');
     document.body.classList.remove('is-loading');
     loader.setAttribute('aria-hidden','true');
+    window.__caninoLoaderFinished = true;
+    try{ window.dispatchEvent(new Event('canino:loaderfinished')); }catch(e){}
     if(typeof window.__caninoStartMusicAfterLoader === 'function'){
       window.__caninoStartMusicAfterLoader();
     }
@@ -3720,22 +3722,67 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 
   var userDisabledMusic=false;
   var autoplayStarted=false;
+  var autoplayFallbackArmed=false;
+
+  function disarmAutoplayFallback(){
+    if(!autoplayFallbackArmed) return;
+    autoplayFallbackArmed=false;
+    ['pointerdown','touchstart','wheel','keydown'].forEach(function(type){
+      window.removeEventListener(type,firstGestureStart,{capture:true});
+    });
+  }
+
+  function firstGestureStart(){
+    if(userDisabledMusic || !audio.paused){
+      disarmAutoplayFallback();
+      return;
+    }
+    try{
+      audio.muted=false;
+      audio.volume=parseFloat(volume.value)||0.55;
+      var promise=audio.play();
+      if(promise && typeof promise.then==='function'){
+        promise.then(function(){
+          autoplayStarted=true;
+          disarmAutoplayFallback();
+          sync();
+        }).catch(function(){ sync(); });
+      }
+    }catch(e){ sync(); }
+  }
+
+  function armAutoplayFallback(){
+    if(autoplayFallbackArmed || userDisabledMusic || !audio.paused) return;
+    autoplayFallbackArmed=true;
+    ['pointerdown','touchstart','wheel','keydown'].forEach(function(type){
+      window.addEventListener(type,firstGestureStart,{once:true,capture:true,passive:type!=='wheel'});
+    });
+  }
 
   function startMusicAfterLoader(){
     if(userDisabledMusic || !audio.paused) return;
     audio.autoplay=true;
     audio.loop=true;
     audio.muted=false;
+    audio.volume=parseFloat(volume.value)||0.55;
+
     var promise;
     try{ promise=audio.play(); }catch(e){ promise=null; }
+
     if(promise && typeof promise.then==='function'){
       promise.then(function(){
         autoplayStarted=true;
+        disarmAutoplayFallback();
         sync();
       }).catch(function(){
         autoplayStarted=false;
         sync();
+        /* Audible autoplay was blocked by the browser. Keep the first real
+           user gesture (including a scroll) as the one-time fallback. */
+        armAutoplayFallback();
       });
+    }else{
+      armAutoplayFallback();
     }
   }
 
@@ -3790,6 +3837,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     }else{
       audio.pause();
       userDisabledMusic=true;
+      disarmAutoplayFallback();
       sync();
     }
   });
@@ -3807,6 +3855,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       audio.pause();
       audio.muted=true;
       userDisabledMusic=true;
+      disarmAutoplayFallback();
       sync();
     }else{
       audio.muted=false;
@@ -3821,11 +3870,22 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 
   sync();
 
-  /* The loader calls this immediately after its landing animation finishes.
-     The site requests audible autoplay at that exact point. Modern browsers
-     may still block audible autoplay until a user gesture; that is enforced by
-     the browser, not by this site. */
+  /* Start immediately when the landing page is revealed. If the browser blocks
+     audible autoplay, the first real user gesture (including scrolling) is used
+     once as a fallback. After the visitor pauses/mutes the music, that fallback
+     is permanently disarmed until they explicitly press Play again. */
   window.__caninoStartMusicAfterLoader=startMusicAfterLoader;
+  window.addEventListener('canino:loaderfinished', function(){
+    startMusicAfterLoader();
+  }, {once:true});
+  if(window.__caninoLoaderFinished){
+    startMusicAfterLoader();
+  }
+  // If the loader has already completed when this player initializes, start now.
+  if(window.__caninoLoaderFinished){
+    startMusicAfterLoader();
+  }
+
 })();
 </script>
 
