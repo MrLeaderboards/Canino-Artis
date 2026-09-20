@@ -73,6 +73,9 @@ strong{color:var(--cream)}
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <script>
   /* Google Analytics is consent-gated: no GA script/cookies before explicit Accept. */
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
+  window.gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
   var CANINO_GA_MEASUREMENT_ID = ''; /* Add the GA4 ID here, e.g. G-XXXXXXXXXX */
   var CANINO_GA_LOADED = false;
 
@@ -341,8 +344,8 @@ strong{color:var(--cream)}
 (function(){
   var content = {
     ro:{cookieTitle:'Cookie-uri',cookieText:'Înainte de alegerea ta, nu setăm propriul cookie și nu folosim stocare locală opțională. După ce alegi Acceptă sau Refuză, folosim un singur cookie de preferință pentru a memora alegerea ta. Nu folosim cookie-uri de publicitate, marketing sau profilare.',cookieMore:'Află mai multe despre cookie-uri',cookieReject:'Refuză',cookieAccept:'Acceptă',cookieSettings:'Setări cookie-uri',back:'Înapoi la Canino Artis'},
-    en:{cookieTitle:'Cookies',cookieText:'Before you make a choice, the site does not set its own cookie. After you choose Accept or Reject, we use one preference cookie to remember your choice. We do not use advertising, marketing or profiling cookies.',cookieMore:'Learn more about cookies',cookieReject:'Reject',cookieAccept:'Accept',cookieSettings:'Cookie settings',back:'Back to Canino Artis'},
-    hu:{cookieTitle:'Sütik',cookieText:'A választásod előtt a webhely nem állít be saját cookie-t. Az Elfogadom vagy Elutasítom választás után egyetlen preferencia-cookie-t használunk a választásod megjegyzésére. Nem használunk hirdetési, marketing- vagy profilalkotási sütiket.',cookieMore:'További információ a sütikről',cookieReject:'Elutasítom',cookieAccept:'Elfogadom',cookieSettings:'Cookie-beállítások',back:'Vissza a Canino Artis oldalára'}
+    en:{cookieTitle:'Cookies',cookieText:'Before you make a choice, the site does not set its own cookie. After you choose Accept or Reject, we use one preference cookie to remember your choice for up to 12 months. We do not use advertising, marketing or profiling cookies.',cookieMore:'Learn more about cookies',cookieReject:'Reject',cookieAccept:'Accept',cookieSettings:'Cookie settings',back:'Back to Canino Artis'},
+    hu:{cookieTitle:'Sütik',cookieText:'A választásod előtt a webhely nem állít be saját cookie-t. Az Elfogadom vagy Elutasítom választás után egyetlen preferencia-cookie-t használunk a választásod megjegyzésére legfeljebb 12 hónapig. Nem használunk hirdetési, marketing- vagy profilalkotási sütiket.',cookieMore:'További információ a sütikről',cookieReject:'Elutasítom',cookieAccept:'Elfogadom',cookieSettings:'Cookie-beállítások',back:'Vissza a Canino Artis oldalára'}
   };
   function setLang(l){
     document.documentElement.lang=l;
@@ -362,7 +365,10 @@ strong{color:var(--cream)}
   var reject=document.getElementById('cookieReject');
   var settings=document.getElementById('cookieSettings');
   function getConsent(){var m=document.cookie.match(/(?:^|;\s*)canino-cookie-consent=([^;]+)/);return m?decodeURIComponent(m[1]):'';}
-  function setConsent(value){document.cookie='canino-cookie-consent='+encodeURIComponent(value)+'; Max-Age=31536000; Path=/; SameSite=Lax; Secure';}
+  function setConsent(value){var secure = location.protocol === 'https:' ? '; Secure' : '';
+    var expires=new Date();
+    expires.setFullYear(expires.getFullYear()+1);
+    document.cookie='canino-cookie-consent='+encodeURIComponent(value)+'; Expires='+expires.toUTCString()+'; Path=/; SameSite=Lax'+secure;}
   function acceptCookies(){setConsent('accepted');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');loadGoogleAnalyticsAfterConsent();}
   function rejectCookies(){setConsent('rejected');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');disableGoogleAnalytics();}
   var consent=getConsent();
