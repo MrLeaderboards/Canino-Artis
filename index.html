@@ -3561,13 +3561,26 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     {before:'Rudi2.jpeg', after:'Rudi3.jpeg'}
   ];
   var baPairIndex = 0;
+  var baIsMobile = window.matchMedia && window.matchMedia('(pointer: coarse) and (max-width: 820px)').matches;
   function setBAPair(index){
     baPairIndex = (index + baPairs.length) % baPairs.length;
     var pair = baPairs[baPairIndex];
     var beforeImgEl = document.getElementById('baBeforeImg');
     var afterImgEl = document.getElementById('baAfterImg');
-    if(beforeImgEl) beforeImgEl.src = pair.before;
-    if(afterImgEl) afterImgEl.src = pair.after;
+    if(beforeImgEl){
+      if(baIsMobile){
+        beforeImgEl.setAttribute('loading','eager');
+        beforeImgEl.setAttribute('fetchpriority','high');
+      }
+      beforeImgEl.src = pair.before;
+    }
+    if(afterImgEl){
+      if(baIsMobile){
+        afterImgEl.setAttribute('loading','eager');
+        afterImgEl.setAttribute('fetchpriority','high');
+      }
+      afterImgEl.src = pair.after;
+    }
     var wrapEl = document.getElementById('baWrap');
     if(wrapEl) wrapEl.setAttribute('aria-label','Before and after comparison: ' + pair.before.replace(/\.jpeg$/i,'') + ' and ' + pair.after.replace(/\.jpeg$/i,''));
     if(typeof setPos === 'function') setPos(50);
@@ -3579,6 +3592,71 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   var dragging = false;
   var beforeTag = document.querySelector('#baWrap .ba-tag.before');
   var afterTag = document.querySelector('#baWrap .ba-tag.after');
+
+  /* ---------- Mobile Before & After image preloading ----------
+     Desktop behavior stays unchanged. On touch phones, warm the visible pair
+     and adjacent pairs before the section is reached, then gently warm the rest
+     during idle time so switching pairs is effectively instant. */
+  (function(){
+    if(!baIsMobile || !wrap || !('IntersectionObserver' in window)) return;
+
+    var baCache = Object.create(null);
+    function preloadBAImage(src, priority){
+      if(!src || baCache[src]) return;
+      baCache[src] = 'loading';
+      var img = new Image();
+      if('fetchPriority' in img) img.fetchPriority = priority || 'low';
+      img.decoding = 'async';
+      img.onload = function(){ baCache[src] = 'loaded'; };
+      img.onerror = function(){ delete baCache[src]; };
+      img.src = src;
+    }
+
+    function preloadPair(index, priority){
+      var pair = baPairs[(index + baPairs.length) % baPairs.length];
+      preloadBAImage(pair.before, priority);
+      preloadBAImage(pair.after, priority);
+    }
+
+    function warmRemainingPairs(i){
+      if(i >= baPairs.length) return;
+      preloadPair(baPairIndex + i, 'low');
+      window.setTimeout(function(){ warmRemainingPairs(i + 1); }, 650);
+    }
+
+    var warmed = false;
+    var baWarmObserver = new IntersectionObserver(function(entries){
+      if(warmed || !entries.some(function(entry){ return entry.isIntersecting; })) return;
+      warmed = true;
+
+      var currentBefore = document.getElementById('baBeforeImg');
+      var currentAfter = document.getElementById('baAfterImg');
+      if(currentBefore) currentBefore.setAttribute('loading','eager');
+      if(currentAfter) currentAfter.setAttribute('loading','eager');
+
+      preloadPair(baPairIndex, 'high');
+      preloadPair(baPairIndex + 1, 'low');
+      preloadPair(baPairIndex - 1, 'low');
+
+      var scheduleRest = function(){ warmRemainingPairs(2); };
+      if('requestIdleCallback' in window){
+        window.requestIdleCallback(scheduleRest, {timeout:1500});
+      }else{
+        window.setTimeout(scheduleRest, 300);
+      }
+      baWarmObserver.disconnect();
+    }, {rootMargin:'1000px 0px', threshold:0});
+
+    baWarmObserver.observe(wrap);
+
+    var originalSetBAPair = setBAPair;
+    setBAPair = function(index){
+      originalSetBAPair(index);
+      preloadPair(baPairIndex, 'high');
+      preloadPair(baPairIndex + 1, 'low');
+      preloadPair(baPairIndex - 1, 'low');
+    };
+  })();
 
   function updateBATags(pct){
     /*
