@@ -11,6 +11,9 @@
 <meta content="Canino Artis" name="application-name"/>
 <meta content="Romania" name="geo.country"/>
 <link rel="canonical" href="https://caninoartis.com/"/>
+<link rel="icon" type="image/jpeg" href="logo2.jpeg?v=2"/>
+<link rel="shortcut icon" type="image/jpeg" href="logo2.jpeg?v=2"/>
+<link rel="apple-touch-icon" href="logo2.jpeg?v=2"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Canino Artis"/>
 <meta property="og:title" content="Canino Artis | Toaletaj canin în Târgu Mureș"/>
@@ -1161,7 +1164,7 @@
   footer{padding:10vh 5vw 6vh;text-align:center;border-top:1px solid var(--line);}
   footer .hero-logo{font-size:1.55rem;margin-bottom:1.2rem;opacity:1;animation:none;}
   .foot-logo-img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);margin:0 auto 1rem;opacity:.95;}
-  .foot-links{display:flex;justify-content:center;gap:2rem;font-size:.85rem;color:var(--cream-dim);margin-bottom:2rem;flex-wrap:wrap;}
+  .foot-links{display:flex;justify-content:center;align-items:center;gap:2rem;font-size:.85rem;color:var(--cream-dim);margin-bottom:2rem;flex-wrap:wrap;}
   .foot-links a,.foot-links button{text-decoration:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;font-family:'Nunito',sans-serif;}
   .foot-links a:hover,.foot-links button:hover{color:var(--gold);}
   .foot-note{font-size:.68rem;letter-spacing:.1em;color:rgba(236,228,214,.35);text-transform:uppercase;font-family:'Nunito',sans-serif;}
@@ -2202,6 +2205,14 @@
   #pageDial{display:none!important;}
 }
 
+
+/* Privacy / consent UX */
+.cookie-settings-link{border:0;background:none;color:inherit;font:inherit;padding:0;cursor:pointer;text-decoration:none;text-underline-offset:3px;}
+.cookie-settings-link:hover{color:var(--cream);text-decoration:underline;}
+.map-panel iframe[hidden]{display:none;}
+.map-consent{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.25rem;text-align:center;background:rgba(23,18,16,.94);z-index:2;}
+.map-consent[hidden]{display:none;}
+.map-consent-btn{border:1px solid var(--gold);background:var(--gold);color:var(--black);border-radius:999px;padding:.65rem 1rem;font:700 .78rem 'Nunito',sans-serif;cursor:pointer;}
 @media (max-width:820px){
   /* Keep the existing mobile header/menu behavior untouched. */
   #pageDial{display:none!important;}
@@ -2588,7 +2599,11 @@
 <p class="hours-note" data-i18n="hoursNote">Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.</p>
 </div>
 <div class="map-panel">
-<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Canino+Artis&amp;output=embed" title="Google Maps — Canino Artis"></iframe>
+<div class="map-consent" id="mapConsent" role="status">
+<span data-i18n="mapConsentText">Harta Google se încarcă după acceptarea cookie-urilor opționale.</span>
+<button class="map-consent-btn" id="mapConsentOpen" type="button" data-i18n="cookieAccept">Acceptă</button>
+</div>
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-map-src="https://www.google.com/maps?q=Canino+Artis&amp;output=embed" title="Google Maps — Canino Artis"></iframe>
 <div class="map-overlay"><div class="map-caption"><strong data-i18n="mapTitle">Canino Artis</strong><span data-i18n="mapNote">Localizare și indicații pe Google Maps</span><small class="map-contact">Strada Podeni 95, Târgu Mureș · 0755 429 037</small></div></div>
 </div>
 </div>
@@ -2602,14 +2617,14 @@
 <h2 class="chapter-title" data-i18n="reviewsTitle" style="font-size:clamp(1.7rem,4vw,2.6rem);">Ce spun clienții</h2>
 </div>
 <div class="reviews-viewport">
-<div class="reviews-track" id="reviewsTrack"><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev1">“The Best!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Nicoleta Crăciun Ciorba</a></p><p class="review-meta" data-review-meta-key="rev1">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev2">“Claudia is not only a professional but also a person with a big heart for animals... each one is taken care of with care, patience, and hard work. Important for any experience like this in the lives of puppies... I highly recommend it... continued success and growth🥰”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Adina Usurica</a></p><p class="review-meta" data-review-meta-key="rev2">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev3">“I wholeheartedly recommend this dog salon and the lady who runs it. It is clear from the first moment that she truly loves animals and treats them with great respect, patience and warmth. She has a gentle, calm attitude, knows how to work even with more sensitive or anxious dogs and always puts their well-being first. The work is done with care and professionalism, and the result is always very good. She is the kind of person you leave your pet with with peace of mind and confidence. I highly recommend!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Benedek Orsi</a></p><p class="review-meta" data-review-meta-key="rev3">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev4">“I was very satisfied with the dog grooming services for my puppy, Olivia. Ms. Claudia showed a lot of professionalism and empathy, being constantly oriented towards the needs of the puppy, ensuring her comfort and well-being throughout the procedure.
+<div class="reviews-track" id="reviewsTrack"><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/111472019729103878192/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev26">Yes, Elie, we had the great pleasure of taking care of our Rudy, yes the one in the first photo, who unfortunately is no longer with us, but what matters most is that we welcomed into our home a professional who did not take care of a pet, she took care of and became extremely attached to a family member, Rudy from up there and his family, we wish you much success, and good people, trust Eli, you will be surprised by her kindness and professionalism!!!!</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/111472019729103878192/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/111472019729103878192/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Pop Marius</a></p><p class="review-meta" data-review-meta-key="rev26">Google · 5 hours ago · New</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev1">“The Best!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117147423859104219461/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Nicoleta Crăciun Ciorba</a></p><p class="review-meta" data-review-meta-key="rev1">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev2">“Claudia is not only a professional but also a person with a big heart for animals... each one is taken care of with care, patience, and hard work. Important for any experience like this in the lives of puppies... I highly recommend it... continued success and growth🥰”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/106158189738693952861/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Adina Usurica</a></p><p class="review-meta" data-review-meta-key="rev2">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev3">“I wholeheartedly recommend this dog salon and the lady who runs it. It is clear from the first moment that she truly loves animals and treats them with great respect, patience and warmth. She has a gentle, calm attitude, knows how to work even with more sensitive or anxious dogs and always puts their well-being first. The work is done with care and professionalism, and the result is always very good. She is the kind of person you leave your pet with with peace of mind and confidence. I highly recommend!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105698113743886395851/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Benedek Orsi</a></p><p class="review-meta" data-review-meta-key="rev3">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev4">“I was very satisfied with the dog grooming services for my puppy, Olivia. Ms. Claudia showed a lot of professionalism and empathy, being constantly oriented towards the needs of the puppy, ensuring her comfort and well-being throughout the procedure.
 
-The result was a very beautiful and neat haircut, and the most important thing for me is that Olivia was left with no trauma, being calm and relaxed after the visit. I highly recommend!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Claudia Cengher</a></p><p class="review-meta" data-review-meta-key="rev4">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev5">“We brought our dog here and he looked fantastic afterwards, his fur was incredibly soft and we are very happy! We highly recommend him.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Oliver Nagy</a></p><p class="review-meta" data-review-meta-key="rev5">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev6">“By far the most professional, talented and super animal lover, I can say this because I share the house with her and she knows a lot, I recommend with the utmost confidence ❤️❤️❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Dragos Jinga</a></p><p class="review-meta" data-review-meta-key="rev6">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev7">“The lady is the gentlest and sweetest dog groomer I have ever met.
-She is a 10☆☆☆”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Inci Inci</a></p><p class="review-meta" data-review-meta-key="rev7">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev8">“Very kind staff, with a lot of patience and professionalism. It's clear that they love what they do. I recommend them wholeheartedly!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Carmen Szanto</a></p><p class="review-meta" data-review-meta-key="rev8">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev9">“I highly recommend, quality service at an affordable price, the lady is a great animal lover and I can already feel it in my furs from the moment I enter the salon!!
-Good luck!!! And thanks!!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Claudia Bali</a></p><p class="review-meta" data-review-meta-key="rev9">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev10">“Claudia gave Luna a very nice haircut, she is patient and works with great professionalism.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andreea Miklosi</a></p><p class="review-meta" data-review-meta-key="rev10">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev11">“A very nice experience, from the appointment to the final result. We will definitely be back!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Ciprian Maris</a></p><p class="review-meta" data-review-meta-key="rev11">Google · 5 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev12">“Very satisfied and top quality, puppies pampered to the max.
-I highly recommend.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Istvan Molnar</a></p><p class="review-meta" data-review-meta-key="rev12">Google · 7 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev13">“Friendly staff and very patient with the animals.
-I highly recommend! ☺️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">mafiablabla</a></p><p class="review-meta" data-review-meta-key="rev13">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev14">“Professionalism, the dog loves her, I call on her whenever I need her, she's a wonderful girl, I highly recommend her 😘”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Zsuzsi Dorgos</a></p><p class="review-meta" data-review-meta-key="rev14">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev15">“It is a salon where the well-being of our pets is at the forefront, and Eli is a super professional. I recommend her with the utmost confidence!!!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Angelica Suteu</a></p><p class="review-meta" data-review-meta-key="rev15">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev16">“Patience, care and attention for your four-legged friend!
-I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">MădălinaAndreea Soțan</a></p><p class="review-meta" data-review-meta-key="rev16">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev17">“I highly recommend ❤️❤️❤️❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Trif Timea</a></p><p class="review-meta" data-review-meta-key="rev17">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev18">“Excellent services!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andrei Mureșan - Bumy</a></p><p class="review-meta" data-review-meta-key="rev18">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev19">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Cristina 03</a></p><p class="review-meta" data-review-meta-key="rev19">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev20">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andreea Micher</a></p><p class="review-meta" data-review-meta-key="rev20">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev21">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Zsuzsi Pop</a></p><p class="review-meta" data-review-meta-key="rev21">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev22">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Kovacs Zoltan</a></p><p class="review-meta" data-review-meta-key="rev22">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev23">“Eli, I don't think there is a dog that doesn't love you. You are wonderful and my dogs told me to give you 10 stars but Google only gives me 5 unfortunately.. 😅😘🥰❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Cristina</a></p><p class="review-meta" data-review-meta-key="rev23">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev24">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Emanuel Dihoiu</a></p><p class="review-meta" data-review-meta-key="rev24">Google · 7 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev25">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Burger ors</a></p><p class="review-meta" data-review-meta-key="rev25">Google · a year ago</p></article></div></div>
+The result was a very beautiful and neat haircut, and the most important thing for me is that Olivia was left with no trauma, being calm and relaxed after the visit. I highly recommend!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105946548267432061862/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Claudia Cengher</a></p><p class="review-meta" data-review-meta-key="rev4">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev5">“We brought our dog here and he looked fantastic afterwards, his fur was incredibly soft and we are very happy! We highly recommend him.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117138067757715376303/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Oliver Nagy</a></p><p class="review-meta" data-review-meta-key="rev5">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev6">“By far the most professional, talented and super animal lover, I can say this because I share the house with her and she knows a lot, I recommend with the utmost confidence ❤️❤️❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114006483737645525642/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Dragos Jinga</a></p><p class="review-meta" data-review-meta-key="rev6">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev7">“The lady is the gentlest and sweetest dog groomer I have ever met.
+She is a 10☆☆☆”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/115643345613047681245/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Inci Inci</a></p><p class="review-meta" data-review-meta-key="rev7">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev8">“Very kind staff, with a lot of patience and professionalism. It's clear that they love what they do. I recommend them wholeheartedly!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114838173124348594872/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Carmen Szanto</a></p><p class="review-meta" data-review-meta-key="rev8">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev9">“I highly recommend, quality service at an affordable price, the lady is a great animal lover and I can already feel it in my furs from the moment I enter the salon!!
+Good luck!!! And thanks!!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/101056972095539624916/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Claudia Bali</a></p><p class="review-meta" data-review-meta-key="rev9">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev10">“Claudia gave Luna a very nice haircut, she is patient and works with great professionalism.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/117828854701534431762/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andreea Miklosi</a></p><p class="review-meta" data-review-meta-key="rev10">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev11">“A very nice experience, from the appointment to the final result. We will definitely be back!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/114095064181690860066/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Ciprian Maris</a></p><p class="review-meta" data-review-meta-key="rev11">Google · 5 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev12">“Very satisfied and top quality, puppies pampered to the max.
+I highly recommend.”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/101276703953256265819/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Istvan Molnar</a></p><p class="review-meta" data-review-meta-key="rev12">Google · 7 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev13">“Friendly staff and very patient with the animals.
+I highly recommend! ☺️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/109757767741282903760/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">mafiablabla</a></p><p class="review-meta" data-review-meta-key="rev13">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev14">“Professionalism, the dog loves her, I call on her whenever I need her, she's a wonderful girl, I highly recommend her 😘”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/106674480403161611311/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Zsuzsi Dorgos</a></p><p class="review-meta" data-review-meta-key="rev14">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev15">“It is a salon where the well-being of our pets is at the forefront, and Eli is a super professional. I recommend her with the utmost confidence!!!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/104861251901841288544/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Angelica Suteu</a></p><p class="review-meta" data-review-meta-key="rev15">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev16">“Patience, care and attention for your four-legged friend!
+I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/113580095778373422337/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">MădălinaAndreea Soțan</a></p><p class="review-meta" data-review-meta-key="rev16">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev17">“I highly recommend ❤️❤️❤️❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/103743046720802229200/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Trif Timea</a></p><p class="review-meta" data-review-meta-key="rev17">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev18">“Excellent services!”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105868876942821415984/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andrei Mureșan - Bumy</a></p><p class="review-meta" data-review-meta-key="rev18">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev19">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/107022340521273879259/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Cristina 03</a></p><p class="review-meta" data-review-meta-key="rev19">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev20">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/107993356662480758180/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Andreea Micher</a></p><p class="review-meta" data-review-meta-key="rev20">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev21">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/110948985321388954034/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Zsuzsi Pop</a></p><p class="review-meta" data-review-meta-key="rev21">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev22">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/108849382919899081941/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Kovacs Zoltan</a></p><p class="review-meta" data-review-meta-key="rev22">Google · 6 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text" data-review-key="rev23">“Eli, I don't think there is a dog that doesn't love you. You are wonderful and my dogs told me to give you 10 stars but Google only gives me 5 unfortunately.. 😅😘🥰❤️”</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/105165332021458459609/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Cristina</a></p><p class="review-meta" data-review-meta-key="rev23">Google · 6 months ago</p></article></div><div class="reviews-slide"><article class="review-card" data-google-review="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev24">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/116000156681889600677/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Emanuel Dihoiu</a></p><p class="review-meta" data-review-meta-key="rev24">Google · 7 months ago</p></article><article class="review-card" data-google-review="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB"><div aria-label="5 stele" class="review-stars">★★★★★</div><p class="review-text review-rating-only" data-review-key="rev25">★★★★★</p><p class="review-author"><a class="review-author-link" data-review-link-base="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB" href="https://www.google.com/maps/contrib/103250871815235522092/reviews?hl=en-GB" rel="noopener noreferrer" target="_blank">Burger ors</a></p><p class="review-meta" data-review-meta-key="rev25">Google · a year ago</p></article></div></div>
 </div>
 <div class="reviews-controls">
 <button aria-label="Anterior" class="reviews-arrow" id="reviewsPrev" type="button">‹</button>
@@ -2717,9 +2732,17 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 <button data-i18n="bookBtn" id="footBook" type="button">Programează o întâlnire</button>
 <span data-i18n="studio">Studio în curte</span>
 <a href="https://www.instagram.com/canino_artis/">Instagram</a>
+<a href="privacy.html" data-i18n="privacyFooter">Politica de confidențialitate</a>
+<a href="privacy.html#cookies" data-i18n="cookiesFooter">Politica cookies</a>
+<button class="cookie-settings-link" id="cookieSettings" type="button" data-i18n="cookieSettings" aria-controls="cookieBanner" aria-expanded="false">Setări cookie-uri</button>
+<div class="authority-icons" aria-label="Autoritatea Națională pentru Protecția Consumatorilor">
+<a class="authority-icon" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener noreferrer nofollow" aria-label="ANPC — Autoritatea Națională pentru Protecția Consumatorilor" title="ANPC">
+<img class="anpc-badge-img" src="anpc.png" alt="ANPC — Autoritatea Națională pentru Protecția Consumatorilor" width="250" height="50" decoding="async">
+</a>
+</div>
 </div>
 
-<div class="foot-note">Canino Artis — atelier pentru câini</div>
+<div class="foot-note" data-i18n="footNote">Canino Artis — Toaletaj canin Târgu Mureș</div>
 </footer>
 
 <!-- Background music control -->
@@ -2796,11 +2819,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 <input class="field" id="when" name="when" required="" type="date"/>
 <label class="sr-only" data-i18n="note" for="note">Notă</label>
 <input class="field" data-i18n-placeholder="phNote" id="note" name="note" placeholder="Orice ar trebui să știm"/>
+<p class="booking-privacy-note"><span data-i18n="bookingPrivacyNote">Prin trimiterea formularului, datele furnizate sunt folosite doar pentru a răspunde solicitării și a gestiona programarea. Site-ul nu păstrează o bază de date de programări.</span> <a href="privacy.html" data-i18n="privacyShortLink">Politica de confidențialitate</a>.</p>
 <button class="book-btn in-flow" data-i18n="requestHour" style="margin-top:1rem;" type="submit">Cere ora</button>
 </form>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
 (function(){
@@ -2819,8 +2842,23 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   var EMAILJS_PUBLIC_KEY = 'lo6t5O7GTNxTHgV95';
   var EMAILJS_SERVICE_ID = 'service_0603xih';
   var EMAILJS_TEMPLATE_ID = 'template_lkadfu4';
-  if(window.emailjs){
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  var emailjsLoader = null;
+  function loadEmailJS(){
+    if(window.emailjs) return Promise.resolve(window.emailjs);
+    if(emailjsLoader) return emailjsLoader;
+    emailjsLoader = new Promise(function(resolve,reject){
+      var script=document.createElement('script');
+      script.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+      script.async=true;
+      script.onload=function(){
+        if(!window.emailjs){ reject(new Error('EmailJS failed to initialize')); return; }
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        resolve(window.emailjs);
+      };
+      script.onerror=function(){reject(new Error('Could not load EmailJS'));};
+      document.head.appendChild(script);
+    });
+    return emailjsLoader;
   }
 
   /* ---------- i18n ---------- */
@@ -2828,7 +2866,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   var dict = {
     ro: {
       navAbout:'Despre mine', navRudi:'Rudi', navPhilosophy:'Filosofia noastră', navEli:'Eli', navDogs:'Câinii', navTransform:'Vezi munca', navServices:'Servicii', navReviews:'Recenzii',navVisit:'Program & Locație',
-      aboutOpeningEyebrow:'Cu grijă', aboutOpeningTitle:'Nu există o abordare universală pentru grooming.', aboutOpeningCaption:'Nu există o abordare universală pentru grooming.', aboutEyebrow:'Despre mine', aboutTitle:'Sunt Claudia, deși mulți oameni mă cunosc ca Eli.', aboutIntro1:'Sunt groomer de câini și persoana din spatele Canino Artis.', aboutIntro2:'Povestea mea cu câinii a început cu Topi, prima mea jucărie de pluș — un câine alb, mare, pe care l-am iubit enorm. Apoi au venit câinii adevărați. Când eram copil, aduceam acasă cățeluși, îi spălam și aveam grijă de ei, spre disperarea mamei mele — deși, de fapt, și ea iubește foarte mult animalele.', aboutIntro3:'Legătura mea cu foarfeca a început tot devreme. Bunica mea era coafeză, iar înainte să devin groomer am fost și eu coafeză. Privind în urmă, trecerea de la părul oamenilor la blana câinilor pare aproape firească.', aboutPhoto1Caption:'Topi și cu mine. Aici a început povestea.', aboutSaraEyebrow:'Sara — momentul care a schimbat ceva', aboutSaraTitle:'Și Sara m-a făcut să privesc groomingul dintr-o altă perspectivă.', aboutSara1:'Sara este câinele meu adoptat, salvat prin intermediul unei organizații pentru protecția animalelor din Cluj. Când a avut nevoie de grooming, am sunat la câteva saloane, dar nu a fost acceptată pentru că se temeau că, venind dintr-un adăpost, ar putea mușca.', aboutSara2:'Nu am judecat acea decizie — fiecare groomer trebuie să decidă în ce condiții poate lucra în siguranță. Dar mi-a părut atât de rău pentru Sara. O cunoșteam și știam cât de blândă era. Dincolo de orice presupunere, era pur și simplu un câine care avea nevoie să fie îngrijit.', aboutSara3:'Experiența aceea a rămas cu mine.', aboutOriginEyebrow:'Cum a apărut Canino Artis', aboutOriginTitle:'Un salon de grooming pentru câini de companie, exact așa cum sunt ei în viața reală.', aboutOrigin1:'Am deschis Canino Artis în iunie 2025.', aboutOrigin2:'Îmi place să lucrez cu un câine a cărui blană este frumos întreținută și să îi fac o tunsoare frumoasă. Dar găsesc la fel de multă împlinire în lucrul cu un câine senior, speriat sau reactiv, un câine venit din adăpost sau un câine a cărui blană are nevoie de considerabil mai mult timp și de muncă pentru a fi refăcută.', aboutOrigin3:'Pentru că și acești câini au nevoie de grooming.', aboutOrigin4:'De când am deschis salonul, am întâlnit mulți câini diferiți și am trecut prin situații care m-au ajutat să cresc profesional.', aboutOrigin5:'Cred în învățarea continuă și în construirea lucrurilor corect, pas cu pas. Îmi rafinez în continuare tehnica pentru că această meserie are mereu ceva nou de predat.', aboutMeaningEyebrow:'Ce înseamnă groomingul pentru mine', aboutMeaning1:'Uneori, abordarea potrivită înseamnă pur și simplu să acordăm mai mult timp. Alteori, înseamnă pauze, schimbarea modului în care lucrez sau grooming la domiciliu atunci când un câine nu poate veni la salon.', aboutMeaning2:'Iar în anumite cazuri, când groomingul nu poate fi realizat în siguranță în condiții normale, înseamnă și să lucrăm împreună cu un medic veterinar.', aboutMeaning3:'Vreau ca fiecare câine să plece îngrijit și frumos. Dar pentru mine, rezultatul nu începe cu tunsoarea.', aboutMeaning4:'Începe cu câinele — cu blana lui, vârsta, temperamentul, limitele și nevoile lui individuale.', donationIngTip:'Deschide codul QR ING pentru donație.', donationIngKicker:'ING', donationIngTitle:'Donează prin ING', donationIngDisclaimer:'Pentru ca acest cod să funcționeze, deschide scanerul ING direct din aplicația ING și scanează codul QR.', donationPaypalTip:'Donație directă prin PayPal.Me.', donationRevolutTip:'Donație directă prin Revolut.Me.', bookBtn:'Programează o întâlnire', tagline:'Toaletaj canin Târgu Mureș',
+      aboutOpeningEyebrow:'Cu grijă', aboutOpeningTitle:'Nu există o abordare universală pentru grooming.', aboutOpeningCaption:'Nu există o abordare universală pentru grooming.', aboutEyebrow:'Despre mine', aboutTitle:'Sunt Claudia, deși mulți oameni mă cunosc ca Eli.', aboutIntro1:'Sunt groomer de câini și persoana din spatele Canino Artis.', aboutIntro2:'Povestea mea cu câinii a început cu Topi, prima mea jucărie de pluș — un câine alb, mare, pe care l-am iubit enorm. Apoi au venit câinii adevărați. Când eram copil, aduceam acasă cățeluși, îi spălam și aveam grijă de ei, spre disperarea mamei mele — deși, de fapt, și ea iubește foarte mult animalele.', aboutIntro3:'Legătura mea cu foarfeca a început tot devreme. Bunica mea era coafeză, iar înainte să devin groomer am fost și eu coafeză. Privind în urmă, trecerea de la părul oamenilor la blana câinilor pare aproape firească.', aboutPhoto1Caption:'Topi și cu mine. Aici a început povestea.', aboutSaraEyebrow:'Sara — momentul care a schimbat ceva', aboutSaraTitle:'Și Sara m-a făcut să privesc groomingul dintr-o altă perspectivă.', aboutSara1:'Sara este câinele meu adoptat, salvat prin intermediul unei organizații pentru protecția animalelor din Cluj. Când a avut nevoie de grooming, am sunat la câteva saloane, dar nu a fost acceptată pentru că se temeau că, venind dintr-un adăpost, ar putea mușca.', aboutSara2:'Nu am judecat acea decizie — fiecare groomer trebuie să decidă în ce condiții poate lucra în siguranță. Dar mi-a părut atât de rău pentru Sara. O cunoșteam și știam cât de blândă era. Dincolo de orice presupunere, era pur și simplu un câine care avea nevoie să fie îngrijit.', aboutSara3:'Experiența aceea a rămas cu mine.', aboutOriginEyebrow:'Cum a apărut Canino Artis', aboutOriginTitle:'Un salon de grooming pentru câini de companie, exact așa cum sunt ei în viața reală.', aboutOrigin1:'Am deschis Canino Artis în iunie 2025.', aboutOrigin2:'Îmi place să lucrez cu un câine a cărui blană este frumos întreținută și să îi fac o tunsoare frumoasă. Dar găsesc la fel de multă împlinire în lucrul cu un câine senior, speriat sau reactiv, un câine venit din adăpost sau un câine a cărui blană are nevoie de considerabil mai mult timp și de muncă pentru a fi refăcută.', aboutOrigin3:'Pentru că și acești câini au nevoie de grooming.', aboutOrigin4:'De când am deschis salonul, am întâlnit mulți câini diferiți și am trecut prin situații care m-au ajutat să cresc profesional.', aboutOrigin5:'Cred în învățarea continuă și în construirea lucrurilor corect, pas cu pas. Îmi rafinez în continuare tehnica pentru că această meserie are mereu ceva nou de predat.', aboutMeaningEyebrow:'Ce înseamnă groomingul pentru mine', aboutMeaning1:'Uneori, abordarea potrivită înseamnă pur și simplu să acordăm mai mult timp. Alteori, înseamnă pauze, schimbarea modului în care lucrez sau grooming la domiciliu atunci când un câine nu poate veni la salon.', aboutMeaning2:'Iar în anumite cazuri, când groomingul nu poate fi realizat în siguranță în condiții normale, înseamnă și să lucrăm împreună cu un medic veterinar.', aboutMeaning3:'Vreau ca fiecare câine să plece îngrijit și frumos. Dar pentru mine, rezultatul nu începe cu tunsoarea.', aboutMeaning4:'Începe cu câinele — cu blana lui, vârsta, temperamentul, limitele și nevoile lui individuale.', donationIngTip:'Deschide codul QR ING pentru donație.', donationIngKicker:'ING', donationIngTitle:'Donează prin ING', donationIngDisclaimer:'Pentru ca acest cod să funcționeze, deschide scanerul ING direct din aplicația ING și scanează codul QR.', donationPaypalTip:'Donație directă prin PayPal.Me.', donationRevolutTip:'Donație directă prin Revolut.Me.', bookingPrivacyNote:'Prin trimiterea formularului, datele furnizate sunt folosite doar pentru a răspunde solicitării și a gestiona programarea. Site-ul nu păstrează o bază de date de programări.', privacyShortLink:'Politica de confidențialitate', privacyFooter:'Politica de confidențialitate', cookiesFooter:'Politica cookies', anpcFooter:'ANPC', anspdcpFooter:'ANSPDCP', salFooter:'Soluționarea Alternativă a Litigiilor', cookieTitle:'Cookie-uri', cookieText:'Înainte de alegerea ta, site-ul nu setează propriul cookie. După acceptare, folosim un cookie de preferință pentru a memora alegerea ta. Nu folosim cookie-uri de publicitate, marketing sau profilare.', cookieMore:'Află mai multe despre cookie-uri', cookieNecessary:'Doar necesare', cookieReject:'Refuză', cookieAccept:'Acceptă', cookieSettings:'Setări cookie-uri', bookBtn:'Programează o întâlnire', tagline:'Toaletaj canin Târgu Mureș', footNote:'Canino Artis — Toaletaj canin Târgu Mureș',
       eliPhotoLabel:'Fondatoarea Canino Artis',
       eliKicker:'Profilul atelierului',
       eliName:'Eli',
@@ -2905,7 +2943,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev8Meta:'Google · acum o săptămână',
       rev9:'„Tratează îngrijirea ca pe un portret. Lumină, răbdare, timp — și se vede pe fiecare câine care pleacă.”',
       rev9Meta:'Google · acum 6 săptămâni',
-      hoursEyebrow:'Program',hoursTitle:'Când ne găsești',monFri:'Luni – Vineri',monFriTime:'09:00 – 18:00',sat:'Sâmbătă',satTime:'10:00 – 16:00',sun:'Duminică',sunTime:'Închis',hoursNote:'Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.',mapTitle:'Canino Artis',mapNote:'Localizare și indicații pe Google Maps',byAppt:'Doar cu programare', studio:'Studio în curte',
+      hoursEyebrow:'Program',hoursTitle:'Când ne găsești',monFri:'Luni – Vineri',monFriTime:'09:00 – 18:00',sat:'Sâmbătă',satTime:'10:00 – 16:00',sun:'Duminică',sunTime:'Închis',hoursNote:'Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.',mapTitle:'Canino Artis',mapNote:'Localizare și indicații pe Google Maps',mapConsentText:'Harta Google se încarcă după acceptarea cookie-urilor.',byAppt:'Doar cu programare', studio:'Studio în curte',
       atelier:'Atelierul', bookTitle:'Programează o ședință',
       bookDesc:'Un câine pe rând. Spune-ne cine vine și vom găsi o oră liniștită.',
       phName:'Numele tău', emailLabel:'Adresa de email', phEmail:'Adresa de email', phoneLabel:'Număr de telefon', phPhone:'Număr de telefon', phDog:'Numele câinelui', phNote:'Orice ar trebui să știm',
@@ -2924,7 +2962,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     },
     en: {
       navAbout:'About Me', navRudi:'Rudi', navPhilosophy:'Our philosophy', navEli:'Eli', navDogs:'The Dogs', navTransform:'See the work', navServices:'Services', navReviews:'Reviews',navVisit:'Hours & Location',
-      aboutOpeningEyebrow:'With care', aboutOpeningTitle:'There is no one-size-fits-all approach to grooming.', aboutOpeningCaption:'There is no one-size-fits-all approach to grooming.', aboutEyebrow:'About Me', aboutTitle:'I’m Claudia, although many people know me as Eli.', aboutIntro1:'I’m a dog groomer and the person behind Canino Artis.', aboutIntro2:'My story with dogs began with Topi, my first stuffed toy — a big white dog that I loved dearly. Then came the real dogs. As a child, I would bring home puppies, wash them and take care of them, much to my mother’s despair — although she is, in fact, a great animal lover herself.', aboutIntro3:'My connection with scissors also began early. My grandmother was a hairdresser, and before becoming a dog groomer, I was a hairdresser myself. Looking back, the transition from human hair to dog fur feels almost natural.', aboutPhoto1Caption:'Topi and me. This is where the story began.', aboutSaraEyebrow:'Sara — the moment that changed something', aboutSaraTitle:'Sara made me look at grooming from a different perspective, too.', aboutSara1:'Sara is my adopted dog, rescued through an animal welfare organisation in Cluj. When she needed grooming, I called a few places, but she wasn’t accepted because they were afraid that, having come from a shelter, she might bite.', aboutSara2:'I didn’t judge that decision — every groomer has to decide the conditions in which they can work safely. But I felt so sorry for Sara. I knew her, and I knew how gentle she was. And beyond any assumptions, she was simply a dog who needed to be groomed.', aboutSara3:'That experience stayed with me.', aboutOriginEyebrow:'How Canino Artis came to be', aboutOriginTitle:'A grooming salon for companion dogs, just as they are in real life.', aboutOrigin1:'I opened Canino Artis in June 2025.', aboutOrigin2:'I love working with a dog whose coat is beautifully maintained and giving them a lovely haircut. But I find just as much fulfilment in working with a senior dog, a fearful or reactive dog, a dog who has come from a shelter, or a dog whose coat needs considerably more time and work to restore.', aboutOrigin3:'Because these dogs need grooming, too.', aboutOrigin4:'Since opening the salon, I have met many different dogs and encountered situations that have helped me grow professionally.', aboutOrigin5:'I believe in continuous learning and in building things properly, step by step. I continue to refine my technique because this profession always has something new to teach me.', aboutMeaningEyebrow:'What grooming means to me', aboutMeaning1:'Sometimes the right approach simply means allowing more time. Other times, it means taking breaks, changing the way I work, or providing grooming at home when a dog cannot come to the salon.', aboutMeaning2:'And in certain cases, when grooming cannot be carried out safely under normal conditions, it also means working together with a veterinarian.', aboutMeaning3:'I want every dog to leave well cared for and looking beautiful. But for me, the result doesn’t begin with the haircut.', aboutMeaning4:'It begins with the dog — with their coat, age, temperament, boundaries and individual needs.', donationIngTip:'Open the ING QR code for your donation.', donationIngKicker:'ING', donationIngTitle:'Donate via ING', donationIngDisclaimer:'For this code to work, open the ING scanner directly in the ING app and scan the QR code.', donationPaypalTip:'Donate directly through PayPal.Me.', donationRevolutTip:'Donate directly through Revolut.Me.', bookBtn:'Book an appointment', tagline:'Dog grooming in Târgu Mureș',
+      aboutOpeningEyebrow:'With care', aboutOpeningTitle:'There is no one-size-fits-all approach to grooming.', aboutOpeningCaption:'There is no one-size-fits-all approach to grooming.', aboutEyebrow:'About Me', aboutTitle:'I’m Claudia, although many people know me as Eli.', aboutIntro1:'I’m a dog groomer and the person behind Canino Artis.', aboutIntro2:'My story with dogs began with Topi, my first stuffed toy — a big white dog that I loved dearly. Then came the real dogs. As a child, I would bring home puppies, wash them and take care of them, much to my mother’s despair — although she is, in fact, a great animal lover herself.', aboutIntro3:'My connection with scissors also began early. My grandmother was a hairdresser, and before becoming a dog groomer, I was a hairdresser myself. Looking back, the transition from human hair to dog fur feels almost natural.', aboutPhoto1Caption:'Topi and me. This is where the story began.', aboutSaraEyebrow:'Sara — the moment that changed something', aboutSaraTitle:'Sara made me look at grooming from a different perspective, too.', aboutSara1:'Sara is my adopted dog, rescued through an animal welfare organisation in Cluj. When she needed grooming, I called a few places, but she wasn’t accepted because they were afraid that, having come from a shelter, she might bite.', aboutSara2:'I didn’t judge that decision — every groomer has to decide the conditions in which they can work safely. But I felt so sorry for Sara. I knew her, and I knew how gentle she was. And beyond any assumptions, she was simply a dog who needed to be groomed.', aboutSara3:'That experience stayed with me.', aboutOriginEyebrow:'How Canino Artis came to be', aboutOriginTitle:'A grooming salon for companion dogs, just as they are in real life.', aboutOrigin1:'I opened Canino Artis in June 2025.', aboutOrigin2:'I love working with a dog whose coat is beautifully maintained and giving them a lovely haircut. But I find just as much fulfilment in working with a senior dog, a fearful or reactive dog, a dog who has come from a shelter, or a dog whose coat needs considerably more time and work to restore.', aboutOrigin3:'Because these dogs need grooming, too.', aboutOrigin4:'Since opening the salon, I have met many different dogs and encountered situations that have helped me grow professionally.', aboutOrigin5:'I believe in continuous learning and in building things properly, step by step. I continue to refine my technique because this profession always has something new to teach me.', aboutMeaningEyebrow:'What grooming means to me', aboutMeaning1:'Sometimes the right approach simply means allowing more time. Other times, it means taking breaks, changing the way I work, or providing grooming at home when a dog cannot come to the salon.', aboutMeaning2:'And in certain cases, when grooming cannot be carried out safely under normal conditions, it also means working together with a veterinarian.', aboutMeaning3:'I want every dog to leave well cared for and looking beautiful. But for me, the result doesn’t begin with the haircut.', aboutMeaning4:'It begins with the dog — with their coat, age, temperament, boundaries and individual needs.', donationIngTip:'Open the ING QR code for your donation.', donationIngKicker:'ING', donationIngTitle:'Donate via ING', donationIngDisclaimer:'For this code to work, open the ING scanner directly in the ING app and scan the QR code.', donationPaypalTip:'Donate directly through PayPal.Me.', donationRevolutTip:'Donate directly through Revolut.Me.', bookingPrivacyNote:'By submitting the form, the information you provide is used only to respond to your request and manage your appointment. The site does not maintain a booking database.', privacyShortLink:'Privacy Policy', privacyFooter:'Privacy Policy', cookiesFooter:'Cookie Policy', anpcFooter:'ANPC', anspdcpFooter:'ANSPDCP', salFooter:'Alternative dispute resolution', cookieTitle:'Cookies', cookieText:'Before you make a choice, the site does not set its own cookie. After you choose Accept or Reject, we use one preference cookie to remember your choice. We do not use advertising, marketing or profiling cookies.', cookieMore:'Learn more about cookies', cookieNecessary:'Necessary only', cookieReject:'Reject', cookieAccept:'Accept', cookieSettings:'Cookie settings', bookBtn:'Book an appointment', tagline:'Dog grooming in Târgu Mureș', footNote:'Canino Artis — Dog grooming in Târgu Mureș',
       eliPhotoLabel:'Founder of Canino Artis',
       eliKicker:'Atelier profile',
       eliName:'Eli',
@@ -3001,7 +3039,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev8Meta:'Google · 1 week ago',
       rev9:'“They treat grooming like portraiture. Light, patience, time — and it shows on every dog that leaves.”',
       rev9Meta:'Google · 6 weeks ago',
-      hoursEyebrow:'Hours',hoursTitle:'When to find us',monFri:'Monday – Friday',monFriTime:'09:00 – 18:00',sat:'Saturday',satTime:'10:00 – 16:00',sun:'Sunday',sunTime:'Closed',hoursNote:'Sessions are by appointment only. For dogs who need more time, we reserve longer, quieter appointments.',mapTitle:'Canino Artis',mapNote:'Location and directions on Google Maps',byAppt:'By appointment only', studio:'Courtyard studio',
+      hoursEyebrow:'Hours',hoursTitle:'When to find us',monFri:'Monday – Friday',monFriTime:'09:00 – 18:00',sat:'Saturday',satTime:'10:00 – 16:00',sun:'Sunday',sunTime:'Closed',hoursNote:'Sessions are by appointment only. For dogs who need more time, we reserve longer, quieter appointments.',mapTitle:'Canino Artis',mapNote:'Location and directions on Google Maps',mapConsentText:'Google Maps loads after you accept cookies.',byAppt:'By appointment only', studio:'Courtyard studio',
       atelier:'The atelier', bookTitle:'Book a sitting',
       bookDesc:'One dog at a time. Tell us who is coming, and we will find a quiet hour.',
       phName:'Your name', emailLabel:'Email address', phEmail:'Email address', phoneLabel:'Phone number', phPhone:'Phone number', phDog:"Your dog's name", phNote:'Anything we should know',
@@ -3037,7 +3075,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       aboutMeaningEyebrow:'Mit jelent számomra a kutyakozmetika', aboutMeaning1:'Néha a megfelelő megközelítés egyszerűen több időt jelent. Máskor szüneteket, a munkamódszer megváltoztatását vagy otthoni kozmetikát, amikor egy kutya nem tud eljönni a szalonba.',
       aboutMeaning2:'Bizonyos esetekben pedig, amikor a kozmetika normál körülmények között nem végezhető el biztonságosan, állatorvossal együttműködve dolgozunk.',
       aboutMeaning3:'Azt szeretném, hogy minden kutya ápoltan és szépen távozzon. Számomra azonban az eredmény nem a frizurával kezdődik.', aboutMeaning4:'A kutyával kezdődik — a szőrével, életkorával, temperamentumával, határaival és egyéni igényeivel.',
-      donationIngTip:'Nyisd meg az ING QR-kódot az adományozáshoz.', donationIngKicker:'ING', donationIngTitle:'Adományozás ING-en keresztül', donationIngDisclaimer:'Ahhoz, hogy a kód működjön, nyisd meg az ING alkalmazásban az ING QR-szkennert, majd olvasd be a kódot.', donationPaypalTip:'Adományozz közvetlenül a PayPal.Me oldalon.', donationRevolutTip:'Adományozz közvetlenül a Revolut.Me oldalon.', bookBtn:'Időpontfoglalás', tagline:'Kutyakozmetika Marosvásárhelyen', eliPhotoLabel:'A Canino Artis alapítója', eliKicker:'A műhely profilja', eliName:'Eli',
+      donationIngTip:'Nyisd meg az ING QR-kódot az adományozáshoz.', donationIngKicker:'ING', donationIngTitle:'Adományozás ING-en keresztül', donationIngDisclaimer:'Ahhoz, hogy a kód működjön, nyisd meg az ING alkalmazásban az ING QR-szkennert, majd olvasd be a kódot.', donationPaypalTip:'Adományozz közvetlenül a PayPal.Me oldalon.', donationRevolutTip:'Adományozz közvetlenül a Revolut.Me oldalon.', bookingPrivacyNote:'Az űrlap elküldésével megadott adatokat kizárólag a megkeresés megválaszolására és az időpont egyeztetésére használjuk. A webhely nem vezet külön időpontfoglalási adatbázist.', privacyShortLink:'Adatvédelmi tájékoztató', privacyFooter:'Adatvédelmi tájékoztató', cookiesFooter:'Cookie-szabályzat', anpcFooter:'ANPC', anspdcpFooter:'ANSPDCP', salFooter:'Alternatív vitarendezés', cookieTitle:'Sütik', cookieText:'A választásod előtt a webhely nem állít be saját cookie-t. Az Elfogadom vagy Elutasítom választás után egyetlen preferencia-cookie-t használunk a választásod megjegyzésére. Nem használunk hirdetési, marketing- vagy profilalkotási sütiket.', cookieMore:'További információ a sütikről', cookieNecessary:'Csak szükséges', cookieReject:'Elutasítom', cookieAccept:'Elfogadom', cookieSettings:'Cookie-beállítások', bookBtn:'Időpontfoglalás', tagline:'Kutyakozmetika Marosvásárhelyen', footNote:'Canino Artis — Kutyakozmetika Marosvásárhelyen', eliPhotoLabel:'A Canino Artis alapítója', eliKicker:'A műhely profilja', eliName:'Eli',
       eliRole:'Kutyakozmetikus · Alapító · Kutyaviselkedési specialista', eliIntro:'Eli a Canino Artist egy egyszerű gondolat köré építette: a jó kozmetika a kutya megfigyelésével kezdődik, nem az ollóval.',
       eliHistory1:'Pályáját professzionális állatápolásban kezdte, ahol megtanulta az alapvető kozmetikai technikákat, a szőrtípusokat és a biztonságos bánásmódot.',
       eliHistory2:'Ezután a speciális kutyakozmetika felé fordult, és egyre többet dolgozott szorongó, idős és első alkalommal kozmetikázott kutyákkal.',
@@ -3072,7 +3110,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       pressEyebrow:'A sajtóban', pressTitle:'A Canino Artis a helyi sajtóban', pressDescription:'A helyi sajtó az állatokért végzett jó munkánkért emelte ki a Canino Artist.',
       donate:'Adományozz', donationSupportKicker:'Támogasd a Second Life-ot', donationTitle:'Válassz adományozási módot', donationSubtitle:'Az alábbi lehetőségek bármelyikével támogathatod az állatokat.', donationCopy:'Másolás', donationCopied:'Másolva', googleReviews:'Google-vélemények', reviewUs:'Írj véleményt', reviewsTitle:'Mit mondanak a vendégeink',
       hoursEyebrow:'Nyitvatartás', hoursTitle:'Mikor találsz minket', monFri:'Hétfő – Péntek', monFriTime:'09:00 – 18:00', sat:'Szombat', satTime:'10:00 – 16:00', sun:'Vasárnap', sunTime:'Zárva',
-      hoursNote:'A kezelések kizárólag időpont alapján történnek. Azoknak a kutyáknak, akiknek több időre van szükségük, hosszabb, nyugodtabb időpontot biztosítunk.', mapTitle:'Canino Artis', mapNote:'Helyszín és útvonal a Google Térképen', byAppt:'Csak időpontfoglalással', studio:'Udvari stúdió',
+      hoursNote:'A kezelések kizárólag időpont alapján történnek. Azoknak a kutyáknak, akiknek több időre van szükségük, hosszabb, nyugodtabb időpontot biztosítunk.', mapTitle:'Canino Artis', mapNote:'Helyszín és útvonal a Google Térképen', mapConsentText:'A Google Térkép az opcionális sütik elfogadása után töltődik be.', byAppt:'Csak időpontfoglalással', studio:'Udvari stúdió',
       atelier:'A műhely', bookTitle:'Időpontfoglalás', bookDesc:'Egyszerre egy kutya. Írd meg, ki érkezik, és keresünk egy nyugodt időpontot.',
       yourName:'Neved', emailLabel:'E-mail cím', phEmail:'E-mail cím', phoneLabel:'Telefonszám', phPhone:'Telefonszám', phName:'Neved', dogName:'A kutya neve', phDog:'A kutya neve', dogSize:'A kutya mérete', dogSizeSmall:'Kicsi', dogSizeMedium:'Közepes', dogSizeLarge:'Nagy', breedType:'Fajta típusa', phBreedType:'Fajta / keverék', furType:'Szőrtípus', furTypeThick:'Vastag', furTypeSoft:'Puha', furTypeCurly:'Göndör', furTypeNormal:'Normál', prefDay:'Preferált nap', note:'Megjegyzés', phNote:'Bármi, amit tudnunk kell', requestHour:'Időpont kérése', sendingBooking:'Küldés…', sendingBookingDesc:'Elküldjük a foglalási kérelmedet.', bookSentTitle:'Megkaptuk.', bookSentDesc:'A foglalási kérelmed elküldtük. Hamarosan jelentkezünk.', bookErrorDesc:'A kérelmet nem sikerült elküldeni. Ellenőrizd az adatokat, majd próbáld újra.',
       waOnline:'Általában gyorsan válaszol', waBubble:'Szia! Írj nekünk WhatsAppon időpontért vagy a kutyáddal kapcsolatos kérdéssel.', waStart:'Beszélgetés indítása', waMsg:'Szeretnék időpontot kérni a Canino Artishoz.',
@@ -3112,7 +3150,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev22:'★★★★★',
       rev23:'„Eli, nu cred că există vreun câine căruia să nu-i placă de tine. Ești minunată, iar câinii mei mi-au spus să-ți dau 10 stele, dar Google îmi dă doar 5, din păcate.. 😅😘🥰❤️”',
       rev24:'★★★★★',
-      rev25:'★★★★★'
+      rev25:'★★★★★',
+      rev26:'Da, Elie, am avut marea plăcere să avem grijă de Rudy al nostru, da, cel din prima fotografie, care, din păcate, nu mai este printre noi. Dar cel mai mult contează faptul că am primit în casa noastră un profesionist care nu s-a ocupat doar de un animal de companie, ci a avut grijă de un membru al familiei și s-a atașat extrem de mult de el. Rudy, de acolo de sus, și familia lui îți dorim mult succes și oameni buni. Ai încredere în Eli, vei fi surprins de bunătatea și profesionalismul ei!!!!'
     },
     en: {
       rev1:'“The Best!”',
@@ -3139,7 +3178,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev22:'★★★★★',
       rev23:'“Eli, I don\'t think there is a dog that doesn\'t love you. You are wonderful and my dogs told me to give you 10 stars but Google only gives me 5 unfortunately.. 😅😘🥰❤️”',
       rev24:'★★★★★',
-      rev25:'★★★★★'
+      rev25:'★★★★★',
+      rev26:'Yes, Elie, we had the great pleasure of taking care of our Rudy, yes the one in the first photo, who unfortunately is no longer with us, but what matters most is that we welcomed into our home a professional who did not take care of a pet, she took care of and became extremely attached to a family member, Rudy from up there and his family, we wish you much success, and good people, trust Eli, you will be surprised by her kindness and professionalism!!!!'
     },
     hu: {
       rev1:'„A legjobb!”',
@@ -3166,13 +3206,14 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev22:'★★★★★',
       rev23:'„Eli, nem hiszem, hogy van olyan kutya, aki ne szeretne téged. Csodálatos vagy, a kutyáim pedig azt mondták, adjak neked 10 csillagot, de a Google sajnos csak 5-öt enged.. 😅😘🥰❤️”',
       rev24:'★★★★★',
-      rev25:'★★★★★'
+      rev25:'★★★★★',
+      rev26:'Da, Elie, nagy örömünkre szolgált, hogy a mi Rudy-nk gondozásával foglalkozhattunk, igen, azzal a Rudyval, aki az első képen látható, és aki sajnos már nincs velünk. De ami a leginkább számít, az az, hogy egy szakembert fogadtunk az otthonunkba, aki nem egyszerűen egy háziállattal foglalkozott, hanem egy családtagként gondozta, és rendkívül szoros kapcsolat alakult ki közöttük. Rudy odafentről és családja sok sikert és jó embereket kíván neked. Bízz Eliben, meg fog lepni a kedvessége és a professzionalizmusa!!!!'
     }
   };
   var reviewMetaTranslations = {
-    ro:['Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 5 luni','Google · acum 7 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 7 luni','Google · acum un an'],
-    en:['Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 5 months ago','Google · 7 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 7 months ago','Google · a year ago'],
-    hu:['Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 5 hónapja','Google · 7 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 7 hónapja','Google · egy éve']
+    ro:['Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 5 luni','Google · acum 7 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 6 luni','Google · acum 7 luni','Google · acum un an','Google · acum 5 ore · Nou'],
+    en:['Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 5 months ago','Google · 7 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 6 months ago','Google · 7 months ago','Google · a year ago','Google · 5 hours ago · New'],
+    hu:['Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 5 hónapja','Google · 7 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 6 hónapja','Google · 7 hónapja','Google · egy éve','Google · 5 órája · Új']
   };
   function updateReviewLanguage(l){
     var d=reviewTranslations[l]||reviewTranslations.en;
@@ -3321,7 +3362,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     if(langBtnMobile) langBtnMobile.setAttribute('aria-label', aria);
     syncCustomSelects();
     updateReviewLanguage(l);
-    try{ localStorage.setItem('canino-lang', l); }catch(e){}
   }
 
   function cycleLang(){
@@ -3332,7 +3372,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   /* Romanian is always the default language when the site is entered/refreshed.
      Language selection still works normally during the current visit. */
   lang = 'ro';
-  try{ localStorage.removeItem('canino-lang'); }catch(e){}
   applyLang(lang);
   initBookingCustomSelects();
 
@@ -3490,6 +3529,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     bookOverlay.classList.add('open');
     document.getElementById('bookBtn').hidden = true;
     toggle.hidden = true;
+    loadEmailJS().catch(function(){});
   }
   function closeBook(){
     bookOverlay.classList.remove('open');
@@ -3513,43 +3553,35 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   bookOverlay.addEventListener('click', function(e){ if(e.target === bookOverlay) closeBook(); });
   bookForm.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!window.emailjs){
-      var d0 = dict[lang];
-      document.getElementById('bookDesc').textContent = d0.bookErrorDesc;
-      return;
-    }
-
-    var data = Object.fromEntries(new FormData(bookForm).entries());
-    try{
-      var prev = JSON.parse(localStorage.getItem('canino-bookings') || '[]');
-      prev.push(Object.assign({}, data, {at: new Date().toISOString()}));
-      localStorage.setItem('canino-bookings', JSON.stringify(prev));
-    }catch(err){}
-
     var submitBtn = bookForm.querySelector('button[type="submit"]');
     var d = dict[lang];
-    if(submitBtn){
-      submitBtn.disabled = true;
-      submitBtn.setAttribute('aria-busy','true');
-      submitBtn.textContent = d.sendingBooking;
+    function sendBooking(){
+      if(submitBtn){
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy','true');
+        submitBtn.textContent = d.sendingBooking;
+      }
+      document.getElementById('bookDesc').textContent = d.sendingBookingDesc;
+      return emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, bookForm)
+        .then(function(){
+          bookForm.style.display = 'none';
+          document.getElementById('bookTitle').textContent = d.bookSentTitle;
+          document.getElementById('bookDesc').textContent = d.bookSentDesc;
+        })
+        .catch(function(error){
+          console.error('EmailJS booking send failed:', error);
+          if(submitBtn){
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute('aria-busy');
+            submitBtn.textContent = d.requestHour;
+          }
+          document.getElementById('bookDesc').textContent = d.bookErrorDesc;
+        });
     }
-    document.getElementById('bookDesc').textContent = d.sendingBookingDesc;
-
-    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, bookForm)
-      .then(function(){
-        bookForm.style.display = 'none';
-        document.getElementById('bookTitle').textContent = d.bookSentTitle;
-        document.getElementById('bookDesc').textContent = d.bookSentDesc;
-      })
-      .catch(function(error){
-        console.error('EmailJS booking send failed:', error);
-        if(submitBtn){
-          submitBtn.disabled = false;
-          submitBtn.removeAttribute('aria-busy');
-          submitBtn.textContent = d.requestHour;
-        }
-        document.getElementById('bookDesc').textContent = d.bookErrorDesc;
-      });
+    if(window.emailjs) sendBooking();
+    else loadEmailJS().then(function(){ sendBooking(); }).catch(function(){
+      document.getElementById('bookDesc').textContent = d.bookErrorDesc;
+    });
   });
 
 
@@ -4037,6 +4069,132 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   @media (max-width:700px){#about-me .about-opening{gap:1.5rem !important;padding-top:4vh !important;}#about-me .about-opening-copy{max-width:none !important;}}
 </style>
 
+
+<!-- Cookie consent banner -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+  <div class="cookie-copy">
+    <strong data-i18n="cookieTitle">Cookie-uri</strong>
+    <p data-i18n="cookieText">Înainte de alegerea ta, nu setăm propriul cookie și nu folosim stocare locală opțională. După acceptare, folosim un singur cookie de preferință pentru a reține această opțiune. Nu folosim cookie-uri de publicitate, marketing sau profilare.</p>
+    <a href="privacy.html#cookies" data-i18n="cookieMore">Află mai multe despre cookie-uri</a>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-secondary" id="cookieReject" type="button" data-i18n="cookieReject">Refuză</button>
+    <button class="cookie-btn cookie-primary" id="cookieAccept" type="button" data-i18n="cookieAccept">Acceptă</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var banner=document.getElementById('cookieBanner');
+  var accept=document.getElementById('cookieAccept');
+  var reject=document.getElementById('cookieReject');
+  var settings=document.getElementById('cookieSettings');
+  var mapFrame=document.querySelector('.map-panel iframe[data-map-src]');
+  var mapConsent=document.getElementById('mapConsent');
+  if(!banner||!accept||!reject) return;
+  function getConsent(){
+    var m=document.cookie.match(/(?:^|;\s*)canino-cookie-consent=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  /* Google Analytics is consent-gated: no GA script/cookies before explicit Accept. */
+  var CANINO_GA_MEASUREMENT_ID = ''; /* Add the GA4 ID here, e.g. G-XXXXXXXXXX */
+  var CANINO_GA_LOADED = false;
+
+  function expireGoogleAnalyticsCookies(){
+    var names = document.cookie.split(';').map(function(part){ return part.split('=')[0].trim(); });
+    names.forEach(function(name){
+      if(name === '_ga' || name === '_gid' || name.indexOf('_gat_') === 0 || name.indexOf('_gac_') === 0){
+        document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax; Secure';
+        document.cookie=name+'=; Max-Age=0; Path=/; Domain='+location.hostname+'; SameSite=Lax; Secure';
+      }
+    });
+  }
+
+  function disableGoogleAnalytics(){
+    if(window.gtag){
+      window.gtag('consent','update',{
+        analytics_storage:'denied',
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied'
+      });
+    }
+    if(CANINO_GA_MEASUREMENT_ID){
+      window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=true;
+    }
+    expireGoogleAnalyticsCookies();
+  }
+
+  function loadGoogleAnalyticsAfterConsent(){
+    if(!CANINO_GA_MEASUREMENT_ID || CANINO_GA_LOADED || getConsent()!=='accepted') return;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
+    window.gtag('consent','update',{
+      analytics_storage:'granted',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+    window.gtag('js',new Date());
+    window.gtag('config',CANINO_GA_MEASUREMENT_ID);
+    window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=false;
+
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(CANINO_GA_MEASUREMENT_ID);
+    document.head.appendChild(s);
+    CANINO_GA_LOADED=true;
+  }
+
+  function loadMap(){
+    if(!mapFrame) return;
+    if(!mapFrame.getAttribute('src')) mapFrame.setAttribute('src',mapFrame.getAttribute('data-map-src'));
+    mapFrame.hidden=false;
+    if(mapConsent) mapConsent.hidden=true;
+  }
+  function setConsent(value){
+    document.cookie='canino-cookie-consent='+encodeURIComponent(value)+'; Max-Age=31536000; Path=/; SameSite=Lax; Secure';
+  }
+  function setConsentAccepted(){
+    setConsent('accepted');
+    banner.hidden=true;
+    if(settings) settings.setAttribute('aria-expanded','false');
+    loadMap();
+    loadGoogleAnalyticsAfterConsent();
+  }
+  function rejectOptional(){
+    setConsent('rejected');
+    banner.hidden=true;
+    if(settings) settings.setAttribute('aria-expanded','false');
+    disableGoogleAnalytics();
+    if(mapFrame){
+      mapFrame.removeAttribute('src');
+      mapFrame.hidden=true;
+    }
+    if(mapConsent) mapConsent.hidden=false;
+  }
+  var consent=getConsent();
+  if(consent==='accepted'){
+    banner.hidden=true;
+    loadMap();
+    loadGoogleAnalyticsAfterConsent();
+  }else if(consent==='rejected'){
+    banner.hidden=true;
+    disableGoogleAnalytics();
+    if(mapFrame) mapFrame.hidden=true;
+    if(mapConsent) mapConsent.hidden=false;
+  }else{
+    banner.hidden=false;
+    if(mapFrame) mapFrame.hidden=true;
+    disableGoogleAnalytics();
+  }
+  accept.addEventListener('click',setConsentAccepted);
+  reject.addEventListener('click',rejectOptional);
+  if(settings){ settings.addEventListener('click',function(){ banner.hidden=false; settings.setAttribute('aria-expanded','true'); }); }
+  var mapAccept=document.getElementById('mapConsentOpen');
+  if(mapAccept) mapAccept.addEventListener('click',setConsentAccepted);
+})();
+</script>
 </body>
 
 <style>
@@ -4556,5 +4714,76 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 @media (pointer: coarse) and (max-width: 380px){
   .pricing-card{padding-left:1rem !important;padding-right:1rem !important;}
   .pricing-row{grid-template-columns:minmax(0,1fr) auto;column-gap:.7rem;}
+}
+
+/* Keep all footer items vertically level, including the ANPC badge */
+.foot-links > *{display:inline-flex;align-items:center;justify-content:center;}
+.authority-icons{height:50px;line-height:1;}
+.authority-icon{vertical-align:middle;}
+/* ---------- Authority footer icons ---------- */
+.authority-icons{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  gap:.7rem;
+  margin:0;
+  flex:0 0 auto;
+}
+.authority-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:250px;
+  height:50px;
+  min-width:250px;
+  min-height:50px;
+  padding:0;
+  border:1px solid rgba(236,228,214,.16);
+  border-radius:10px;
+  background:rgba(255,255,255,.96);
+  opacity:.9;
+  transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
+}
+.authority-icon:hover{opacity:1;transform:translateY(-2px);border-color:rgba(227,192,127,.55);}
+.authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
+.anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
+.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'Nunito',sans-serif;letter-spacing:.08em;color:#211b17;}
+@media(max-width:700px){
+  .authority-icons{width:auto;justify-content:center;margin:0;align-items:center;}
+  .authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}
+}
+
+/* ---------- Legal, privacy and cookie UI ---------- */
+.booking-privacy-note{
+  margin:.75rem 0 0;
+  color:rgba(236,228,214,.58);
+  font-size:.78rem;
+  line-height:1.55;
+}
+.booking-privacy-note a{color:inherit;text-underline-offset:3px;}
+.cookie-banner{
+  position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:120;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  max-width:980px;margin:0 auto;padding:1rem 1.1rem;
+  background:rgba(23,18,16,.97);
+  border:1px solid rgba(236,228,214,.16);border-radius:18px;
+  box-shadow:0 18px 55px rgba(0,0,0,.32);
+}
+.cookie-banner[hidden]{display:none;}
+.cookie-copy{min-width:0;}
+.cookie-copy strong{display:block;font-size:.95rem;color:var(--cream);margin-bottom:.25rem;}
+.cookie-copy p{margin:0;color:var(--cream-dim);font-size:.78rem;line-height:1.5;}
+.cookie-copy a{display:inline-block;margin-top:.35rem;color:var(--gold);font-size:.75rem;text-underline-offset:3px;}
+.cookie-actions{display:flex;align-items:center;gap:.55rem;flex:0 0 auto;}
+.cookie-btn{border:1px solid rgba(236,228,214,.18);border-radius:999px;min-height:42px;padding:.65rem 1rem;font:600 .78rem 'Nunito',sans-serif;cursor:pointer;}
+.cookie-secondary{background:transparent;color:var(--cream);}
+.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold);}
+@media (max-width:700px){
+  .foot-links{flex-wrap:wrap;justify-content:center;gap:.65rem 1rem;align-items:center;}
+  .cookie-banner{flex-direction:column;align-items:stretch;bottom:max(.7rem,env(safe-area-inset-bottom));padding:1rem;border-radius:16px;}
+  .cookie-actions{width:100%;}
+  .cookie-btn{flex:1;min-width:0;}
+  .booking-privacy-note{font-size:.76rem;}
 }
 </style>
