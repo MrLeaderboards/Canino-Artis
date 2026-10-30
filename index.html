@@ -58,7 +58,7 @@
       },
       "openingHoursSpecification":[
         {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},
-        {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"16:00"}
+        {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"14:00"}
       ],
       "sameAs":[
         "https://www.instagram.com/canino_artis/",
@@ -666,6 +666,8 @@
   .hours-day{color:var(--cream-dim);}
   .hours-time{color:var(--cream);font-weight:600;text-align:right;}
   .hours-note{margin:1.2rem 0 0;color:var(--cream-dim);font-size:.76rem;line-height:1.55;}
+  .hours-note-title{margin:0 0 .55rem;color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+  .hours-note p{margin:.4rem 0 0;color:var(--cream-dim);font-size:.76rem;line-height:1.55;}
   .map-panel{position:relative;min-height:460px;overflow:hidden;background:#15110f;}
   .map-panel iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) contrast(.92) brightness(.72) sepia(.08);}
   .map-overlay{position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;z-index:2;pointer-events:none;}
@@ -2597,10 +2599,15 @@
 <h3 data-i18n="hoursTitle">Când ne găsești</h3>
 <div class="hours-list">
 <div class="hours-row"><span class="hours-day" data-i18n="monFri">Luni – Vineri</span><span class="hours-time" data-i18n="monFriTime">09:00 – 18:00</span></div>
-<div class="hours-row"><span class="hours-day" data-i18n="sat">Sâmbătă</span><span class="hours-time" data-i18n="satTime">10:00 – 16:00</span></div>
+<div class="hours-row"><span class="hours-day" data-i18n="sat">Sâmbătă</span><span class="hours-time" data-i18n="satTime">09:00 – 14:00</span></div>
 <div class="hours-row"><span class="hours-day" data-i18n="sun">Duminică</span><span class="hours-time" data-i18n="sunTime">Închis</span></div>
 </div>
-<p class="hours-note" data-i18n="hoursNote">Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.</p>
+<div class="hours-note" aria-label="Program de funcționare">
+<h4 class="hours-note-title" data-i18n="hoursFunctionHeading">Program de funcționare</h4>
+<p data-i18n="hoursServiceText">Serviciile de grooming se efectuează exclusiv pe bază de programare prealabilă.</p>
+<p data-i18n="hoursPresenceText">Prezența în salon se face în funcție de programările confirmate.</p>
+<p data-i18n="hoursContactText">Pentru programări, vă rugăm să ne contactați telefonic.</p>
+</div>
 </div>
 <div class="map-panel">
 <div class="map-consent" id="mapConsent" role="status">
@@ -2954,7 +2961,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev8Meta:'Google · acum o săptămână',
       rev9:'„Tratează îngrijirea ca pe un portret. Lumină, răbdare, timp — și se vede pe fiecare câine care pleacă.”',
       rev9Meta:'Google · acum 6 săptămâni',
-      hoursEyebrow:'Program',hoursTitle:'Când ne găsești',monFri:'Luni – Vineri',monFriTime:'09:00 – 18:00',sat:'Sâmbătă',satTime:'10:00 – 16:00',sun:'Duminică',sunTime:'Închis',hoursNote:'Ședințele se fac doar cu programare. Pentru câinii care au nevoie de mai mult timp, rezervăm intervale mai lungi.',mapTitle:'Canino Artis',mapNote:'Localizare și indicații pe Google Maps',mapConsentText:'Harta Google se încarcă după acceptarea cookie-urilor.',byAppt:'Doar cu programare', studio:'Studio în curte',
+      hoursEyebrow:'Program',hoursTitle:'Când ne găsești',monFri:'Luni – Vineri',monFriTime:'09:00 – 18:00',sat:'Sâmbătă',satTime:'09:00 – 14:00',sun:'Duminică',sunTime:'Închis',hoursFunctionHeading:'Program de funcționare',hoursServiceText:'Serviciile de grooming se efectuează exclusiv pe bază de programare prealabilă.',hoursPresenceText:'Prezența în salon se face în funcție de programările confirmate.',hoursContactText:'Pentru programări, vă rugăm să ne contactați telefonic.',mapTitle:'Canino Artis',mapNote:'Localizare și indicații pe Google Maps',mapConsentText:'Harta Google se încarcă după acceptarea cookie-urilor.',byAppt:'Doar cu programare', studio:'Studio în curte',
       atelier:'Atelierul', bookTitle:'Programează o ședință',
       bookDesc:'Un câine pe rând. Spune-ne cine vine și vom găsi o oră liniștită.',
       phName:'Numele tău', emailLabel:'Adresa de email', phEmail:'Adresa de email', phoneLabel:'Număr de telefon', phPhone:'Număr de telefon', phDog:'Numele câinelui', phNote:'Orice ar trebui să știm',
@@ -3050,7 +3057,7 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       rev8Meta:'Google · 1 week ago',
       rev9:'“They treat grooming like portraiture. Light, patience, time — and it shows on every dog that leaves.”',
       rev9Meta:'Google · 6 weeks ago',
-      hoursEyebrow:'Hours',hoursTitle:'When to find us',monFri:'Monday – Friday',monFriTime:'09:00 – 18:00',sat:'Saturday',satTime:'10:00 – 16:00',sun:'Sunday',sunTime:'Closed',hoursNote:'Sessions are by appointment only. For dogs who need more time, we reserve longer, quieter appointments.',mapTitle:'Canino Artis',mapNote:'Location and directions on Google Maps',mapConsentText:'Google Maps loads after you accept cookies.',byAppt:'By appointment only', studio:'Courtyard studio',
+      hoursEyebrow:'Hours',hoursTitle:'When to find us',monFri:'Monday – Friday',monFriTime:'09:00 – 18:00',sat:'Saturday',satTime:'09:00 – 14:00',sun:'Sunday',sunTime:'Closed',hoursFunctionHeading:'Operating hours',hoursServiceText:'Grooming services are provided exclusively by prior appointment.',hoursPresenceText:'Salon attendance is based on confirmed appointments.',hoursContactText:'To make an appointment, please contact us by phone.',mapTitle:'Canino Artis',mapNote:'Location and directions on Google Maps',mapConsentText:'Google Maps loads after you accept cookies.',byAppt:'By appointment only', studio:'Courtyard studio',
       atelier:'The atelier', bookTitle:'Book a sitting',
       bookDesc:'One dog at a time. Tell us who is coming, and we will find a quiet hour.',
       phName:'Your name', emailLabel:'Email address', phEmail:'Email address', phoneLabel:'Phone number', phPhone:'Phone number', phDog:"Your dog's name", phNote:'Anything we should know',
@@ -3120,8 +3127,8 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
       pricingBath:'Fürdetés és szárítás', pricingBathPrice:'60 lejtől', pricingNails:'Körömvágás', pricingNailsPrice:'30 lej', pricingEars:'Fültisztítás', pricingEarsPrice:'20 lej', pricingMatted:'Filcesedett szőr', pricingMattedPrice:'50 lejtől',
       pressEyebrow:'A sajtóban', pressTitle:'A Canino Artis a helyi sajtóban', pressDescription:'A helyi sajtó az állatokért végzett jó munkánkért emelte ki a Canino Artist.',
       donate:'Adományozz', donationSupportKicker:'Támogasd a Second Life-ot', donationTitle:'Válassz adományozási módot', donationSubtitle:'Az alábbi lehetőségek bármelyikével támogathatod az állatokat.', donationCopy:'Másolás', donationCopied:'Másolva', googleReviews:'Google-vélemények', reviewUs:'Írj véleményt', reviewsTitle:'Mit mondanak a vendégeink',
-      hoursEyebrow:'Nyitvatartás', hoursTitle:'Mikor találsz minket', monFri:'Hétfő – Péntek', monFriTime:'09:00 – 18:00', sat:'Szombat', satTime:'10:00 – 16:00', sun:'Vasárnap', sunTime:'Zárva',
-      hoursNote:'A kezelések kizárólag időpont alapján történnek. Azoknak a kutyáknak, akiknek több időre van szükségük, hosszabb, nyugodtabb időpontot biztosítunk.', mapTitle:'Canino Artis', mapNote:'Helyszín és útvonal a Google Térképen', mapConsentText:'A Google Térkép az opcionális sütik elfogadása után töltődik be.', byAppt:'Csak időpontfoglalással', studio:'Udvari stúdió',
+      hoursEyebrow:'Nyitvatartás', hoursTitle:'Mikor találsz minket', monFri:'Hétfő – Péntek', monFriTime:'09:00 – 18:00', sat:'Szombat', satTime:'09:00 – 14:00', sun:'Vasárnap', sunTime:'Zárva',
+      hoursFunctionHeading:'Nyitvatartás', hoursServiceText:'A kutyakozmetikai szolgáltatások kizárólag előzetes időpontfoglalás alapján vehetők igénybe.', hoursPresenceText:'A szalonban való jelenlét a visszaigazolt időpontok szerint történik.', hoursContactText:'Időpontfoglaláshoz kérjük, telefonon vegye fel velünk a kapcsolatot.', mapTitle:'Canino Artis', mapNote:'Helyszín és útvonal a Google Térképen', mapConsentText:'A Google Térkép az opcionális sütik elfogadása után töltődik be.', byAppt:'Csak időpontfoglalással', studio:'Udvari stúdió',
       atelier:'A műhely', bookTitle:'Időpontfoglalás', bookDesc:'Egyszerre egy kutya. Írd meg, ki érkezik, és keresünk egy nyugodt időpontot.',
       yourName:'Neved', emailLabel:'E-mail cím', phEmail:'E-mail cím', phoneLabel:'Telefonszám', phPhone:'Telefonszám', phName:'Neved', dogName:'A kutya neve', phDog:'A kutya neve', dogSize:'A kutya mérete', dogSizeSmall:'Kicsi', dogSizeMedium:'Közepes', dogSizeLarge:'Nagy', breedType:'Fajta típusa', phBreedType:'Fajta / keverék', furType:'Szőrtípus', furTypeThick:'Vastag', furTypeSoft:'Puha', furTypeCurly:'Göndör', furTypeNormal:'Normál', prefDay:'Preferált nap', note:'Megjegyzés', phNote:'Bármi, amit tudnunk kell', requestHour:'Időpont kérése', sendingBooking:'Küldés…', sendingBookingDesc:'Elküldjük a foglalási kérelmedet.', bookSentTitle:'Megkaptuk.', bookSentDesc:'A foglalási kérelmed elküldtük. Hamarosan jelentkezünk.', bookErrorDesc:'A kérelmet nem sikerült elküldeni. Ellenőrizd az adatokat, majd próbáld újra.',
       waOnline:'Általában gyorsan válaszol', waBubble:'Szia! Írj nekünk WhatsAppon időpontért vagy a kutyáddal kapcsolatos kérdéssel.', waStart:'Beszélgetés indítása', waMsg:'Szeretnék időpontot kérni a Canino Artishoz.',
