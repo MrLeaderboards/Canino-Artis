@@ -12,14 +12,14 @@
 :root{--black:#0b0908;--umber:#171210;--gold:#e3c07f;--cream:#ece4d6;--dim:rgba(236,228,214,.68);--line:rgba(236,228,214,.13);--card:#211a16}
 *{box-sizing:border-box}
 html{background:var(--black);scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,var(--black),#120e0c 45%,var(--umber));color:var(--cream);font-family:Nunito,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{margin:0;background:linear-gradient(180deg,var(--black),#120e0c 45%,var(--umber));color:var(--cream);font-family:system-ui,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:var(--gold);text-underline-offset:3px}
 .wrap{width:min(980px,calc(100% - 32px));margin:0 auto;padding:32px 0 70px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 0 28px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none;font-weight:700;letter-spacing:.03em}
 .brand-mark{width:42px;height:42px;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
 .langs{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.lang-btn{border:1px solid var(--line);background:transparent;color:var(--dim);padding:8px 12px;border-radius:999px;font:600 .76rem Nunito,Arial,sans-serif;cursor:pointer}
+.lang-btn{border:1px solid var(--line);background:transparent;color:var(--dim);padding:8px 12px;border-radius:999px;font:600 .76rem system-ui,Arial,sans-serif;cursor:pointer}
 .lang-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold)}
 .hero{padding:34px 0 24px;border-bottom:1px solid var(--line)}
 .eyebrow{color:var(--gold);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
@@ -42,7 +42,7 @@ strong{color:var(--cream)}
 .cookie-banner{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:100;max-width:980px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 18px;background:rgba(23,18,16,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px rgba(0,0,0,.34)}
 .cookie-banner[hidden]{display:none}
 .cookie-copy{min-width:0}.cookie-copy strong{display:block}.cookie-copy p{margin:3px 0 0;font-size:.78rem}.cookie-copy a{display:inline-block;margin-top:5px;font-size:.75rem}
-.cookie-actions{display:flex;gap:8px;flex:0 0 auto}.cookie-btn{min-height:42px;padding:8px 14px;border-radius:999px;font:700 .76rem Nunito,Arial,sans-serif;cursor:pointer;border:1px solid var(--line)}.cookie-secondary{background:transparent;color:var(--cream)}.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.cookie-actions{display:flex;gap:8px;flex:0 0 auto}.cookie-btn{min-height:42px;padding:8px 14px;border-radius:999px;font:700 .76rem system-ui,Arial,sans-serif;cursor:pointer;border:1px solid var(--line)}.cookie-secondary{background:transparent;color:var(--cream)}.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold)}
 @media(max-width:700px){
  .wrap{width:min(100% - 22px,680px);padding-top:18px}
  .topbar{align-items:flex-start;flex-direction:column}.langs{justify-content:flex-start}
@@ -58,7 +58,7 @@ strong{color:var(--cream)}
 .authority-icon:hover{transform:translateY(-2px);border-color:rgba(160,118,48,.4);}
 .authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
 .anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
-.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'Nunito',sans-serif;letter-spacing:.08em;color:#211b17;}
+.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'system-ui',sans-serif;letter-spacing:.08em;color:#211b17;}
 @media(max-width:700px){.authority-icons{width:auto;justify-content:center;}.authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}}
 
 /* Keep footer items vertically level, including the ANPC badge */
@@ -68,63 +68,7 @@ strong{color:var(--cream)}
 <link rel="icon" type="image/jpeg" href="/logo2.jpeg" sizes="48x48"/>
 <link rel="shortcut icon" type="image/jpeg" href="/logo2.jpeg" sizes="48x48"/>
 <link rel="apple-touch-icon" href="/logo2.jpeg"/>
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-<script>
-  /* Google Analytics is consent-gated: no GA script/cookies before explicit Accept. */
-  window.dataLayer=window.dataLayer||[];
-  window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
-  window.gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
-  var CANINO_GA_MEASUREMENT_ID = ''; /* Add the GA4 ID here, e.g. G-XXXXXXXXXX */
-  var CANINO_GA_LOADED = false;
 
-  function expireGoogleAnalyticsCookies(){
-    var names = document.cookie.split(';').map(function(part){ return part.split('=')[0].trim(); });
-    names.forEach(function(name){
-      if(name === '_ga' || name === '_gid' || name.indexOf('_gat_') === 0 || name.indexOf('_gac_') === 0){
-        document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax; Secure';
-        document.cookie=name+'=; Max-Age=0; Path=/; Domain='+location.hostname+'; SameSite=Lax; Secure';
-      }
-    });
-  }
-
-  function disableGoogleAnalytics(){
-    if(window.gtag){
-      window.gtag('consent','update',{
-        analytics_storage:'denied',
-        ad_storage:'denied',
-        ad_user_data:'denied',
-        ad_personalization:'denied'
-      });
-    }
-    if(CANINO_GA_MEASUREMENT_ID){
-      window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=true;
-    }
-    expireGoogleAnalyticsCookies();
-  }
-
-  function loadGoogleAnalyticsAfterConsent(){
-    if(!CANINO_GA_MEASUREMENT_ID || CANINO_GA_LOADED || getConsent()!=='accepted') return;
-    window.dataLayer=window.dataLayer||[];
-    window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
-    window.gtag('consent','update',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-    window.gtag('js',new Date());
-    window.gtag('config',CANINO_GA_MEASUREMENT_ID);
-    window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=false;
-
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(CANINO_GA_MEASUREMENT_ID);
-    document.head.appendChild(s);
-    CANINO_GA_LOADED=true;
-  }
-</script>
 </head>
 <body>
 <div class="wrap">
@@ -154,16 +98,16 @@ strong{color:var(--cream)}
         <span class="policy-lang" data-policy-lang="hu">Hogyan kezeljük a webhelyen, különösen az időpontfoglaló űrlapon megadott adatokat.</span>
       </p>
       <div class="meta">
-        <span class="policy-lang active" data-policy-lang="ro">Actualizată: 20 septembrie 2026</span>
-        <span class="policy-lang" data-policy-lang="en">Updated: 20 September 2026</span>
-        <span class="policy-lang" data-policy-lang="hu">Frissítve: 2026. szeptember 20.</span>
+        <span class="policy-lang active" data-policy-lang="ro">Actualizată: 8 noiembrie 2026</span>
+        <span class="policy-lang" data-policy-lang="en">Updated: 8 November 2026</span>
+        <span class="policy-lang" data-policy-lang="hu">Frissítve: 2026. november 8.</span>
       </div>
     </section>
 
     <section class="card policy-lang active" data-policy-lang="ro">
       <h2>1. Cine este operatorul</h2>
       <p><strong>Operator:</strong> Canino Artis</p>
-      <p><strong>Adresă:</strong> Strada Podeni 95, Târgu Mureș, 540253, România</p>
+      <p><strong>Adresă:</strong> Strada Lavandei 20, 540158 Târgu Mureș, România</p>
       <p><strong>E-mail de contact:</strong> <a href="mailto:caninoartis@outlook.com">caninoartis@outlook.com</a></p>
       <p><strong>Telefon:</strong> <a href="tel:+40755429037">+40 755 429 037</a></p>
       <p>Pentru solicitări privind protecția datelor, puteți folosi datele de contact de mai sus.</p>
@@ -184,7 +128,7 @@ strong{color:var(--cream)}
       <h2>5. Furnizori și destinatari</h2>
       <p><strong>EmailJS:</strong> este utilizat pentru transmiterea cererilor din formular. Conform informațiilor publice actuale ale EmailJS, serviciul poate păstra activitatea și metadatele solicitărilor, iar pentru conturile active declară o perioadă de păstrare de 30 de zile; setările contului pot influența datele de activitate disponibile. EmailJS declară că infrastructura sa relevantă este în SUA și că pentru utilizatorii europeni folosește garanții adecvate pentru transferurile internaționale, inclusiv clauze contractuale standard. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Politica EmailJS</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">DPA EmailJS</a></p>
       <p><strong>Găzduire:</strong> site-ul este găzduit prin GitHub Pages. GitHub declară că, la vizitarea unui site GitHub Pages, adresa IP a vizitatorului este înregistrată și păstrată pentru scopuri de securitate. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">Informații GitHub Pages</a></p>
-      <p><strong>Resurse externe:</strong> site-ul poate solicita resurse publice precum Google Fonts, jsDelivr și Google Maps. Google Maps este încărcat numai după acceptarea cookie-urilor, iar EmailJS este încărcat numai când este utilizată funcția de programare. Când aceste resurse sunt încărcate, furnizorii respectivi pot primi informații tehnice despre solicitarea browserului, conform propriilor politici.</p>
+      <p><strong>Resurse externe:</strong> pagina folosește fonturile de sistem disponibile pe dispozitivul vizitatorului și nu solicită Google Fonts sau biblioteci JavaScript de la CDN-uri terțe. Bibliotecile GSAP/ScrollTrigger au fost eliminate; conținutul rămâne accesibil fără acestea. Harta Google este încărcată numai după acceptarea cookie-urilor opționale (sau în baza unei acceptări memorate anterior). Numai după apăsarea butonului de trimitere a formularului, câmpurile completate sunt transmise prin HTTPS către API-ul EmailJS pentru livrarea cererii. EmailJS poate primi datele formularului și metadate tehnice ale solicitării, inclusiv adresa IP, conform politicilor sale.</p>
 
       <h2>6. Transferuri internaționale</h2>
       <p>Transmiterea unei cereri prin EmailJS poate implica transferul datelor către SUA. Operatorul se bazează pe garanțiile declarate de furnizorul său, inclusiv clauze contractuale standard pentru transferurile internaționale, după caz.</p>
@@ -199,7 +143,7 @@ strong{color:var(--cream)}
       <h2>9. Cookies</h2>
       <p>În prezent, site-ul nu utilizează cookie-uri de publicitate, marketing sau profilare. Înainte ca vizitatorul să facă o alegere, site-ul nu setează propriul cookie și nu folosește stocare locală opțională și nu salvează datele de programare în stocarea browserului.</p>
       <p>Dacă vizitatorul apasă <strong>Acceptă</strong> sau <strong>Refuză</strong>, site-ul setează cookie-ul propriu <strong>canino-cookie-consent</strong> pentru cel mult 12 luni, exclusiv pentru a memora alegerea privind cookie-urile. Acest cookie de preferință este folosit pentru ca bannerul să nu fie afișat din nou la fiecare vizită.</p>
-      <p>Google Maps este încărcat numai după acceptare, iar EmailJS este încărcat numai când este utilizată funcția de programare. Nu utilizăm cookie-uri de publicitate, marketing sau profilare.</p>
+      <p>Google Maps este încărcat numai după acceptare. EmailJS primește datele formularului numai după apăsarea butonului de trimitere, pentru a livra cererea de programare. Nu utilizăm cookie-uri de publicitate, marketing sau profilare.</p>
       <p>Orice cookie opțional sau tehnologie similară introdusă în viitor va fi activată numai după un consimțământ valabil, informat și prealabil, în măsura în care acesta este cerut de lege.</p>
 
       <h2>10. Linkuri către servicii externe</h2>
@@ -216,7 +160,7 @@ strong{color:var(--cream)}
     <section class="card policy-lang" data-policy-lang="en">
       <h2>1. Controller</h2>
       <p><strong>Controller:</strong> Canino Artis</p>
-      <p><strong>Address:</strong> Strada Podeni 95, Târgu Mureș, 540253, Romania</p>
+      <p><strong>Address:</strong> Strada Lavandei 20, 540158 Târgu Mureș, Romania</p>
       <p><strong>Contact email:</strong> <a href="mailto:caninoartis@outlook.com">caninoartis@outlook.com</a></p>
       <p><strong>Phone:</strong> <a href="tel:+40755429037">+40 755 429 037</a></p>
       <div class="notice"><strong>Important:</strong> the website does not create or maintain a booking database. The form is used to transmit an appointment request to Canino Artis through the email-delivery service described below.</div>
@@ -235,7 +179,7 @@ strong{color:var(--cream)}
       <h2>5. Service providers and recipients</h2>
       <p><strong>EmailJS:</strong> used to send booking requests. According to EmailJS’s current public information, request activity and metadata may be stored; for active accounts, EmailJS currently states a 30-day retention period, while account settings can affect available activity data. EmailJS states that relevant infrastructure is in the United States and that appropriate safeguards, including Standard Contractual Clauses, are used for European users where applicable. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">EmailJS Privacy Policy</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">EmailJS DPA</a></p>
       <p><strong>Hosting:</strong> the site is hosted through GitHub Pages. GitHub states that when a GitHub Pages site is visited, the visitor’s IP address is logged and stored for security purposes. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages information</a></p>
-      <p><strong>External resources:</strong> the site may request public resources such as Google Fonts, jsDelivr and Google Maps. Google Maps is loaded only after acceptance, while EmailJS is loaded only when the booking function is used. When these resources are loaded, the respective providers may receive technical request information under their own policies.</p>
+      <p><strong>External resources:</strong> the page uses system fonts available on the visitor’s device and does not request Google Fonts or JavaScript libraries from third-party CDNs. The GSAP/ScrollTrigger libraries have been removed; page content remains accessible without them. Google Maps is loaded only after optional cookie acceptance (or a previously saved acceptance). Only after the visitor presses the booking form’s submit button are the completed fields sent over HTTPS to the EmailJS API to deliver the request. EmailJS may receive the form data and technical request metadata, including the IP address, under its own policies.</p>
 
       <h2>6. International transfers</h2>
       <p>Submitting a request through EmailJS may involve transferring data to the United States. The operator relies on the safeguards declared by the relevant service provider, including Standard Contractual Clauses where applicable.</p>
@@ -250,7 +194,7 @@ strong{color:var(--cream)}
       <h2 id="cookies-en">9. Cookies</h2>
       <p>The site currently does not use advertising, marketing or profiling cookies. Before the visitor makes a choice, the site does not set its own cookie and does not save booking data in browser storage.</p>
       <p>If the visitor selects <strong>Accept</strong> or <strong>Reject</strong>, the site sets the first-party <strong>canino-cookie-consent</strong> cookie for up to 12 months, solely to remember the visitor's choice. This preference cookie prevents the banner from being shown again on every visit.</p>
-      <p>Google Maps is loaded only after acceptance, and EmailJS is loaded only when the booking function is used. No advertising, marketing or profiling cookies are used.</p>
+      <p>Google Maps is loaded only after acceptance. EmailJS receives the form data only after the visitor presses the submit button, in order to deliver the booking request. No advertising, marketing or profiling cookies are used.</p>
       <p>Any optional cookie or similar technology introduced in the future will be activated only after valid, informed and prior consent where required by law.</p>
 
       <h2>10. External services</h2>
@@ -267,7 +211,7 @@ strong{color:var(--cream)}
     <section class="card policy-lang" data-policy-lang="hu">
       <h2>1. Az adatkezelő</h2>
       <p><strong>Adatkezelő:</strong> Canino Artis</p>
-      <p><strong>Cím:</strong> Strada Podeni 95, Târgu Mureș, 540253, Románia</p>
+      <p><strong>Cím:</strong> Strada Lavandei 20, 540158 Târgu Mureș, Románia</p>
       <p><strong>Kapcsolati e-mail:</strong> <a href="mailto:caninoartis@outlook.com">caninoartis@outlook.com</a></p>
       <p><strong>Telefon:</strong> <a href="tel:+40755429037">+40 755 429 037</a></p>
       <div class="notice"><strong>Fontos:</strong> a webhely nem hoz létre és nem vezet külön időpontfoglalási adatbázist. Az űrlap arra szolgál, hogy az időpontkérést az alább ismertetett e-mail-küldési szolgáltatáson keresztül továbbítsa a Canino Artis részére.</div>
@@ -286,7 +230,7 @@ strong{color:var(--cream)}
       <h2>5. Szolgáltatók és címzettek</h2>
       <p><strong>EmailJS:</strong> az űrlapból érkező kérések továbbítására használjuk. Az EmailJS jelenlegi nyilvános tájékoztatása szerint a kérések aktivitása és metaadatai tárolhatók; aktív fiókoknál jelenleg 30 napos megőrzési időt közöl, miközben a fiókbeállítások befolyásolhatják az elérhető aktivitási adatokat. Az EmailJS szerint a kapcsolódó infrastruktúra az Egyesült Államokban található, és az európai felhasználók esetében megfelelő garanciákat, többek között általános szerződéses feltételeket alkalmaz a nemzetközi adattovábbításokhoz, ahol szükséges. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">EmailJS adatvédelmi tájékoztató</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">EmailJS DPA</a></p>
       <p><strong>Tárhely:</strong> a webhelyet GitHub Pages szolgáltatja. A GitHub tájékoztatása szerint a GitHub Pages megnyitásakor a látogató IP-címe biztonsági célból naplózható és tárolható. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages információk</a></p>
-      <p><strong>Külső erőforrások:</strong> a webhely olyan nyilvános erőforrásokat is kérhet, mint a Google Fonts, a jsDelivr és a Google Maps. A Google Térkép csak az elfogadás után töltődik be, az EmailJS pedig csak az időpontfoglalási funkció használatakor töltődik be. Ezen erőforrások betöltésekor az érintett szolgáltatók a saját szabályzataik szerint technikai kéréssel kapcsolatos adatokat kaphatnak.</p>
+      <p><strong>Külső erőforrások:</strong> az oldal a látogató eszközén elérhető rendszerbetűtípusokat használja, és nem kér Google Fonts-betűtípusokat vagy harmadik fél CDN-jéről származó JavaScript-könyvtárakat. A GSAP/ScrollTrigger könyvtárakat eltávolítottuk; az oldal tartalma nélkülük is elérhető. A Google Térkép csak az opcionális cookie-k elfogadása után (vagy egy korábban elmentett elfogadás alapján) töltődik be. Az időpontfoglaló űrlap kitöltött mezőit a böngésző kizárólag a küldés gomb megnyomása után továbbítja HTTPS-en keresztül az EmailJS API-nak a kérés e-mailes kézbesítéséhez. Az EmailJS az űrlap adatait és a kérés technikai metaadatait, beleértve az IP-címet is, saját szabályzata szerint kezelheti.</p>
 
       <h2>6. Nemzetközi adattovábbítás</h2>
       <p>Az EmailJS-en keresztüli küldés magában foglalhatja az adatok Egyesült Államokba történő továbbítását. Az adatkezelő az érintett szolgáltató által jelzett garanciákra, így adott esetben általános szerződéses feltételekre támaszkodik.</p>
@@ -301,7 +245,7 @@ strong{color:var(--cream)}
       <h2 id="cookies-hu">9. Cookie-k</h2>
       <p>A webhely jelenleg nem használ reklám-, marketing- vagy profilalkotási cookie-kat. A látogató választása előtt a webhely nem állít be saját cookie-t, és nem menti a foglalási adatokat a böngésző tárolójába.</p>
       <p>Ha a látogató az <strong>Elfogadom</strong> vagy az <strong>Elutasítom</strong> lehetőséget választja, a webhely legfeljebb 12 hónapra beállítja a saját <strong>canino-cookie-consent</strong> cookie-t, kizárólag a választás megjegyzésére. Ez a preferencia-cookie megakadályozza, hogy a banner minden látogatáskor újra megjelenjen.</p>
-      <p>A Google Térkép csak az elfogadás után töltődik be, az EmailJS pedig csak az időpontfoglalási funkció használatakor töltődik be. Reklám-, marketing- vagy profilalkotási cookie-kat nem használunk.</p>
+      <p>A Google Térkép csak az elfogadás után töltődik be. Az EmailJS kizárólag az űrlap küldése gombjának megnyomása után kapja meg az adatokat az időpontkérés kézbesítéséhez. Nem használunk reklám-, marketing- vagy profilalkotási cookie-kat.</p>
       <p>A jövőben bevezetett opcionális cookie-kat vagy hasonló technológiákat ott, ahol a jog megköveteli, csak érvényes, tájékozott és előzetes hozzájárulás után aktiváljuk.</p>
 
       <h2>10. Külső szolgáltatások</h2>
@@ -369,12 +313,11 @@ strong{color:var(--cream)}
     var expires=new Date();
     expires.setFullYear(expires.getFullYear()+1);
     document.cookie='canino-cookie-consent='+encodeURIComponent(value)+'; Expires='+expires.toUTCString()+'; Path=/; SameSite=Lax'+secure;}
-  function acceptCookies(){setConsent('accepted');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');loadGoogleAnalyticsAfterConsent();}
-  function rejectCookies(){setConsent('rejected');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');disableGoogleAnalytics();}
+  function acceptCookies(){setConsent('accepted');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');}
+  function rejectCookies(){setConsent('rejected');banner.hidden=true;if(settings)settings.setAttribute('aria-expanded','false');}
   var consent=getConsent();
-  if(consent==='accepted'){banner.hidden=true;loadGoogleAnalyticsAfterConsent();}
-  else if(consent==='rejected'){banner.hidden=true;disableGoogleAnalytics();}
-  else{banner.hidden=false;disableGoogleAnalytics();}
+  if(consent==='accepted' || consent==='rejected'){banner.hidden=true;}
+  else{banner.hidden=false;}
   accept.addEventListener('click',acceptCookies);
   reject.addEventListener('click',rejectCookies);
   if(settings) settings.addEventListener('click',function(){banner.hidden=false;settings.setAttribute('aria-expanded','true');});

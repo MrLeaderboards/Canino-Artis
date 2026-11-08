@@ -95,9 +95,6 @@
   });
 })();
 </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --black:#0b0908;
@@ -126,12 +123,12 @@
   }
   body{
     margin:0;background:var(--black);color:var(--cream);
-    font-family:'Nunito',sans-serif;font-weight:400;
+    font-family:'system-ui',sans-serif;font-weight:400;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'Nunito',sans-serif;font-weight:600;letter-spacing:-.01em;}
+  h1,h2,h3{font-family:'system-ui',sans-serif;font-weight:600;letter-spacing:-.01em;}
   .eyebrow{
-    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.22em;
+    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.22em;
     text-transform:uppercase;color:var(--gold);opacity:.9;font-weight:600;
   }
   a{color:inherit;}
@@ -153,7 +150,7 @@
     border:1.5px solid var(--gold);flex-shrink:0;
   }
   .nav-word{
-    font-family:'Nunito',sans-serif;font-size:1.05rem;letter-spacing:.04em;font-weight:600;
+    font-family:'system-ui',sans-serif;font-size:1.05rem;letter-spacing:.04em;font-weight:600;
     background:none;border:none;color:inherit;padding:0;cursor:pointer;
   }
   .nav-links{display:none;gap:2rem;font-size:.85rem;letter-spacing:.02em;font-weight:500;align-items:center;}
@@ -247,7 +244,7 @@
     top:-28px;
     transform:translateX(-50%) rotate(calc(var(--wheel-counter) + 90deg));
     white-space:nowrap;
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:.59rem;
     line-height:1;
     letter-spacing:.13em;
@@ -370,7 +367,7 @@
   .book-btn{
     position:fixed;z-index:60;right:max(5vw,env(safe-area-inset-right));
     bottom:max(calc(2.2rem + 5px), calc(env(safe-area-inset-bottom) + 5px));
-    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.14em;font-weight:700;
+    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.14em;font-weight:700;
     text-transform:uppercase;color:var(--black);
     background:
       radial-gradient(120% 80% at 50% 15%, rgba(255,255,255,.45) 0%, transparent 45%),
@@ -417,23 +414,23 @@
   }
   .mobile-menu.open{opacity:1;pointer-events:auto;}
   .mobile-menu a,.mobile-menu button.linkish{
-    font-family:'Nunito',sans-serif;font-size:1.55rem;font-weight:600;
+    font-family:'system-ui',sans-serif;font-size:1.55rem;font-weight:600;
     text-decoration:none;color:var(--cream);background:none;border:none;cursor:pointer;padding:.4rem;
   }
   .mobile-lang{margin-top:.5rem;}
 
   .kicker{
-    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.24em;
+    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.24em;
     text-transform:uppercase;color:var(--gold);margin:0 0 1.1rem;font-weight:600;
   }
   .chapter-title{
-    font-family:'Nunito',sans-serif;font-size:clamp(2rem,6.5vw,4.6rem);
+    font-family:'system-ui',sans-serif;font-size:clamp(2rem,6.5vw,4.6rem);
     line-height:1.08;font-weight:600;margin:0;color:var(--cream);
   }
   .chapter-title em{font-style:italic;font-weight:400;color:var(--gold);}
   .chapter-title .title-line{display:block;}
   .chapter-line{
-    font-family:'Nunito',sans-serif;font-size:clamp(1rem,1.7vw,1.25rem);
+    font-family:'system-ui',sans-serif;font-size:clamp(1rem,1.7vw,1.25rem);
     color:var(--cream-dim);max-width:34ch;margin:1.15rem auto 0;line-height:1.55;font-weight:400;
   }
 
@@ -459,7 +456,7 @@
     width:100%;height:100%;object-fit:cover;border-radius:50%;
   }
   .hero-logo{
-    font-family:'Nunito',sans-serif;font-weight:600;
+    font-family:'system-ui',sans-serif;font-weight:600;
     font-size:clamp(1.8rem,5.5vw,2.8rem);letter-spacing:.01em;margin:0;
     opacity:0;animation:fadeUp 1.5s var(--ease) .75s forwards;
   }
@@ -550,7 +547,7 @@
     transition:opacity .5s var(--ease), transform .5s var(--ease), border-color .4s, box-shadow .4s;
   }
   .dog-name{
-    font-family:'Nunito',sans-serif;font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:600;
+    font-family:'system-ui',sans-serif;font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:600;
     margin:0;color:var(--cream);order:1;
   }
   .dog-sentence{
@@ -596,7 +593,7 @@
   .ba-tag{
     position:absolute;top:1rem;z-index:2;font-size:.65rem;font-weight:600;
     letter-spacing:.16em;text-transform:uppercase;padding:.4rem .7rem;
-    background:rgba(11,9,8,.55);pointer-events:none;font-family:'Nunito',sans-serif;
+    background:rgba(11,9,8,.55);pointer-events:none;font-family:'system-ui',sans-serif;
     color:var(--cream);
     opacity:1;
     transition:opacity .48s var(--ease), transform .48s var(--ease);
@@ -621,9 +618,9 @@
   .service-trigger{
     width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
     padding:1.35rem 0;background:none;border:0;color:inherit;cursor:pointer;
-    text-align:left;font-family:'Nunito',sans-serif;
+    text-align:left;font-family:'system-ui',sans-serif;
   }
-  .service-name{font-family:'Nunito',sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:600;}
+  .service-name{font-family:'system-ui',sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:600;}
   .service-price{font-size:.95rem;color:var(--gold);font-weight:600;letter-spacing:.02em;white-space:nowrap;}
   .service-chevron{width:20px;height:20px;flex-shrink:0;transition:transform .4s var(--ease);opacity:.7;}
   .service-item.is-open .service-chevron{transform:rotate(180deg);}
@@ -668,6 +665,8 @@
   .hours-note{margin:1.2rem 0 0;color:var(--cream-dim);font-size:.76rem;line-height:1.55;}
   .hours-note-title{margin:0 0 .55rem;color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
   .hours-note p{margin:.4rem 0 0;color:var(--cream-dim);font-size:.76rem;line-height:1.55;}
+  .visit-phone{display:inline-block;color:var(--gold);font-size:.95rem;font-weight:600;letter-spacing:.04em;text-decoration:none;}
+  .visit-phone:hover,.visit-phone:focus-visible{text-decoration:underline;text-underline-offset:3px;}
   .map-panel{position:relative;min-height:460px;overflow:hidden;background:#15110f;}
   .map-panel iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) contrast(.92) brightness(.72) sepia(.08);}
   .map-overlay{position:absolute;left:1.25rem;right:1.25rem;bottom:1.25rem;z-index:2;pointer-events:none;}
@@ -698,7 +697,7 @@
   .google-badge{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;margin:0 auto 1.4rem;}
   .google-g{width:36px;height:36px;flex-shrink:0;}
   .google-label{
-    font-family:'Nunito',sans-serif;font-size:.78rem;letter-spacing:.18em;
+    font-family:'system-ui',sans-serif;font-size:.78rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--gold);font-weight:600;
   }
   .reviews-viewport{max-width:1080px;margin:0 auto;overflow:hidden;position:relative;}
@@ -718,9 +717,9 @@
   .review-text{order:1;}
   .review-author{order:2;}
   .review-meta{order:3;}
-  .review-text{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.6;color:var(--cream-dim);margin:0 0 1.35rem;flex:1;font-weight:400;}
+  .review-text{font-family:'system-ui',sans-serif;font-size:.95rem;line-height:1.6;color:var(--cream-dim);margin:0 0 1.35rem;flex:1;font-weight:400;}
   .review-text[data-review-key="rev29"]{white-space:pre-line;}
-  .review-author{font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:600;color:var(--cream);margin:0;}
+  .review-author{font-family:'system-ui',sans-serif;font-size:.88rem;font-weight:600;color:var(--cream);margin:0;}
   .review-author-link{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(227,192,127,.35);transition:color .3s,border-color .3s;}
   .review-author-link:hover{color:var(--gold);border-color:var(--gold);}
   .review-pending{color:var(--cream-dim);font-size:.9rem;}
@@ -760,7 +759,7 @@
     width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
     background:transparent;color:var(--cream);cursor:pointer;
     display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;
-    transition:border-color .3s, color .3s;font-family:'Nunito',sans-serif;
+    transition:border-color .3s, color .3s;font-family:'system-ui',sans-serif;
   }
   .reviews-arrow:hover{border-color:var(--gold);color:var(--gold);}
 
@@ -797,7 +796,7 @@
     width:100%;
     background:rgba(11,9,8,.35);
     border:1px solid rgba(236,228,214,.14);
-    color:var(--cream);font-family:'Nunito',sans-serif;font-size:1rem;font-weight:400;
+    color:var(--cream);font-family:'system-ui',sans-serif;font-size:1rem;font-weight:400;
     padding:.9rem 1rem;outline:none;border-radius:14px;color-scheme:dark;margin-bottom:.85rem;
     transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
   }
@@ -835,7 +834,7 @@
     width:100%;min-height:52px;padding:.9rem 2.65rem .9rem 1rem;
     border:1px solid rgba(236,228,214,.16);border-radius:16px;
     background:linear-gradient(180deg,rgba(23,18,16,.62),rgba(11,9,8,.42));color:var(--cream);
-    font:400 1rem/1.35 'Nunito',sans-serif;text-align:left;cursor:pointer;
+    font:400 1rem/1.35 'system-ui',sans-serif;text-align:left;cursor:pointer;
     position:relative;transition:border-color .22s ease,box-shadow .22s ease,background .22s ease;
     -webkit-tap-highlight-color:transparent;
   }
@@ -865,7 +864,7 @@
   .booking-select-option{
     display:block;width:100%;padding:.8rem .9rem;border:0;border-radius:11px;
     background:transparent;color:var(--cream);text-align:left;cursor:pointer;
-    font:400 .96rem/1.35 'Nunito',sans-serif;transition:background .14s ease,color .14s ease;
+    font:400 .96rem/1.35 'system-ui',sans-serif;transition:background .14s ease,color .14s ease;
     -webkit-tap-highlight-color:transparent;
   }
   .booking-select-option:hover,.booking-select-option:focus-visible{background:rgba(227,192,127,.09);color:var(--gold);outline:none;}
@@ -939,7 +938,7 @@
     background:rgba(23,18,16,.82);
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     color:var(--cream);
-    font-family:'Nunito',sans-serif;font-size:.68rem;font-weight:700;
+    font-family:'system-ui',sans-serif;font-size:.68rem;font-weight:700;
     letter-spacing:.12em;text-transform:uppercase;
     white-space:nowrap;pointer-events:none;
     box-shadow:0 8px 24px rgba(0,0,0,.32);
@@ -990,7 +989,7 @@
     display:flex;align-items:center;justify-content:center;
     background:rgba(23,18,16,.92);
     border:1px solid rgba(227,192,127,.72);
-    color:var(--gold);font:700 1rem/1 'Nunito',sans-serif;
+    color:var(--gold);font:700 1rem/1 'system-ui',sans-serif;
     box-shadow:0 4px 12px rgba(0,0,0,.4);
     transform:rotate(0deg);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
   }
@@ -1008,7 +1007,7 @@
     border-radius:50%;
     background:linear-gradient(180deg,rgba(42,34,29,.98),rgba(20,16,14,.98));
     border:1px solid rgba(227,192,127,.6);
-    color:var(--cream);font:700 .63rem/1 'Nunito',sans-serif;
+    color:var(--cream);font:700 .63rem/1 'system-ui',sans-serif;
     letter-spacing:.06em;text-transform:uppercase;text-align:center;
     text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.4);
     -webkit-tap-highlight-color:transparent;
@@ -1028,7 +1027,7 @@
     width:max-content;max-width:220px;padding:.55rem .7rem;border-radius:10px;
     background:rgba(23,18,16,.96);border:1px solid rgba(227,192,127,.24);
     box-shadow:0 10px 26px rgba(0,0,0,.38);color:var(--cream);
-    font:500 .64rem/1.4 'Nunito',sans-serif;text-transform:none;letter-spacing:0;
+    font:500 .64rem/1.4 'system-ui',sans-serif;text-transform:none;letter-spacing:0;
     transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:12;
   }
   .donation-item:hover .donation-tooltip,.donation-item:focus-visible .donation-tooltip{
@@ -1161,7 +1160,7 @@
   }
   .wa-start{
     width:100%;border:0;cursor:pointer;
-    font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;
+    font-family:'system-ui',sans-serif;font-weight:700;font-size:.78rem;
     letter-spacing:.08em;text-transform:uppercase;
     color:#fff;background:#25D366;
     padding:.9rem 1rem;border-radius:999px;
@@ -1174,9 +1173,9 @@
   footer .hero-logo{font-size:1.55rem;margin-bottom:1.2rem;opacity:1;animation:none;}
   .foot-logo-img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);margin:0 auto 1rem;opacity:.95;}
   .foot-links{display:flex;justify-content:center;align-items:center;gap:2rem;font-size:.85rem;color:var(--cream-dim);margin-bottom:2rem;flex-wrap:wrap;}
-  .foot-links a,.foot-links button{text-decoration:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;font-family:'Nunito',sans-serif;}
+  .foot-links a,.foot-links button{text-decoration:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;font-family:'system-ui',sans-serif;}
   .foot-links a:hover,.foot-links button:hover{color:var(--gold);}
-  .foot-note{font-size:.68rem;letter-spacing:.1em;color:rgba(236,228,214,.35);text-transform:uppercase;font-family:'Nunito',sans-serif;}
+  .foot-note{font-size:.68rem;letter-spacing:.1em;color:rgba(236,228,214,.35);text-transform:uppercase;font-family:'system-ui',sans-serif;}
 
   @media (prefers-reduced-motion: reduce){
     .hero-logo,.hero-logo-wrap,.scroll-cue,.scroll-cue .line,
@@ -1447,7 +1446,7 @@
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     color:var(--gold);
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:.66rem;
     font-weight:700;
     letter-spacing:.12em;
@@ -1485,7 +1484,7 @@
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     color:var(--gold);
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:.66rem;
     font-weight:700;
     letter-spacing:.12em;
@@ -1714,7 +1713,7 @@
      ========================================================== */
 
   .rudi-gallery-caption{
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     width:min(560px, calc(100% - 2.5rem));
     padding:.85rem 1rem .95rem;
     border:1.5px solid rgba(227,192,127,.58);
@@ -1729,7 +1728,7 @@
   }
 
   .rudi-gallery-caption .eyebrow{
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:.72rem;
     font-weight:700;
     letter-spacing:.16em;
@@ -1737,7 +1736,7 @@
   }
 
   .rudi-gallery-caption strong{
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:clamp(1.7rem,3.4vw,3rem);
     line-height:1.03;
     font-weight:700;
@@ -1746,7 +1745,7 @@
   }
 
   .rudi-gallery-caption > span:last-child{
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:clamp(.9rem,1.2vw,1.02rem);
     line-height:1.5;
     font-weight:500;
@@ -1756,7 +1755,7 @@
 
   .rudi-gallery-count{
     color:var(--gold);
-    font-family:'Nunito',sans-serif;
+    font-family:'system-ui',sans-serif;
     font-size:.66rem;
     font-weight:700;
   }
@@ -1835,7 +1834,7 @@
   grid-column:1;
   display:block;
   color:#fff;
-  font-family:'Nunito',sans-serif;
+  font-family:'system-ui',sans-serif;
   font-size:.82rem;
   line-height:1.4;
   margin-top:-2px;
@@ -1844,7 +1843,7 @@
 
 .rudi-gallery-caption .caption-text{
   color:#fff;
-  font-family:'Nunito',sans-serif;
+  font-family:'system-ui',sans-serif;
   font-size:.85rem;
   line-height:1.45;
 }
@@ -1854,7 +1853,7 @@
   display:block;
   grid-column:1;
   color:#fff;
-  font-family:'Nunito',sans-serif;
+  font-family:'system-ui',sans-serif;
   font-size:.82rem;
   line-height:1.4;
   margin-top:-2px;
@@ -1969,7 +1968,7 @@
   margin:0;
   padding:0;
   color:var(--gold);
-  font-family:'Nunito',sans-serif;
+  font-family:'system-ui',sans-serif;
   font-size:clamp(.95rem,1.6vw,1.2rem);
   line-height:1;
   font-weight:700;
@@ -2221,7 +2220,7 @@
 .map-panel iframe[hidden]{display:none;}
 .map-consent{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.25rem;text-align:center;background:rgba(23,18,16,.94);z-index:2;}
 .map-consent[hidden]{display:none;}
-.map-consent-btn{border:1px solid var(--gold);background:var(--gold);color:var(--black);border-radius:999px;padding:.65rem 1rem;font:700 .78rem 'Nunito',sans-serif;cursor:pointer;}
+.map-consent-btn{border:1px solid var(--gold);background:var(--gold);color:var(--black);border-radius:999px;padding:.65rem 1rem;font:700 .78rem 'system-ui',sans-serif;cursor:pointer;}
 @media (max-width:820px){
   /* Keep the existing mobile header/menu behavior untouched. */
   #pageDial{display:none!important;}
@@ -2346,13 +2345,13 @@
     margin:2rem auto 0;padding:.75rem 1.35rem;
     border:1px solid rgba(227,192,127,.35);border-radius:999px;
     background:rgba(227,192,127,.045);color:var(--cream);
-    font:600 .72rem/1 'Nunito',sans-serif;letter-spacing:.14em;text-transform:uppercase;
+    font:600 .72rem/1 'system-ui',sans-serif;letter-spacing:.14em;text-transform:uppercase;
     text-decoration:none;transition:background .3s,border-color .3s,color .3s,transform .3s;
   }
   .review-us-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(227,192,127,.08);transform:translateY(-1px);}
   .ba-compare{width:min(1200px,100%);margin:2rem auto 0;display:grid;grid-template-columns:clamp(42px,5vw,64px) minmax(0,1fr) clamp(42px,5vw,64px);align-items:center;gap:clamp(.6rem,2vw,1.2rem);}
   .ba-compare .ba-wrap{width:100%;}
-  .ba-compare-arrow{width:clamp(42px,4.2vw,54px);height:clamp(42px,4.2vw,54px);border-radius:50%;border:1px solid var(--line);background:rgba(11,9,8,.28);color:var(--cream);display:inline-flex;align-items:center;justify-content:center;font:400 1.5rem/1 'Nunito',sans-serif;cursor:pointer;transition:border-color .3s,color .3s,background .3s,transform .3s;}
+  .ba-compare-arrow{width:clamp(42px,4.2vw,54px);height:clamp(42px,4.2vw,54px);border-radius:50%;border:1px solid var(--line);background:rgba(11,9,8,.28);color:var(--cream);display:inline-flex;align-items:center;justify-content:center;font:400 1.5rem/1 'system-ui',sans-serif;cursor:pointer;transition:border-color .3s,color .3s,background .3s,transform .3s;}
   .ba-compare-arrow:hover{border-color:var(--gold);color:var(--gold);background:rgba(227,192,127,.06);transform:scale(1.03);}
   @media(max-width:820px){
     .ba-compare{grid-template-columns:36px minmax(0,1fr) 36px;gap:.5rem;margin-top:1.25rem;}
@@ -2373,7 +2372,7 @@
     z-index:3;display:inline-flex;align-items:center;justify-content:center;
     min-height:40px;padding:.55rem .9rem;border:1px solid rgba(227,192,127,.35);
     border-radius:999px;background:rgba(11,9,8,.45);color:var(--cream);
-    font:600 .7rem/1 'Nunito',sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    font:600 .7rem/1 'system-ui',sans-serif;letter-spacing:.12em;text-transform:uppercase;
     cursor:pointer;transition:background .3s,border-color .3s,color .3s,transform .3s;
   }
   #bookClose:hover{border-color:var(--gold);background:rgba(227,192,127,.08);color:var(--gold);transform:translateY(-1px);}
@@ -2382,7 +2381,7 @@
   .book-inner{position:relative;}
   .booking-field-label{
     display:block;margin:.35rem 0 .45rem;color:rgba(236,228,214,.82);
-    font:600 .68rem/1.2 'Nunito',sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    font:600 .68rem/1.2 'system-ui',sans-serif;letter-spacing:.12em;text-transform:uppercase;
   }
   .booking-field-label + .field{margin-bottom:.7rem;}
   @media(max-width:560px){
@@ -2390,6 +2389,418 @@
     .book-inner{width:100%;max-width:440px;max-height:calc(100dvh - max(1.5rem, env(safe-area-inset-top) + env(safe-area-inset-bottom)));padding:4rem 1.15rem 1.35rem;border-radius:18px;}
     #bookClose{top:.8rem;right:.8rem;}
   }
+</style>
+
+<style>
+/* Final polish: compact “With care” opening + centered principle icons */
+#about-me .about-opening{
+  gap:1.25rem !important;
+  min-height:0 !important;
+  padding:5vh 0 7vh !important;
+  max-width:1180px !important;
+}
+#about-me .about-opening-copy{
+  max-width:860px !important;
+  width:100% !important;
+  padding-top:0 !important;
+  margin-inline:auto !important;
+  text-align:center !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+}
+#about-me .about-opening-copy .eyebrow{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:1rem !important;
+  width:100% !important;
+  margin:0 0 1.05rem !important;
+  padding:.72rem 1rem !important;
+  font-size:.72rem !important;
+  letter-spacing:.22em !important;
+  text-transform:uppercase !important;
+  color:var(--gold) !important;
+  border-top:1px solid rgba(227,192,127,.42) !important;
+  border-bottom:1px solid rgba(227,192,127,.42) !important;
+}
+#about-me .about-opening-copy .eyebrow::before,
+#about-me .about-opening-copy .eyebrow::after{
+  content:"" !important;
+  flex:1 1 auto !important;
+  height:1px !important;
+  background:linear-gradient(90deg,transparent,rgba(227,192,127,.45)) !important;
+}
+#about-me .about-opening-copy .eyebrow::after{
+  background:linear-gradient(90deg,rgba(227,192,127,.45),transparent) !important;
+}
+#about-me .about-opening-title{
+  font-size:clamp(2rem,3.5vw,3.2rem) !important;
+  line-height:1.08 !important;
+  max-width:760px !important;
+  width:100% !important;
+  margin:.2rem auto 0 !important;
+  text-align:center !important;
+}
+#about-me .about-opening-line{display:none !important;}
+#about-me .about-opening-photo{
+  width:min(100%,920px) !important;
+  margin:0 auto !important;
+  border-radius:26px !important;
+  overflow:hidden !important;
+}
+#about-me .about-opening-photo img{
+  border-radius:26px !important;
+  display:block !important;
+  width:100% !important;
+  max-height:520px !important;
+  object-fit:contain !important;
+  overflow:hidden !important;
+}
+#about-me .about-opening-caption{
+  border-radius:999px !important;
+  left:clamp(.7rem,2vw,1.2rem) !important;
+  right:clamp(.7rem,2vw,1.2rem) !important;
+  bottom:clamp(.7rem,2vw,1.2rem) !important;
+  padding:.7rem 1rem !important;
+}
+.about-working-copy p::before{
+  top:53% !important;
+  transform:translateY(-50%) !important;
+}
+@media (max-width:700px){
+  #about-me .about-opening{padding:4vh 0 6vh !important;gap:1rem !important;}
+  #about-me .about-opening-copy .eyebrow{padding:.62rem .8rem !important;font-size:.66rem !important;letter-spacing:.18em !important;}
+  #about-me .about-opening-title{font-size:clamp(1.75rem,8vw,2.5rem) !important;}
+  #about-me .about-opening-photo img{border-radius:20px !important;max-height:460px !important;}
+}
+</style>
+<style>
+/* Background music player */
+.music-widget{position:fixed;left:24px;top:24px;z-index:1200;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-family:inherit}
+.music-toggle{width:46px;height:46px;border-radius:50%;border:1px solid rgba(227,192,127,.34);background:rgba(12,10,9,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--gold);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.music-toggle:hover{transform:translateY(-2px);border-color:rgba(227,192,127,.62);background:rgba(12,10,9,.88)}
+.music-note{font-size:1.55rem;line-height:1;transform:translateY(-1px);display:inline-block;animation:musicNoteDance 3.3s ease-in-out infinite;transform-origin:50% 70%}
+.music-toggle.is-playing .music-note{animation-duration:2.5s}
+@keyframes musicNoteDance{0%,100%{transform:translateY(-1px) rotate(-8deg) scale(1)}25%{transform:translateY(-3px) rotate(7deg) scale(1.04)}50%{transform:translateY(0) rotate(-5deg) scale(.98)}75%{transform:translateY(-2px) rotate(8deg) scale(1.03)}}
+.music-bar{width:min(390px,calc(100vw - 32px));display:grid;grid-template-columns:auto 1fr;grid-template-areas:"meta controls" "timeline timeline" "volume volume";gap:10px 12px;align-items:center;padding:15px 16px;border:1px solid rgba(227,192,127,.24);border-radius:18px;background:rgba(12,10,9,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.34)}
+.music-meta{grid-area:meta;min-width:0;display:flex;flex-direction:column;gap:4px}.music-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);opacity:.82}.music-meta strong{font-size:.82rem;line-height:1.28;font-weight:500;color:#f4eee5}
+.music-play{grid-area:controls;justify-self:end;width:40px;height:40px;border-radius:50%;border:1px solid rgba(227,192,127,.36);background:transparent;color:var(--gold);cursor:pointer;font-size:.8rem;display:grid;place-items:center}.music-play:hover{border-color:rgba(227,192,127,.68)}
+.music-timeline-wrap{grid-area:timeline;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}.music-progress{width:100%;accent-color:var(--gold);cursor:pointer}.music-time{font-size:.66rem;color:rgba(244,238,229,.7);font-variant-numeric:tabular-nums;min-width:2.4rem}.music-time:last-child{text-align:right}
+.music-volume-row{grid-area:volume;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}.music-volume-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(244,238,229,.64)}.music-volume{width:100%;accent-color:var(--gold);cursor:pointer}
+@media (max-width:700px){.music-widget{left:16px;top:16px}.music-toggle{width:44px;height:44px}.music-bar{width:min(340px,calc(100vw - 32px));padding:13px 13px 12px 14px}.music-meta strong{font-size:.78rem}}
+/* Keep the music player completely closed until the note button is clicked. */
+.music-bar[hidden]{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;}
+.music-bar:not([hidden]){visibility:visible;opacity:1;pointer-events:auto;}
+</style>
+<style id="about-meaning-mobile-v2">
+/* Mobile-only layout for “What grooming means to me”.
+   Keeps all existing sentences and emoji markers while replacing the desktop
+   split layout with readable stacked cards on phones. Desktop is unchanged. */
+@media (max-width:820px){
+  #about-me .about-working{
+    display:block !important;
+    max-width:760px !important;
+    margin:0 auto !important;
+    padding:10vh 0 9vh !important;
+  }
+  #about-me .about-working::before{
+    display:none !important;
+  }
+  #about-me .about-meaning-head{
+    margin:0 0 1.8rem !important;
+    padding:0 !important;
+  }
+  #about-me .about-meaning-title{
+    max-width:none !important;
+    width:100% !important;
+    padding:0 !important;
+    margin:0 !important;
+    font-size:clamp(2rem,9vw,3.2rem) !important;
+    line-height:1.06 !important;
+  }
+  #about-me .about-working-copy{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.8rem !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  #about-me .about-working-copy p,
+  #about-me .about-working-copy p + p{
+    position:relative !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:1.05rem 1rem 1.05rem 3.25rem !important;
+    border:1px solid rgba(227,192,127,.16) !important;
+    border-top:1px solid rgba(227,192,127,.16) !important;
+    border-radius:18px !important;
+    background:rgba(23,18,16,.38) !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.12) !important;
+  }
+  #about-me .about-working-copy p::before{
+    left:.9rem !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    width:2rem !important;
+    height:2rem !important;
+    font-size:.95rem !important;
+  }
+}
+</style>
+<style>
+  /* About Me intro: title above, photograph underneath */
+  #about-me .about-opening{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    justify-content:flex-start !important;
+    gap:clamp(1.8rem,3vw,3.25rem) !important;
+    min-height:0 !important;
+    padding-top:6vh !important;
+  }
+  #about-me .about-opening-copy{
+    order:1 !important;
+    max-width:760px !important;
+    padding-top:0 !important;
+  }
+  #about-me .about-opening-photo{
+    order:2 !important;
+    width:min(100%, 1180px) !important;
+    margin:0 auto !important;
+    align-self:center !important;
+  }
+  #about-me .about-opening-photo img{
+    width:100% !important;
+    max-height:680px !important;
+    object-fit:contain !important;
+  }
+  #about-me .about-opening-line{margin-top:1.35rem !important;}
+  @media (max-width:700px){
+    #about-me .about-opening{gap:1.5rem !important;padding-top:4vh !important;}
+    #about-me .about-opening-copy{max-width:none !important;}
+  }
+
+/* Editorial emoji markers for the four principles in “What grooming means to me”. */
+.about-working-copy p{position:relative;padding-left:3.2rem;}
+.about-working-copy p::before{position:absolute;left:0;top:.1em;width:2.2rem;height:2.2rem;display:grid;place-items:center;border:1px solid rgba(227,192,127,.28);border-radius:50%;background:rgba(11,9,8,.38);font-size:1.05rem;line-height:1;}
+.about-working-copy p:nth-child(1)::before{content:"♥";}
+.about-working-copy p:nth-child(2)::before{content:"🩺";}
+.about-working-copy p:nth-child(3)::before{content:"✨";}
+.about-working-copy p:nth-child(4)::before{content:"🐾";}
+@media (max-width:640px){.about-working-copy p{padding-left:2.9rem}.about-working-copy p::before{width:2rem;height:2rem;font-size:.95rem;}}
+</style>
+<style>
+.about-working-copy p:nth-child(2)::before{top:calc(.1em + 60px) !important;}
+</style>
+<style>
+.about-working-copy p:nth-child(3)::before{transform:translateY(5px) !important;}
+.about-working-copy p:nth-child(4)::before{transform:translateY(5px) !important;}
+</style>
+<style>
+/* Final alignment: raise the second and third principle markers by 6px. */
+.about-working-copy p:nth-child(3)::before,
+.about-working-copy p:nth-child(4)::before{transform:translateY(-4px) !important;}
+</style>
+<style id="mobile-scroll-performance">
+/* Mobile scroll-performance tuning: preserves the existing visual design and animations
+   while reducing expensive paint/compositing work on touch devices. */
+@media (pointer: coarse) and (max-width: 820px){
+  html,body{
+    overscroll-behavior-x:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .stage,
+  .gallery-pause-stage,
+  .rudi-gallery-slides,
+  .eli-photo,
+  .eli-copy,
+  .reviews-viewport{
+    contain:paint;
+  }
+  .stage-photo,
+  .stage-video,
+  .rudi-gallery-slide img,
+  .reviews-track{
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+  .stage-video{
+    will-change:auto;
+  }
+  .rudi-gallery-slide img{
+    will-change:auto;
+  }
+  /* Keep the premium glass look, but avoid live backdrop blur on smaller GPUs. */
+  .dog-meta,
+  .rudi-gallery-open,
+  .rudi-gallery-count,
+  .map-caption,
+  .music-toggle,
+  .music-bar{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
+</style>
+<style id="mobile-device-optimization-v2">
+/* Mobile-only stability/performance pass. Desktop styles and motion are unchanged. */
+@media (pointer: coarse) and (max-width: 820px){
+  /* Prevent expensive live blur layers on touch GPUs while keeping the same surfaces. */
+  .page-dial,
+  .dog-meta,
+  .rudi-gallery-open,
+  .rudi-gallery-count,
+  .map-caption,
+  .music-toggle,
+  .music-bar,
+  .wa-panel,
+  .social-menu,
+  .book-overlay,
+  .book-inner,
+  .about-photo-caption,
+  .review-card{
+    -webkit-backdrop-filter:none !important;
+    backdrop-filter:none !important;
+  }
+
+  /* Keep touch scrolling on the compositor and avoid permanent GPU layers. */
+  .stage-photo,
+  .eli-copy,
+  .eli-photo,
+  .rudi-gallery-slide img,
+  .reviews-track,
+  .about-sentence{
+    will-change:auto !important;
+  }
+
+  .pricing-grid,
+  .pricing-card,
+  .pricing-rows,
+  .services-columns{
+    min-width:0;
+    max-width:100%;
+  }
+
+  .pricing-card h3,
+  .pricing-description,
+  .pricing-row,
+  .pricing-row span{
+    min-width:0;
+    max-width:100%;
+  }
+
+  .pricing-card h3,
+  .pricing-row span{
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .pricing-row{
+    align-items:flex-start;
+  }
+
+  .pricing-row span{
+    flex:1 1 auto;
+  }
+
+  .pricing-row strong{
+    flex:0 0 auto;
+  }
+
+  .services,
+  .pricing-section,
+  .visit-section,
+  .reviews-section,
+  #about-me,
+  #transform,
+  footer{
+    overflow-x:clip;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 380px){
+  .pricing-card{padding-left:1rem !important;padding-right:1rem !important;}
+  .pricing-row{grid-template-columns:minmax(0,1fr) auto;column-gap:.7rem;}
+}
+
+/* Keep all footer items vertically level, including the ANPC badge */
+.foot-links > *{display:inline-flex;align-items:center;justify-content:center;}
+.authority-icons{height:50px;line-height:1;}
+.authority-icon{vertical-align:middle;}
+/* ---------- Authority footer icons ---------- */
+.authority-icons{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  gap:.7rem;
+  margin:0;
+  flex:0 0 auto;
+}
+.authority-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:250px;
+  height:50px;
+  min-width:250px;
+  min-height:50px;
+  padding:0;
+  border:1px solid rgba(236,228,214,.16);
+  border-radius:10px;
+  background:rgba(255,255,255,.96);
+  opacity:.9;
+  transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
+}
+.authority-icon:hover{opacity:1;transform:translateY(-2px);border-color:rgba(227,192,127,.55);}
+.authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
+.anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
+.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'system-ui',sans-serif;letter-spacing:.08em;color:#211b17;}
+@media(max-width:700px){
+  .authority-icons{width:auto;justify-content:center;margin:0;align-items:center;}
+  .authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}
+}
+
+/* ---------- Legal, privacy and cookie UI ---------- */
+.booking-privacy-note{
+  margin:.75rem 0 0;
+  color:rgba(236,228,214,.58);
+  font-size:.78rem;
+  line-height:1.55;
+}
+.booking-privacy-note a{color:inherit;text-underline-offset:3px;}
+.cookie-banner{
+  position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:120;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  max-width:980px;margin:0 auto;padding:1rem 1.1rem;
+  background:rgba(23,18,16,.97);
+  border:1px solid rgba(236,228,214,.16);border-radius:18px;
+  box-shadow:0 18px 55px rgba(0,0,0,.32);
+}
+.cookie-banner[hidden]{display:none;}
+.cookie-copy{min-width:0;}
+.cookie-copy strong{display:block;font-size:.95rem;color:var(--cream);margin-bottom:.25rem;}
+.cookie-copy p{margin:0;color:var(--cream-dim);font-size:.78rem;line-height:1.5;}
+.cookie-copy a{display:inline-block;margin-top:.35rem;color:var(--gold);font-size:.75rem;text-underline-offset:3px;}
+.cookie-actions{display:flex;align-items:center;gap:.55rem;flex:0 0 auto;}
+.cookie-btn{border:1px solid rgba(236,228,214,.18);border-radius:999px;min-height:42px;padding:.65rem 1rem;font:600 .78rem 'system-ui',sans-serif;cursor:pointer;}
+.cookie-secondary{background:transparent;color:var(--cream);}
+.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold);}
+@media (max-width:700px){
+  .foot-links{flex-wrap:wrap;justify-content:center;gap:.65rem 1rem;align-items:center;}
+  .cookie-banner{flex-direction:column;align-items:stretch;bottom:max(.7rem,env(safe-area-inset-bottom));padding:1rem;border-radius:16px;}
+  .cookie-actions{width:100%;}
+  .cookie-btn{flex:1;min-width:0;}
+  .booking-privacy-note{font-size:.76rem;}
+}
+</style>
+<style id="local-motion-fallback">
+/* GSAP/ScrollTrigger CDN dependencies removed. Keep the editorial content visible without an external animation library. */
+html { scroll-behavior: smooth; }
+#about-me .about-opening-copy .about-opening-title { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+#about-me .about-opening-copy, #about-me .about-opening-photo, #about-me .about-copy, #about-me .about-story-copy, #about-me .about-photo, #about-me .about-working-copy { opacity: 1 !important; visibility: visible !important; transform: none !important; filter: none !important; }
 </style>
 </head>
 <body>
@@ -2605,11 +3016,8 @@
 <div class="hours-row"><span class="hours-day" data-i18n="sat">Sâmbătă</span><span class="hours-time" data-i18n="satTime">09:00 – 14:00</span></div>
 <div class="hours-row"><span class="hours-day" data-i18n="sun">Duminică</span><span class="hours-time" data-i18n="sunTime">Închis</span></div>
 </div>
-<div class="hours-note" aria-label="Program de funcționare">
-<h4 class="hours-note-title" data-i18n="hoursFunctionHeading">Program de funcționare</h4>
-<p data-i18n="hoursServiceText">Serviciile de grooming se efectuează exclusiv pe bază de programare prealabilă.</p>
-<p data-i18n="hoursPresenceText">Prezența în salon se face în funcție de programările confirmate.</p>
-<p data-i18n="hoursContactText">Pentru programări, vă rugăm să ne contactați telefonic.</p>
+<div class="hours-note" aria-label="Telefon">
+<a class="visit-phone" href="tel:+40755429037">0755 429 037</a>
 </div>
 </div>
 <div class="map-panel">
@@ -2617,7 +3025,7 @@
 <span data-i18n="mapConsentText">Harta Google se încarcă după acceptarea cookie-urilor opționale.</span>
 <button class="map-consent-btn" id="mapConsentOpen" type="button" data-i18n="cookieAccept">Acceptă</button>
 </div>
-<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-map-src="https://maps.google.com/maps?q=Canino+Artis%2C+T%C3%A2rgu+Mure%C8%99&amp;z=17&amp;output=embed" title="Google Maps — Canino Artis"></iframe>
+<iframe allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" data-map-src="https://maps.google.com/maps?q=Canino+Artis%2C+T%C3%A2rgu+Mure%C8%99&amp;z=17&amp;output=embed" title="Google Maps — Canino Artis"></iframe>
 <div class="map-overlay"><div class="map-caption"><strong data-i18n="mapTitle">Canino Artis</strong><a class="map-note-link" data-i18n="mapNote" href="https://www.google.com/maps/place/Canino+Artis/@46.5404326,24.5520763,18.75z/data=!4m6!3m5!1s0x474bc9005197d939:0xa23da116919cc5d2!8m2!3d46.5404798!4d24.5523338!16s%2Fg%2F11xlg_vzcr?entry=ttu&amp;g_ep=EgoyMDI2MTEwMi4wIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank">Localizare și indicații pe Google Maps</a><small class="map-contact">Strada Lavandei 20, 540158 Târgu Mureș · 0755 429 037</small></div></div>
 </div>
 </div>
@@ -2855,42 +3263,15 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 </form>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script>
-(function(){
-  var touchMobile = window.matchMedia && window.matchMedia('(pointer: coarse) and (max-width: 820px)').matches;
-  if(!touchMobile){
-    document.write('<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"><\/script>');
-  }
-})();
-</script>
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var coarse = window.matchMedia('(pointer: coarse)').matches;
 
-  /* ---------- EmailJS ---------- */
+  /* ---------- EmailJS REST API (called only on explicit booking submission) ---------- */
   var EMAILJS_PUBLIC_KEY = 'lo6t5O7GTNxTHgV95';
   var EMAILJS_SERVICE_ID = 'service_0603xih';
   var EMAILJS_TEMPLATE_ID = 'template_lkadfu4';
-  var emailjsLoader = null;
-  function loadEmailJS(){
-    if(window.emailjs) return Promise.resolve(window.emailjs);
-    if(emailjsLoader) return emailjsLoader;
-    emailjsLoader = new Promise(function(resolve,reject){
-      var script=document.createElement('script');
-      script.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
-      script.async=true;
-      script.onload=function(){
-        if(!window.emailjs){ reject(new Error('EmailJS failed to initialize')); return; }
-        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-        resolve(window.emailjs);
-      };
-      script.onerror=function(){reject(new Error('Could not load EmailJS'));};
-      document.head.appendChild(script);
-    });
-    return emailjsLoader;
-  }
 
   /* ---------- i18n ---------- */
   var lang = 'ro';
@@ -3569,7 +3950,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     bookOverlay.classList.add('open');
     document.getElementById('bookBtn').hidden = true;
     toggle.hidden = true;
-    loadEmailJS().catch(function(){});
   }
   function closeBook(){
     bookOverlay.classList.remove('open');
@@ -3602,26 +3982,35 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
         submitBtn.textContent = d.sendingBooking;
       }
       document.getElementById('bookDesc').textContent = d.sendingBookingDesc;
-      return emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, bookForm)
-        .then(function(){
-          bookForm.style.display = 'none';
-          document.getElementById('bookTitle').textContent = d.bookSentTitle;
-          document.getElementById('bookDesc').textContent = d.bookSentDesc;
-        })
-        .catch(function(error){
-          console.error('EmailJS booking send failed:', error);
-          if(submitBtn){
-            submitBtn.disabled = false;
-            submitBtn.removeAttribute('aria-busy');
-            submitBtn.textContent = d.requestHour;
-          }
-          document.getElementById('bookDesc').textContent = d.bookErrorDesc;
-        });
+      var payload = new FormData(bookForm);
+      payload.append('service_id', EMAILJS_SERVICE_ID);
+      payload.append('template_id', EMAILJS_TEMPLATE_ID);
+      payload.append('user_id', EMAILJS_PUBLIC_KEY);
+      return fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+        method: 'POST',
+        body: payload,
+        credentials: 'omit',
+        referrerPolicy: 'no-referrer'
+      }).then(function(response){
+        if(!response.ok){
+          return response.text().then(function(message){
+            throw new Error(message || ('EmailJS returned HTTP ' + response.status));
+          });
+        }
+        bookForm.style.display = 'none';
+        document.getElementById('bookTitle').textContent = d.bookSentTitle;
+        document.getElementById('bookDesc').textContent = d.bookSentDesc;
+      }).catch(function(error){
+        console.error('EmailJS booking send failed:', error);
+        if(submitBtn){
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = d.requestHour;
+        }
+        document.getElementById('bookDesc').textContent = d.bookErrorDesc;
+      });
     }
-    if(window.emailjs) sendBooking();
-    else loadEmailJS().then(function(){ sendBooking(); }).catch(function(){
-      document.getElementById('bookDesc').textContent = d.bookErrorDesc;
-    });
+    sendBooking();
   });
 
 
@@ -4148,59 +4537,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     var m=document.cookie.match(/(?:^|;\s*)canino-cookie-consent=([^;]+)/);
     return m ? decodeURIComponent(m[1]) : '';
   }
-  /* Google Analytics is consent-gated: no GA script/cookies before explicit Accept. */
-  window.dataLayer=window.dataLayer||[];
-  window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
-  window.gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
-  var CANINO_GA_MEASUREMENT_ID = ''; /* Add the GA4 ID here, e.g. G-XXXXXXXXXX */
-  var CANINO_GA_LOADED = false;
-
-  function expireGoogleAnalyticsCookies(){
-    var names = document.cookie.split(';').map(function(part){ return part.split('=')[0].trim(); });
-    names.forEach(function(name){
-      if(name === '_ga' || name === '_gid' || name.indexOf('_gat_') === 0 || name.indexOf('_gac_') === 0){
-        document.cookie=name+'=; Max-Age=0; Path=/; SameSite=Lax; Secure';
-        document.cookie=name+'=; Max-Age=0; Path=/; Domain='+location.hostname+'; SameSite=Lax; Secure';
-      }
-    });
-  }
-
-  function disableGoogleAnalytics(){
-    if(window.gtag){
-      window.gtag('consent','update',{
-        analytics_storage:'denied',
-        ad_storage:'denied',
-        ad_user_data:'denied',
-        ad_personalization:'denied'
-      });
-    }
-    if(CANINO_GA_MEASUREMENT_ID){
-      window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=true;
-    }
-    expireGoogleAnalyticsCookies();
-  }
-
-  function loadGoogleAnalyticsAfterConsent(){
-    if(!CANINO_GA_MEASUREMENT_ID || CANINO_GA_LOADED || getConsent()!=='accepted') return;
-    window.dataLayer=window.dataLayer||[];
-    window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
-    window.gtag('consent','update',{
-      analytics_storage:'granted',
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-    window.gtag('js',new Date());
-    window.gtag('config',CANINO_GA_MEASUREMENT_ID);
-    window['ga-disable-'+CANINO_GA_MEASUREMENT_ID]=false;
-
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(CANINO_GA_MEASUREMENT_ID);
-    document.head.appendChild(s);
-    CANINO_GA_LOADED=true;
-  }
-
   function loadMap(){
     if(!mapFrame) return;
     if(!mapFrame.getAttribute('src')) mapFrame.setAttribute('src',mapFrame.getAttribute('data-map-src'));
@@ -4218,13 +4554,11 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
     banner.hidden=true;
     if(settings) settings.setAttribute('aria-expanded','false');
     loadMap();
-    loadGoogleAnalyticsAfterConsent();
   }
   function rejectOptional(){
     setConsent('rejected');
     banner.hidden=true;
     if(settings) settings.setAttribute('aria-expanded','false');
-    disableGoogleAnalytics();
     if(mapFrame){
       mapFrame.removeAttribute('src');
       mapFrame.hidden=true;
@@ -4235,16 +4569,13 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   if(consent==='accepted'){
     banner.hidden=true;
     loadMap();
-    loadGoogleAnalyticsAfterConsent();
   }else if(consent==='rejected'){
     banner.hidden=true;
-    disableGoogleAnalytics();
     if(mapFrame) mapFrame.hidden=true;
     if(mapConsent) mapConsent.hidden=false;
   }else{
     banner.hidden=false;
     if(mapFrame) mapFrame.hidden=true;
-    disableGoogleAnalytics();
   }
   accept.addEventListener('click',setConsentAccepted);
   reject.addEventListener('click',rejectOptional);
@@ -4253,112 +4584,6 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
   if(mapAccept) mapAccept.addEventListener('click',setConsentAccepted);
 })();
 </script>
-</body>
-
-<style>
-/* Final polish: compact “With care” opening + centered principle icons */
-#about-me .about-opening{
-  gap:1.25rem !important;
-  min-height:0 !important;
-  padding:5vh 0 7vh !important;
-  max-width:1180px !important;
-}
-#about-me .about-opening-copy{
-  max-width:860px !important;
-  width:100% !important;
-  padding-top:0 !important;
-  margin-inline:auto !important;
-  text-align:center !important;
-  display:flex !important;
-  flex-direction:column !important;
-  align-items:center !important;
-}
-#about-me .about-opening-copy .eyebrow{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:1rem !important;
-  width:100% !important;
-  margin:0 0 1.05rem !important;
-  padding:.72rem 1rem !important;
-  font-size:.72rem !important;
-  letter-spacing:.22em !important;
-  text-transform:uppercase !important;
-  color:var(--gold) !important;
-  border-top:1px solid rgba(227,192,127,.42) !important;
-  border-bottom:1px solid rgba(227,192,127,.42) !important;
-}
-#about-me .about-opening-copy .eyebrow::before,
-#about-me .about-opening-copy .eyebrow::after{
-  content:"" !important;
-  flex:1 1 auto !important;
-  height:1px !important;
-  background:linear-gradient(90deg,transparent,rgba(227,192,127,.45)) !important;
-}
-#about-me .about-opening-copy .eyebrow::after{
-  background:linear-gradient(90deg,rgba(227,192,127,.45),transparent) !important;
-}
-#about-me .about-opening-title{
-  font-size:clamp(2rem,3.5vw,3.2rem) !important;
-  line-height:1.08 !important;
-  max-width:760px !important;
-  width:100% !important;
-  margin:.2rem auto 0 !important;
-  text-align:center !important;
-}
-#about-me .about-opening-line{display:none !important;}
-#about-me .about-opening-photo{
-  width:min(100%,920px) !important;
-  margin:0 auto !important;
-  border-radius:26px !important;
-  overflow:hidden !important;
-}
-#about-me .about-opening-photo img{
-  border-radius:26px !important;
-  display:block !important;
-  width:100% !important;
-  max-height:520px !important;
-  object-fit:contain !important;
-  overflow:hidden !important;
-}
-#about-me .about-opening-caption{
-  border-radius:999px !important;
-  left:clamp(.7rem,2vw,1.2rem) !important;
-  right:clamp(.7rem,2vw,1.2rem) !important;
-  bottom:clamp(.7rem,2vw,1.2rem) !important;
-  padding:.7rem 1rem !important;
-}
-.about-working-copy p::before{
-  top:53% !important;
-  transform:translateY(-50%) !important;
-}
-@media (max-width:700px){
-  #about-me .about-opening{padding:4vh 0 6vh !important;gap:1rem !important;}
-  #about-me .about-opening-copy .eyebrow{padding:.62rem .8rem !important;font-size:.66rem !important;letter-spacing:.18em !important;}
-  #about-me .about-opening-title{font-size:clamp(1.75rem,8vw,2.5rem) !important;}
-  #about-me .about-opening-photo img{border-radius:20px !important;max-height:460px !important;}
-}
-</style>
-
-<style>
-/* Background music player */
-.music-widget{position:fixed;left:24px;top:24px;z-index:1200;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-family:inherit}
-.music-toggle{width:46px;height:46px;border-radius:50%;border:1px solid rgba(227,192,127,.34);background:rgba(12,10,9,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--gold);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:transform .25s ease,border-color .25s ease,background .25s ease}
-.music-toggle:hover{transform:translateY(-2px);border-color:rgba(227,192,127,.62);background:rgba(12,10,9,.88)}
-.music-note{font-size:1.55rem;line-height:1;transform:translateY(-1px);display:inline-block;animation:musicNoteDance 3.3s ease-in-out infinite;transform-origin:50% 70%}
-.music-toggle.is-playing .music-note{animation-duration:2.5s}
-@keyframes musicNoteDance{0%,100%{transform:translateY(-1px) rotate(-8deg) scale(1)}25%{transform:translateY(-3px) rotate(7deg) scale(1.04)}50%{transform:translateY(0) rotate(-5deg) scale(.98)}75%{transform:translateY(-2px) rotate(8deg) scale(1.03)}}
-.music-bar{width:min(390px,calc(100vw - 32px));display:grid;grid-template-columns:auto 1fr;grid-template-areas:"meta controls" "timeline timeline" "volume volume";gap:10px 12px;align-items:center;padding:15px 16px;border:1px solid rgba(227,192,127,.24);border-radius:18px;background:rgba(12,10,9,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.34)}
-.music-meta{grid-area:meta;min-width:0;display:flex;flex-direction:column;gap:4px}.music-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);opacity:.82}.music-meta strong{font-size:.82rem;line-height:1.28;font-weight:500;color:#f4eee5}
-.music-play{grid-area:controls;justify-self:end;width:40px;height:40px;border-radius:50%;border:1px solid rgba(227,192,127,.36);background:transparent;color:var(--gold);cursor:pointer;font-size:.8rem;display:grid;place-items:center}.music-play:hover{border-color:rgba(227,192,127,.68)}
-.music-timeline-wrap{grid-area:timeline;display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center}.music-progress{width:100%;accent-color:var(--gold);cursor:pointer}.music-time{font-size:.66rem;color:rgba(244,238,229,.7);font-variant-numeric:tabular-nums;min-width:2.4rem}.music-time:last-child{text-align:right}
-.music-volume-row{grid-area:volume;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}.music-volume-label{font-size:.62rem;text-transform:uppercase;letter-spacing:.16em;color:rgba(244,238,229,.64)}.music-volume{width:100%;accent-color:var(--gold);cursor:pointer}
-@media (max-width:700px){.music-widget{left:16px;top:16px}.music-toggle{width:44px;height:44px}.music-bar{width:min(340px,calc(100vw - 32px));padding:13px 13px 12px 14px}.music-meta strong{font-size:.78rem}}
-/* Keep the music player completely closed until the note button is clicked. */
-.music-bar[hidden]{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;}
-.music-bar:not([hidden]){visibility:visible;opacity:1;pointer-events:auto;}
-</style>
-
 <script>
 (function(){
   var toggle=document.getElementById('musicToggle');
@@ -4538,310 +4763,5 @@ I recommend! ⭐️⭐️⭐️⭐️⭐️”</p><p class="review-author"><a cl
 
 })();
 </script>
-
-<style id="about-meaning-mobile-v2">
-/* Mobile-only layout for “What grooming means to me”.
-   Keeps all existing sentences and emoji markers while replacing the desktop
-   split layout with readable stacked cards on phones. Desktop is unchanged. */
-@media (max-width:820px){
-  #about-me .about-working{
-    display:block !important;
-    max-width:760px !important;
-    margin:0 auto !important;
-    padding:10vh 0 9vh !important;
-  }
-  #about-me .about-working::before{
-    display:none !important;
-  }
-  #about-me .about-meaning-head{
-    margin:0 0 1.8rem !important;
-    padding:0 !important;
-  }
-  #about-me .about-meaning-title{
-    max-width:none !important;
-    width:100% !important;
-    padding:0 !important;
-    margin:0 !important;
-    font-size:clamp(2rem,9vw,3.2rem) !important;
-    line-height:1.06 !important;
-  }
-  #about-me .about-working-copy{
-    display:flex !important;
-    flex-direction:column !important;
-    gap:.8rem !important;
-    max-width:none !important;
-    margin:0 !important;
-    padding:0 !important;
-  }
-  #about-me .about-working-copy p,
-  #about-me .about-working-copy p + p{
-    position:relative !important;
-    max-width:none !important;
-    margin:0 !important;
-    padding:1.05rem 1rem 1.05rem 3.25rem !important;
-    border:1px solid rgba(227,192,127,.16) !important;
-    border-top:1px solid rgba(227,192,127,.16) !important;
-    border-radius:18px !important;
-    background:rgba(23,18,16,.38) !important;
-    box-shadow:0 8px 24px rgba(0,0,0,.12) !important;
-  }
-  #about-me .about-working-copy p::before{
-    left:.9rem !important;
-    top:50% !important;
-    transform:translateY(-50%) !important;
-    width:2rem !important;
-    height:2rem !important;
-    font-size:.95rem !important;
-  }
-}
-</style>
-</html><style>
-  /* About Me intro: title above, photograph underneath */
-  #about-me .about-opening{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    justify-content:flex-start !important;
-    gap:clamp(1.8rem,3vw,3.25rem) !important;
-    min-height:0 !important;
-    padding-top:6vh !important;
-  }
-  #about-me .about-opening-copy{
-    order:1 !important;
-    max-width:760px !important;
-    padding-top:0 !important;
-  }
-  #about-me .about-opening-photo{
-    order:2 !important;
-    width:min(100%, 1180px) !important;
-    margin:0 auto !important;
-    align-self:center !important;
-  }
-  #about-me .about-opening-photo img{
-    width:100% !important;
-    max-height:680px !important;
-    object-fit:contain !important;
-  }
-  #about-me .about-opening-line{margin-top:1.35rem !important;}
-  @media (max-width:700px){
-    #about-me .about-opening{gap:1.5rem !important;padding-top:4vh !important;}
-    #about-me .about-opening-copy{max-width:none !important;}
-  }
-
-/* Editorial emoji markers for the four principles in “What grooming means to me”. */
-.about-working-copy p{position:relative;padding-left:3.2rem;}
-.about-working-copy p::before{position:absolute;left:0;top:.1em;width:2.2rem;height:2.2rem;display:grid;place-items:center;border:1px solid rgba(227,192,127,.28);border-radius:50%;background:rgba(11,9,8,.38);font-size:1.05rem;line-height:1;}
-.about-working-copy p:nth-child(1)::before{content:"♥";}
-.about-working-copy p:nth-child(2)::before{content:"🩺";}
-.about-working-copy p:nth-child(3)::before{content:"✨";}
-.about-working-copy p:nth-child(4)::before{content:"🐾";}
-@media (max-width:640px){.about-working-copy p{padding-left:2.9rem}.about-working-copy p::before{width:2rem;height:2rem;font-size:.95rem;}}
-</style>
-
-<style>
-.about-working-copy p:nth-child(2)::before{top:calc(.1em + 60px) !important;}
-</style>
-<style>
-.about-working-copy p:nth-child(3)::before{transform:translateY(5px) !important;}
-.about-working-copy p:nth-child(4)::before{transform:translateY(5px) !important;}
-</style>
-<style>
-/* Final alignment: raise the second and third principle markers by 6px. */
-.about-working-copy p:nth-child(3)::before,
-.about-working-copy p:nth-child(4)::before{transform:translateY(-4px) !important;}
-</style>
-
-<style id="mobile-scroll-performance">
-/* Mobile scroll-performance tuning: preserves the existing visual design and animations
-   while reducing expensive paint/compositing work on touch devices. */
-@media (pointer: coarse) and (max-width: 820px){
-  html,body{
-    overscroll-behavior-x:none;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .stage,
-  .gallery-pause-stage,
-  .rudi-gallery-slides,
-  .eli-photo,
-  .eli-copy,
-  .reviews-viewport{
-    contain:paint;
-  }
-  .stage-photo,
-  .stage-video,
-  .rudi-gallery-slide img,
-  .reviews-track{
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
-  }
-  .stage-video{
-    will-change:auto;
-  }
-  .rudi-gallery-slide img{
-    will-change:auto;
-  }
-  /* Keep the premium glass look, but avoid live backdrop blur on smaller GPUs. */
-  .dog-meta,
-  .rudi-gallery-open,
-  .rudi-gallery-count,
-  .map-caption,
-  .music-toggle,
-  .music-bar{
-    -webkit-backdrop-filter:none;
-    backdrop-filter:none;
-  }
-}
-</style>
-
-<style id="mobile-device-optimization-v2">
-/* Mobile-only stability/performance pass. Desktop styles and motion are unchanged. */
-@media (pointer: coarse) and (max-width: 820px){
-  /* Prevent expensive live blur layers on touch GPUs while keeping the same surfaces. */
-  .page-dial,
-  .dog-meta,
-  .rudi-gallery-open,
-  .rudi-gallery-count,
-  .map-caption,
-  .music-toggle,
-  .music-bar,
-  .wa-panel,
-  .social-menu,
-  .book-overlay,
-  .book-inner,
-  .about-photo-caption,
-  .review-card{
-    -webkit-backdrop-filter:none !important;
-    backdrop-filter:none !important;
-  }
-
-  /* Keep touch scrolling on the compositor and avoid permanent GPU layers. */
-  .stage-photo,
-  .eli-copy,
-  .eli-photo,
-  .rudi-gallery-slide img,
-  .reviews-track,
-  .about-sentence{
-    will-change:auto !important;
-  }
-
-  .pricing-grid,
-  .pricing-card,
-  .pricing-rows,
-  .services-columns{
-    min-width:0;
-    max-width:100%;
-  }
-
-  .pricing-card h3,
-  .pricing-description,
-  .pricing-row,
-  .pricing-row span{
-    min-width:0;
-    max-width:100%;
-  }
-
-  .pricing-card h3,
-  .pricing-row span{
-    overflow-wrap:anywhere;
-    word-break:normal;
-  }
-
-  .pricing-row{
-    align-items:flex-start;
-  }
-
-  .pricing-row span{
-    flex:1 1 auto;
-  }
-
-  .pricing-row strong{
-    flex:0 0 auto;
-  }
-
-  .services,
-  .pricing-section,
-  .visit-section,
-  .reviews-section,
-  #about-me,
-  #transform,
-  footer{
-    overflow-x:clip;
-  }
-}
-
-@media (pointer: coarse) and (max-width: 380px){
-  .pricing-card{padding-left:1rem !important;padding-right:1rem !important;}
-  .pricing-row{grid-template-columns:minmax(0,1fr) auto;column-gap:.7rem;}
-}
-
-/* Keep all footer items vertically level, including the ANPC badge */
-.foot-links > *{display:inline-flex;align-items:center;justify-content:center;}
-.authority-icons{height:50px;line-height:1;}
-.authority-icon{vertical-align:middle;}
-/* ---------- Authority footer icons ---------- */
-.authority-icons{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:auto;
-  gap:.7rem;
-  margin:0;
-  flex:0 0 auto;
-}
-.authority-icon{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:250px;
-  height:50px;
-  min-width:250px;
-  min-height:50px;
-  padding:0;
-  border:1px solid rgba(236,228,214,.16);
-  border-radius:10px;
-  background:rgba(255,255,255,.96);
-  opacity:.9;
-  transition:transform .2s ease, opacity .2s ease, border-color .2s ease;
-}
-.authority-icon:hover{opacity:1;transform:translateY(-2px);border-color:rgba(227,192,127,.55);}
-.authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
-.anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
-.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'Nunito',sans-serif;letter-spacing:.08em;color:#211b17;}
-@media(max-width:700px){
-  .authority-icons{width:auto;justify-content:center;margin:0;align-items:center;}
-  .authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}
-}
-
-/* ---------- Legal, privacy and cookie UI ---------- */
-.booking-privacy-note{
-  margin:.75rem 0 0;
-  color:rgba(236,228,214,.58);
-  font-size:.78rem;
-  line-height:1.55;
-}
-.booking-privacy-note a{color:inherit;text-underline-offset:3px;}
-.cookie-banner{
-  position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:120;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  max-width:980px;margin:0 auto;padding:1rem 1.1rem;
-  background:rgba(23,18,16,.97);
-  border:1px solid rgba(236,228,214,.16);border-radius:18px;
-  box-shadow:0 18px 55px rgba(0,0,0,.32);
-}
-.cookie-banner[hidden]{display:none;}
-.cookie-copy{min-width:0;}
-.cookie-copy strong{display:block;font-size:.95rem;color:var(--cream);margin-bottom:.25rem;}
-.cookie-copy p{margin:0;color:var(--cream-dim);font-size:.78rem;line-height:1.5;}
-.cookie-copy a{display:inline-block;margin-top:.35rem;color:var(--gold);font-size:.75rem;text-underline-offset:3px;}
-.cookie-actions{display:flex;align-items:center;gap:.55rem;flex:0 0 auto;}
-.cookie-btn{border:1px solid rgba(236,228,214,.18);border-radius:999px;min-height:42px;padding:.65rem 1rem;font:600 .78rem 'Nunito',sans-serif;cursor:pointer;}
-.cookie-secondary{background:transparent;color:var(--cream);}
-.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold);}
-@media (max-width:700px){
-  .foot-links{flex-wrap:wrap;justify-content:center;gap:.65rem 1rem;align-items:center;}
-  .cookie-banner{flex-direction:column;align-items:stretch;bottom:max(.7rem,env(safe-area-inset-bottom));padding:1rem;border-radius:16px;}
-  .cookie-actions{width:100%;}
-  .cookie-btn{flex:1;min-width:0;}
-  .booking-privacy-note{font-size:.76rem;}
-}
-</style>
+</body>
+</html>
