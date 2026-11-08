@@ -96,6 +96,14 @@
 })();
 </script>
 <style>
+/* Locally hosted Nunito fonts — no external font/CDN request. */
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Regular.otf') format('opentype');font-style:normal;font-weight:400;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-SemiBold.otf') format('opentype');font-style:normal;font-weight:600;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Bold.otf') format('opentype');font-style:normal;font-weight:700;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Italic.otf') format('opentype');font-style:italic;font-weight:400;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-SemiBoldItalic.otf') format('opentype');font-style:italic;font-weight:600;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-BoldItalic.otf') format('opentype');font-style:italic;font-weight:700;font-display:swap;}
+
   :root{
     --black:#0b0908;
     --umber:#171210;
@@ -123,12 +131,12 @@
   }
   body{
     margin:0;background:var(--black);color:var(--cream);
-    font-family:'system-ui',sans-serif;font-weight:400;
+    font-family:'Nunito',sans-serif;font-weight:400;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  h1,h2,h3{font-family:'system-ui',sans-serif;font-weight:600;letter-spacing:-.01em;}
+  h1,h2,h3{font-family:'Nunito',sans-serif;font-weight:600;letter-spacing:-.01em;}
   .eyebrow{
-    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.22em;
+    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.22em;
     text-transform:uppercase;color:var(--gold);opacity:.9;font-weight:600;
   }
   a{color:inherit;}
@@ -150,7 +158,7 @@
     border:1.5px solid var(--gold);flex-shrink:0;
   }
   .nav-word{
-    font-family:'system-ui',sans-serif;font-size:1.05rem;letter-spacing:.04em;font-weight:600;
+    font-family:'Nunito',sans-serif;font-size:1.05rem;letter-spacing:.04em;font-weight:600;
     background:none;border:none;color:inherit;padding:0;cursor:pointer;
   }
   .nav-links{display:none;gap:2rem;font-size:.85rem;letter-spacing:.02em;font-weight:500;align-items:center;}
@@ -244,7 +252,7 @@
     top:-28px;
     transform:translateX(-50%) rotate(calc(var(--wheel-counter) + 90deg));
     white-space:nowrap;
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:.59rem;
     line-height:1;
     letter-spacing:.13em;
@@ -367,7 +375,7 @@
   .book-btn{
     position:fixed;z-index:60;right:max(5vw,env(safe-area-inset-right));
     bottom:max(calc(2.2rem + 5px), calc(env(safe-area-inset-bottom) + 5px));
-    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.14em;font-weight:700;
+    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.14em;font-weight:700;
     text-transform:uppercase;color:var(--black);
     background:
       radial-gradient(120% 80% at 50% 15%, rgba(255,255,255,.45) 0%, transparent 45%),
@@ -414,23 +422,23 @@
   }
   .mobile-menu.open{opacity:1;pointer-events:auto;}
   .mobile-menu a,.mobile-menu button.linkish{
-    font-family:'system-ui',sans-serif;font-size:1.55rem;font-weight:600;
+    font-family:'Nunito',sans-serif;font-size:1.55rem;font-weight:600;
     text-decoration:none;color:var(--cream);background:none;border:none;cursor:pointer;padding:.4rem;
   }
   .mobile-lang{margin-top:.5rem;}
 
   .kicker{
-    font-family:'system-ui',sans-serif;font-size:.72rem;letter-spacing:.24em;
+    font-family:'Nunito',sans-serif;font-size:.72rem;letter-spacing:.24em;
     text-transform:uppercase;color:var(--gold);margin:0 0 1.1rem;font-weight:600;
   }
   .chapter-title{
-    font-family:'system-ui',sans-serif;font-size:clamp(2rem,6.5vw,4.6rem);
+    font-family:'Nunito',sans-serif;font-size:clamp(2rem,6.5vw,4.6rem);
     line-height:1.08;font-weight:600;margin:0;color:var(--cream);
   }
   .chapter-title em{font-style:italic;font-weight:400;color:var(--gold);}
   .chapter-title .title-line{display:block;}
   .chapter-line{
-    font-family:'system-ui',sans-serif;font-size:clamp(1rem,1.7vw,1.25rem);
+    font-family:'Nunito',sans-serif;font-size:clamp(1rem,1.7vw,1.25rem);
     color:var(--cream-dim);max-width:34ch;margin:1.15rem auto 0;line-height:1.55;font-weight:400;
   }
 
@@ -456,7 +464,7 @@
     width:100%;height:100%;object-fit:cover;border-radius:50%;
   }
   .hero-logo{
-    font-family:'system-ui',sans-serif;font-weight:600;
+    font-family:'Nunito',sans-serif;font-weight:600;
     font-size:clamp(1.8rem,5.5vw,2.8rem);letter-spacing:.01em;margin:0;
     opacity:0;animation:fadeUp 1.5s var(--ease) .75s forwards;
   }
@@ -547,7 +555,7 @@
     transition:opacity .5s var(--ease), transform .5s var(--ease), border-color .4s, box-shadow .4s;
   }
   .dog-name{
-    font-family:'system-ui',sans-serif;font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:600;
+    font-family:'Nunito',sans-serif;font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:600;
     margin:0;color:var(--cream);order:1;
   }
   .dog-sentence{
@@ -593,7 +601,7 @@
   .ba-tag{
     position:absolute;top:1rem;z-index:2;font-size:.65rem;font-weight:600;
     letter-spacing:.16em;text-transform:uppercase;padding:.4rem .7rem;
-    background:rgba(11,9,8,.55);pointer-events:none;font-family:'system-ui',sans-serif;
+    background:rgba(11,9,8,.55);pointer-events:none;font-family:'Nunito',sans-serif;
     color:var(--cream);
     opacity:1;
     transition:opacity .48s var(--ease), transform .48s var(--ease);
@@ -618,9 +626,9 @@
   .service-trigger{
     width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
     padding:1.35rem 0;background:none;border:0;color:inherit;cursor:pointer;
-    text-align:left;font-family:'system-ui',sans-serif;
+    text-align:left;font-family:'Nunito',sans-serif;
   }
-  .service-name{font-family:'system-ui',sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:600;}
+  .service-name{font-family:'Nunito',sans-serif;font-size:clamp(1.15rem,2.4vw,1.5rem);font-weight:600;}
   .service-price{font-size:.95rem;color:var(--gold);font-weight:600;letter-spacing:.02em;white-space:nowrap;}
   .service-chevron{width:20px;height:20px;flex-shrink:0;transition:transform .4s var(--ease);opacity:.7;}
   .service-item.is-open .service-chevron{transform:rotate(180deg);}
@@ -697,7 +705,7 @@
   .google-badge{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;margin:0 auto 1.4rem;}
   .google-g{width:36px;height:36px;flex-shrink:0;}
   .google-label{
-    font-family:'system-ui',sans-serif;font-size:.78rem;letter-spacing:.18em;
+    font-family:'Nunito',sans-serif;font-size:.78rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--gold);font-weight:600;
   }
   .reviews-viewport{max-width:1080px;margin:0 auto;overflow:hidden;position:relative;}
@@ -717,9 +725,9 @@
   .review-text{order:1;}
   .review-author{order:2;}
   .review-meta{order:3;}
-  .review-text{font-family:'system-ui',sans-serif;font-size:.95rem;line-height:1.6;color:var(--cream-dim);margin:0 0 1.35rem;flex:1;font-weight:400;}
+  .review-text{font-family:'Nunito',sans-serif;font-size:.95rem;line-height:1.6;color:var(--cream-dim);margin:0 0 1.35rem;flex:1;font-weight:400;}
   .review-text[data-review-key="rev29"]{white-space:pre-line;}
-  .review-author{font-family:'system-ui',sans-serif;font-size:.88rem;font-weight:600;color:var(--cream);margin:0;}
+  .review-author{font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:600;color:var(--cream);margin:0;}
   .review-author-link{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(227,192,127,.35);transition:color .3s,border-color .3s;}
   .review-author-link:hover{color:var(--gold);border-color:var(--gold);}
   .review-pending{color:var(--cream-dim);font-size:.9rem;}
@@ -759,7 +767,7 @@
     width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
     background:transparent;color:var(--cream);cursor:pointer;
     display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;
-    transition:border-color .3s, color .3s;font-family:'system-ui',sans-serif;
+    transition:border-color .3s, color .3s;font-family:'Nunito',sans-serif;
   }
   .reviews-arrow:hover{border-color:var(--gold);color:var(--gold);}
 
@@ -796,7 +804,7 @@
     width:100%;
     background:rgba(11,9,8,.35);
     border:1px solid rgba(236,228,214,.14);
-    color:var(--cream);font-family:'system-ui',sans-serif;font-size:1rem;font-weight:400;
+    color:var(--cream);font-family:'Nunito',sans-serif;font-size:1rem;font-weight:400;
     padding:.9rem 1rem;outline:none;border-radius:14px;color-scheme:dark;margin-bottom:.85rem;
     transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
   }
@@ -834,7 +842,7 @@
     width:100%;min-height:52px;padding:.9rem 2.65rem .9rem 1rem;
     border:1px solid rgba(236,228,214,.16);border-radius:16px;
     background:linear-gradient(180deg,rgba(23,18,16,.62),rgba(11,9,8,.42));color:var(--cream);
-    font:400 1rem/1.35 'system-ui',sans-serif;text-align:left;cursor:pointer;
+    font:400 1rem/1.35 'Nunito',sans-serif;text-align:left;cursor:pointer;
     position:relative;transition:border-color .22s ease,box-shadow .22s ease,background .22s ease;
     -webkit-tap-highlight-color:transparent;
   }
@@ -864,7 +872,7 @@
   .booking-select-option{
     display:block;width:100%;padding:.8rem .9rem;border:0;border-radius:11px;
     background:transparent;color:var(--cream);text-align:left;cursor:pointer;
-    font:400 .96rem/1.35 'system-ui',sans-serif;transition:background .14s ease,color .14s ease;
+    font:400 .96rem/1.35 'Nunito',sans-serif;transition:background .14s ease,color .14s ease;
     -webkit-tap-highlight-color:transparent;
   }
   .booking-select-option:hover,.booking-select-option:focus-visible{background:rgba(227,192,127,.09);color:var(--gold);outline:none;}
@@ -938,7 +946,7 @@
     background:rgba(23,18,16,.82);
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     color:var(--cream);
-    font-family:'system-ui',sans-serif;font-size:.68rem;font-weight:700;
+    font-family:'Nunito',sans-serif;font-size:.68rem;font-weight:700;
     letter-spacing:.12em;text-transform:uppercase;
     white-space:nowrap;pointer-events:none;
     box-shadow:0 8px 24px rgba(0,0,0,.32);
@@ -989,7 +997,7 @@
     display:flex;align-items:center;justify-content:center;
     background:rgba(23,18,16,.92);
     border:1px solid rgba(227,192,127,.72);
-    color:var(--gold);font:700 1rem/1 'system-ui',sans-serif;
+    color:var(--gold);font:700 1rem/1 'Nunito',sans-serif;
     box-shadow:0 4px 12px rgba(0,0,0,.4);
     transform:rotate(0deg);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
   }
@@ -1007,7 +1015,7 @@
     border-radius:50%;
     background:linear-gradient(180deg,rgba(42,34,29,.98),rgba(20,16,14,.98));
     border:1px solid rgba(227,192,127,.6);
-    color:var(--cream);font:700 .63rem/1 'system-ui',sans-serif;
+    color:var(--cream);font:700 .63rem/1 'Nunito',sans-serif;
     letter-spacing:.06em;text-transform:uppercase;text-align:center;
     text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.4);
     -webkit-tap-highlight-color:transparent;
@@ -1027,7 +1035,7 @@
     width:max-content;max-width:220px;padding:.55rem .7rem;border-radius:10px;
     background:rgba(23,18,16,.96);border:1px solid rgba(227,192,127,.24);
     box-shadow:0 10px 26px rgba(0,0,0,.38);color:var(--cream);
-    font:500 .64rem/1.4 'system-ui',sans-serif;text-transform:none;letter-spacing:0;
+    font:500 .64rem/1.4 'Nunito',sans-serif;text-transform:none;letter-spacing:0;
     transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:12;
   }
   .donation-item:hover .donation-tooltip,.donation-item:focus-visible .donation-tooltip{
@@ -1160,7 +1168,7 @@
   }
   .wa-start{
     width:100%;border:0;cursor:pointer;
-    font-family:'system-ui',sans-serif;font-weight:700;font-size:.78rem;
+    font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;
     letter-spacing:.08em;text-transform:uppercase;
     color:#fff;background:#25D366;
     padding:.9rem 1rem;border-radius:999px;
@@ -1173,9 +1181,9 @@
   footer .hero-logo{font-size:1.55rem;margin-bottom:1.2rem;opacity:1;animation:none;}
   .foot-logo-img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);margin:0 auto 1rem;opacity:.95;}
   .foot-links{display:flex;justify-content:center;align-items:center;gap:2rem;font-size:.85rem;color:var(--cream-dim);margin-bottom:2rem;flex-wrap:wrap;}
-  .foot-links a,.foot-links button{text-decoration:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;font-family:'system-ui',sans-serif;}
+  .foot-links a,.foot-links button{text-decoration:none;background:none;border:none;color:inherit;cursor:pointer;font:inherit;padding:0;font-family:'Nunito',sans-serif;}
   .foot-links a:hover,.foot-links button:hover{color:var(--gold);}
-  .foot-note{font-size:.68rem;letter-spacing:.1em;color:rgba(236,228,214,.35);text-transform:uppercase;font-family:'system-ui',sans-serif;}
+  .foot-note{font-size:.68rem;letter-spacing:.1em;color:rgba(236,228,214,.35);text-transform:uppercase;font-family:'Nunito',sans-serif;}
 
   @media (prefers-reduced-motion: reduce){
     .hero-logo,.hero-logo-wrap,.scroll-cue,.scroll-cue .line,
@@ -1446,7 +1454,7 @@
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     color:var(--gold);
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:.66rem;
     font-weight:700;
     letter-spacing:.12em;
@@ -1484,7 +1492,7 @@
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     color:var(--gold);
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:.66rem;
     font-weight:700;
     letter-spacing:.12em;
@@ -1713,7 +1721,7 @@
      ========================================================== */
 
   .rudi-gallery-caption{
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     width:min(560px, calc(100% - 2.5rem));
     padding:.85rem 1rem .95rem;
     border:1.5px solid rgba(227,192,127,.58);
@@ -1728,7 +1736,7 @@
   }
 
   .rudi-gallery-caption .eyebrow{
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:.72rem;
     font-weight:700;
     letter-spacing:.16em;
@@ -1736,7 +1744,7 @@
   }
 
   .rudi-gallery-caption strong{
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:clamp(1.7rem,3.4vw,3rem);
     line-height:1.03;
     font-weight:700;
@@ -1745,7 +1753,7 @@
   }
 
   .rudi-gallery-caption > span:last-child{
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:clamp(.9rem,1.2vw,1.02rem);
     line-height:1.5;
     font-weight:500;
@@ -1755,7 +1763,7 @@
 
   .rudi-gallery-count{
     color:var(--gold);
-    font-family:'system-ui',sans-serif;
+    font-family:'Nunito',sans-serif;
     font-size:.66rem;
     font-weight:700;
   }
@@ -1834,7 +1842,7 @@
   grid-column:1;
   display:block;
   color:#fff;
-  font-family:'system-ui',sans-serif;
+  font-family:'Nunito',sans-serif;
   font-size:.82rem;
   line-height:1.4;
   margin-top:-2px;
@@ -1843,7 +1851,7 @@
 
 .rudi-gallery-caption .caption-text{
   color:#fff;
-  font-family:'system-ui',sans-serif;
+  font-family:'Nunito',sans-serif;
   font-size:.85rem;
   line-height:1.45;
 }
@@ -1853,7 +1861,7 @@
   display:block;
   grid-column:1;
   color:#fff;
-  font-family:'system-ui',sans-serif;
+  font-family:'Nunito',sans-serif;
   font-size:.82rem;
   line-height:1.4;
   margin-top:-2px;
@@ -1968,7 +1976,7 @@
   margin:0;
   padding:0;
   color:var(--gold);
-  font-family:'system-ui',sans-serif;
+  font-family:'Nunito',sans-serif;
   font-size:clamp(.95rem,1.6vw,1.2rem);
   line-height:1;
   font-weight:700;
@@ -2220,7 +2228,7 @@
 .map-panel iframe[hidden]{display:none;}
 .map-consent{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:1.25rem;text-align:center;background:rgba(23,18,16,.94);z-index:2;}
 .map-consent[hidden]{display:none;}
-.map-consent-btn{border:1px solid var(--gold);background:var(--gold);color:var(--black);border-radius:999px;padding:.65rem 1rem;font:700 .78rem 'system-ui',sans-serif;cursor:pointer;}
+.map-consent-btn{border:1px solid var(--gold);background:var(--gold);color:var(--black);border-radius:999px;padding:.65rem 1rem;font:700 .78rem 'Nunito',sans-serif;cursor:pointer;}
 @media (max-width:820px){
   /* Keep the existing mobile header/menu behavior untouched. */
   #pageDial{display:none!important;}
@@ -2345,13 +2353,13 @@
     margin:2rem auto 0;padding:.75rem 1.35rem;
     border:1px solid rgba(227,192,127,.35);border-radius:999px;
     background:rgba(227,192,127,.045);color:var(--cream);
-    font:600 .72rem/1 'system-ui',sans-serif;letter-spacing:.14em;text-transform:uppercase;
+    font:600 .72rem/1 'Nunito',sans-serif;letter-spacing:.14em;text-transform:uppercase;
     text-decoration:none;transition:background .3s,border-color .3s,color .3s,transform .3s;
   }
   .review-us-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(227,192,127,.08);transform:translateY(-1px);}
   .ba-compare{width:min(1200px,100%);margin:2rem auto 0;display:grid;grid-template-columns:clamp(42px,5vw,64px) minmax(0,1fr) clamp(42px,5vw,64px);align-items:center;gap:clamp(.6rem,2vw,1.2rem);}
   .ba-compare .ba-wrap{width:100%;}
-  .ba-compare-arrow{width:clamp(42px,4.2vw,54px);height:clamp(42px,4.2vw,54px);border-radius:50%;border:1px solid var(--line);background:rgba(11,9,8,.28);color:var(--cream);display:inline-flex;align-items:center;justify-content:center;font:400 1.5rem/1 'system-ui',sans-serif;cursor:pointer;transition:border-color .3s,color .3s,background .3s,transform .3s;}
+  .ba-compare-arrow{width:clamp(42px,4.2vw,54px);height:clamp(42px,4.2vw,54px);border-radius:50%;border:1px solid var(--line);background:rgba(11,9,8,.28);color:var(--cream);display:inline-flex;align-items:center;justify-content:center;font:400 1.5rem/1 'Nunito',sans-serif;cursor:pointer;transition:border-color .3s,color .3s,background .3s,transform .3s;}
   .ba-compare-arrow:hover{border-color:var(--gold);color:var(--gold);background:rgba(227,192,127,.06);transform:scale(1.03);}
   @media(max-width:820px){
     .ba-compare{grid-template-columns:36px minmax(0,1fr) 36px;gap:.5rem;margin-top:1.25rem;}
@@ -2372,7 +2380,7 @@
     z-index:3;display:inline-flex;align-items:center;justify-content:center;
     min-height:40px;padding:.55rem .9rem;border:1px solid rgba(227,192,127,.35);
     border-radius:999px;background:rgba(11,9,8,.45);color:var(--cream);
-    font:600 .7rem/1 'system-ui',sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    font:600 .7rem/1 'Nunito',sans-serif;letter-spacing:.12em;text-transform:uppercase;
     cursor:pointer;transition:background .3s,border-color .3s,color .3s,transform .3s;
   }
   #bookClose:hover{border-color:var(--gold);background:rgba(227,192,127,.08);color:var(--gold);transform:translateY(-1px);}
@@ -2381,7 +2389,7 @@
   .book-inner{position:relative;}
   .booking-field-label{
     display:block;margin:.35rem 0 .45rem;color:rgba(236,228,214,.82);
-    font:600 .68rem/1.2 'system-ui',sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    font:600 .68rem/1.2 'Nunito',sans-serif;letter-spacing:.12em;text-transform:uppercase;
   }
   .booking-field-label + .field{margin-bottom:.7rem;}
   @media(max-width:560px){
@@ -2757,7 +2765,7 @@
 .authority-icon:hover{opacity:1;transform:translateY(-2px);border-color:rgba(227,192,127,.55);}
 .authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
 .anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
-.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'system-ui',sans-serif;letter-spacing:.08em;color:#211b17;}
+.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'Nunito',sans-serif;letter-spacing:.08em;color:#211b17;}
 @media(max-width:700px){
   .authority-icons{width:auto;justify-content:center;margin:0;align-items:center;}
   .authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}
@@ -2785,7 +2793,7 @@
 .cookie-copy p{margin:0;color:var(--cream-dim);font-size:.78rem;line-height:1.5;}
 .cookie-copy a{display:inline-block;margin-top:.35rem;color:var(--gold);font-size:.75rem;text-underline-offset:3px;}
 .cookie-actions{display:flex;align-items:center;gap:.55rem;flex:0 0 auto;}
-.cookie-btn{border:1px solid rgba(236,228,214,.18);border-radius:999px;min-height:42px;padding:.65rem 1rem;font:600 .78rem 'system-ui',sans-serif;cursor:pointer;}
+.cookie-btn{border:1px solid rgba(236,228,214,.18);border-radius:999px;min-height:42px;padding:.65rem 1rem;font:600 .78rem 'Nunito',sans-serif;cursor:pointer;}
 .cookie-secondary{background:transparent;color:var(--cream);}
 .cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold);}
 @media (max-width:700px){
@@ -2802,6 +2810,9 @@ html { scroll-behavior: smooth; }
 #about-me .about-opening-copy .about-opening-title { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
 #about-me .about-opening-copy, #about-me .about-opening-photo, #about-me .about-copy, #about-me .about-story-copy, #about-me .about-photo, #about-me .about-working-copy { opacity: 1 !important; visibility: visible !important; transform: none !important; filter: none !important; }
 </style>
+
+<link rel="preload" href="./fonts/Nunito-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./fonts/Nunito-Bold.otf" as="font" type="font/otf" crossorigin>
 </head>
 <body>
 <div aria-label="Page sections" class="page-tracker" id="pageTracker">

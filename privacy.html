@@ -9,17 +9,25 @@
 <link rel="canonical" href="https://caninoartis.com/privacy.html">
 <meta name="theme-color" content="#0b0908">
 <style>
+/* Locally hosted Nunito fonts — no external font/CDN request. */
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Regular.otf') format('opentype');font-style:normal;font-weight:400;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-SemiBold.otf') format('opentype');font-style:normal;font-weight:600;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Bold.otf') format('opentype');font-style:normal;font-weight:700;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-Italic.otf') format('opentype');font-style:italic;font-weight:400;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-SemiBoldItalic.otf') format('opentype');font-style:italic;font-weight:600;font-display:swap;}
+@font-face{font-family:'Nunito';src:url('./fonts/Nunito-BoldItalic.otf') format('opentype');font-style:italic;font-weight:700;font-display:swap;}
+
 :root{--black:#0b0908;--umber:#171210;--gold:#e3c07f;--cream:#ece4d6;--dim:rgba(236,228,214,.68);--line:rgba(236,228,214,.13);--card:#211a16}
 *{box-sizing:border-box}
 html{background:var(--black);scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,var(--black),#120e0c 45%,var(--umber));color:var(--cream);font-family:system-ui,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{margin:0;background:linear-gradient(180deg,var(--black),#120e0c 45%,var(--umber));color:var(--cream);font-family:Nunito,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:var(--gold);text-underline-offset:3px}
 .wrap{width:min(980px,calc(100% - 32px));margin:0 auto;padding:32px 0 70px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 0 28px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none;font-weight:700;letter-spacing:.03em}
 .brand-mark{width:42px;height:42px;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
 .langs{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.lang-btn{border:1px solid var(--line);background:transparent;color:var(--dim);padding:8px 12px;border-radius:999px;font:600 .76rem system-ui,Arial,sans-serif;cursor:pointer}
+.lang-btn{border:1px solid var(--line);background:transparent;color:var(--dim);padding:8px 12px;border-radius:999px;font:600 .76rem Nunito,Arial,sans-serif;cursor:pointer}
 .lang-btn.active{background:var(--gold);color:var(--black);border-color:var(--gold)}
 .hero{padding:34px 0 24px;border-bottom:1px solid var(--line)}
 .eyebrow{color:var(--gold);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
@@ -42,7 +50,7 @@ strong{color:var(--cream)}
 .cookie-banner{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:100;max-width:980px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 18px;background:rgba(23,18,16,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 55px rgba(0,0,0,.34)}
 .cookie-banner[hidden]{display:none}
 .cookie-copy{min-width:0}.cookie-copy strong{display:block}.cookie-copy p{margin:3px 0 0;font-size:.78rem}.cookie-copy a{display:inline-block;margin-top:5px;font-size:.75rem}
-.cookie-actions{display:flex;gap:8px;flex:0 0 auto}.cookie-btn{min-height:42px;padding:8px 14px;border-radius:999px;font:700 .76rem system-ui,Arial,sans-serif;cursor:pointer;border:1px solid var(--line)}.cookie-secondary{background:transparent;color:var(--cream)}.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.cookie-actions{display:flex;gap:8px;flex:0 0 auto}.cookie-btn{min-height:42px;padding:8px 14px;border-radius:999px;font:700 .76rem Nunito,Arial,sans-serif;cursor:pointer;border:1px solid var(--line)}.cookie-secondary{background:transparent;color:var(--cream)}.cookie-primary{background:var(--gold);color:var(--black);border-color:var(--gold)}
 @media(max-width:700px){
  .wrap{width:min(100% - 22px,680px);padding-top:18px}
  .topbar{align-items:flex-start;flex-direction:column}.langs{justify-content:flex-start}
@@ -58,7 +66,7 @@ strong{color:var(--cream)}
 .authority-icon:hover{transform:translateY(-2px);border-color:rgba(160,118,48,.4);}
 .authority-icon img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
 .anpc-badge-img{display:block;width:250px;height:50px;max-width:250px;max-height:50px;object-fit:contain;}
-.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'system-ui',sans-serif;letter-spacing:.08em;color:#211b17;}
+.authority-icon{display:inline-flex;align-items:center;justify-content:center;font:700 .8rem 'Nunito',sans-serif;letter-spacing:.08em;color:#211b17;}
 @media(max-width:700px){.authority-icons{width:auto;justify-content:center;}.authority-icon{width:250px;height:50px;min-width:250px;min-height:50px;padding:0;}}
 
 /* Keep footer items vertically level, including the ANPC badge */
@@ -69,6 +77,9 @@ strong{color:var(--cream)}
 <link rel="shortcut icon" type="image/jpeg" href="/logo2.jpeg" sizes="48x48"/>
 <link rel="apple-touch-icon" href="/logo2.jpeg"/>
 
+
+<link rel="preload" href="./fonts/Nunito-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="./fonts/Nunito-Bold.otf" as="font" type="font/otf" crossorigin>
 </head>
 <body>
 <div class="wrap">
@@ -128,7 +139,7 @@ strong{color:var(--cream)}
       <h2>5. Furnizori și destinatari</h2>
       <p><strong>EmailJS:</strong> este utilizat pentru transmiterea cererilor din formular. Conform informațiilor publice actuale ale EmailJS, serviciul poate păstra activitatea și metadatele solicitărilor, iar pentru conturile active declară o perioadă de păstrare de 30 de zile; setările contului pot influența datele de activitate disponibile. EmailJS declară că infrastructura sa relevantă este în SUA și că pentru utilizatorii europeni folosește garanții adecvate pentru transferurile internaționale, inclusiv clauze contractuale standard. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Politica EmailJS</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">DPA EmailJS</a></p>
       <p><strong>Găzduire:</strong> site-ul este găzduit prin GitHub Pages. GitHub declară că, la vizitarea unui site GitHub Pages, adresa IP a vizitatorului este înregistrată și păstrată pentru scopuri de securitate. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">Informații GitHub Pages</a></p>
-      <p><strong>Resurse externe:</strong> pagina folosește fonturile de sistem disponibile pe dispozitivul vizitatorului și nu solicită Google Fonts sau biblioteci JavaScript de la CDN-uri terțe. Bibliotecile GSAP/ScrollTrigger au fost eliminate; conținutul rămâne accesibil fără acestea. Harta Google este încărcată numai după acceptarea cookie-urilor opționale (sau în baza unei acceptări memorate anterior). Numai după apăsarea butonului de trimitere a formularului, câmpurile completate sunt transmise prin HTTPS către API-ul EmailJS pentru livrarea cererii. EmailJS poate primi datele formularului și metadate tehnice ale solicitării, inclusiv adresa IP, conform politicilor sale.</p>
+      <p><strong>Resurse externe:</strong> pagina folosește fonturile Nunito găzduite local în directorul /fonts și nu solicită Google Fonts sau biblioteci JavaScript de la CDN-uri terțe. Bibliotecile GSAP/ScrollTrigger au fost eliminate; conținutul rămâne accesibil fără acestea. Harta Google este încărcată numai după acceptarea cookie-urilor opționale (sau în baza unei acceptări memorate anterior). Numai după apăsarea butonului de trimitere a formularului, câmpurile completate sunt transmise prin HTTPS către API-ul EmailJS pentru livrarea cererii. EmailJS poate primi datele formularului și metadate tehnice ale solicitării, inclusiv adresa IP, conform politicilor sale.</p>
 
       <h2>6. Transferuri internaționale</h2>
       <p>Transmiterea unei cereri prin EmailJS poate implica transferul datelor către SUA. Operatorul se bazează pe garanțiile declarate de furnizorul său, inclusiv clauze contractuale standard pentru transferurile internaționale, după caz.</p>
@@ -179,7 +190,7 @@ strong{color:var(--cream)}
       <h2>5. Service providers and recipients</h2>
       <p><strong>EmailJS:</strong> used to send booking requests. According to EmailJS’s current public information, request activity and metadata may be stored; for active accounts, EmailJS currently states a 30-day retention period, while account settings can affect available activity data. EmailJS states that relevant infrastructure is in the United States and that appropriate safeguards, including Standard Contractual Clauses, are used for European users where applicable. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">EmailJS Privacy Policy</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">EmailJS DPA</a></p>
       <p><strong>Hosting:</strong> the site is hosted through GitHub Pages. GitHub states that when a GitHub Pages site is visited, the visitor’s IP address is logged and stored for security purposes. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages information</a></p>
-      <p><strong>External resources:</strong> the page uses system fonts available on the visitor’s device and does not request Google Fonts or JavaScript libraries from third-party CDNs. The GSAP/ScrollTrigger libraries have been removed; page content remains accessible without them. Google Maps is loaded only after optional cookie acceptance (or a previously saved acceptance). Only after the visitor presses the booking form’s submit button are the completed fields sent over HTTPS to the EmailJS API to deliver the request. EmailJS may receive the form data and technical request metadata, including the IP address, under its own policies.</p>
+      <p><strong>External resources:</strong> the page uses Nunito font files hosted locally in the /fonts directory and does not request Google Fonts or JavaScript libraries from third-party CDNs. The GSAP/ScrollTrigger libraries have been removed; page content remains accessible without them. Google Maps is loaded only after optional cookie acceptance (or a previously saved acceptance). Only after the visitor presses the booking form’s submit button are the completed fields sent over HTTPS to the EmailJS API to deliver the request. EmailJS may receive the form data and technical request metadata, including the IP address, under its own policies.</p>
 
       <h2>6. International transfers</h2>
       <p>Submitting a request through EmailJS may involve transferring data to the United States. The operator relies on the safeguards declared by the relevant service provider, including Standard Contractual Clauses where applicable.</p>
@@ -230,7 +241,7 @@ strong{color:var(--cream)}
       <h2>5. Szolgáltatók és címzettek</h2>
       <p><strong>EmailJS:</strong> az űrlapból érkező kérések továbbítására használjuk. Az EmailJS jelenlegi nyilvános tájékoztatása szerint a kérések aktivitása és metaadatai tárolhatók; aktív fiókoknál jelenleg 30 napos megőrzési időt közöl, miközben a fiókbeállítások befolyásolhatják az elérhető aktivitási adatokat. Az EmailJS szerint a kapcsolódó infrastruktúra az Egyesült Államokban található, és az európai felhasználók esetében megfelelő garanciákat, többek között általános szerződéses feltételeket alkalmaz a nemzetközi adattovábbításokhoz, ahol szükséges. <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">EmailJS adatvédelmi tájékoztató</a> · <a href="https://www.emailjs.com/legal/data-protection-agreement/" target="_blank" rel="noopener noreferrer">EmailJS DPA</a></p>
       <p><strong>Tárhely:</strong> a webhelyet GitHub Pages szolgáltatja. A GitHub tájékoztatása szerint a GitHub Pages megnyitásakor a látogató IP-címe biztonsági célból naplózható és tárolható. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" target="_blank" rel="noopener noreferrer">GitHub Pages információk</a></p>
-      <p><strong>Külső erőforrások:</strong> az oldal a látogató eszközén elérhető rendszerbetűtípusokat használja, és nem kér Google Fonts-betűtípusokat vagy harmadik fél CDN-jéről származó JavaScript-könyvtárakat. A GSAP/ScrollTrigger könyvtárakat eltávolítottuk; az oldal tartalma nélkülük is elérhető. A Google Térkép csak az opcionális cookie-k elfogadása után (vagy egy korábban elmentett elfogadás alapján) töltődik be. Az időpontfoglaló űrlap kitöltött mezőit a böngésző kizárólag a küldés gomb megnyomása után továbbítja HTTPS-en keresztül az EmailJS API-nak a kérés e-mailes kézbesítéséhez. Az EmailJS az űrlap adatait és a kérés technikai metaadatait, beleértve az IP-címet is, saját szabályzata szerint kezelheti.</p>
+      <p><strong>Külső erőforrások:</strong> az oldal a /fonts könyvtárban helyben tárolt Nunito betűtípusokat használja, és nem kér Google Fonts-betűtípusokat vagy harmadik fél CDN-jéről származó JavaScript-könyvtárakat. A GSAP/ScrollTrigger könyvtárakat eltávolítottuk; az oldal tartalma nélkülük is elérhető. A Google Térkép csak az opcionális cookie-k elfogadása után (vagy egy korábban elmentett elfogadás alapján) töltődik be. Az időpontfoglaló űrlap kitöltött mezőit a böngésző kizárólag a küldés gomb megnyomása után továbbítja HTTPS-en keresztül az EmailJS API-nak a kérés e-mailes kézbesítéséhez. Az EmailJS az űrlap adatait és a kérés technikai metaadatait, beleértve az IP-címet is, saját szabályzata szerint kezelheti.</p>
 
       <h2>6. Nemzetközi adattovábbítás</h2>
       <p>Az EmailJS-en keresztüli küldés magában foglalhatja az adatok Egyesült Államokba történő továbbítását. Az adatkezelő az érintett szolgáltató által jelzett garanciákra, így adott esetben általános szerződéses feltételekre támaszkodik.</p>
