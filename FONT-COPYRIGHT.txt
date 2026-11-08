@@ -1,0 +1,9 @@
+Nunito font family
+Copyright 2014 The Nunito Project Authors
+https://github.com/googlefonts/nunito
+
+The included font files identify their font software as licensed under the
+SIL Open Font License, Version 1.1. See OFL.txt in this directory for the
+license text. The font files are included for local web embedding.
+
+Included styles: Regular, SemiBold, Bold, Italic, SemiBold Italic, Bold Italic.
